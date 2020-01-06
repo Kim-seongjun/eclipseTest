@@ -21,8 +21,6 @@
 </head>
 
 <body>
-<h1>testtest한글패치가능</h1>
-포크 수정 확인
 <header>
 <h3>메인 임시</h3>
 <div id="header"> 
