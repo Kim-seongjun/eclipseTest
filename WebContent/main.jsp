@@ -22,7 +22,7 @@
 
 <body>
 <header>
-<h3>메인 임시</h3>
+
 <div id="header"> 
 <jsp:include page="header.jsp"/>
 </div>
