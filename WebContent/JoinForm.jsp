@@ -90,8 +90,7 @@ input {
 
 					<tr>
 						<td>남자</td>
-						<td><input type="radio" value="남" name="gender"
-							class="gender"></td>
+						<td><input type="radio" value="남" name="gender" class="gender" checked></td>
 						<td>여자</td>
 						<td><input class="" type="radio" value="여" name="gender"
 							class="gender"></td>
@@ -124,8 +123,8 @@ input {
 
 				</table>
 
-				<input class="btn" type="submit" value="확인"> <input
-					class="btn" type="submit" value="취소" formaction="main">
+				<input class="btn" type="submit" value="확인"> 
+				<input class="btn" type="submit" value="취소" formaction="home">
 			</div>
 		</form>
 	</div>

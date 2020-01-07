@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,6 +53,7 @@
  	color:white;
  	font-weight: bold;
  	margin-bottom: 30px;
+ 	cursor:pointer;
 }
 .login_tag{
 	border-left:none;
@@ -72,11 +74,18 @@
 <body>
 
 	<form name="loginfrm" method="post">
-		<a href="access"><img src="img/logo.jpg" alt="로고사진" /></a>
+		<a href="home"><img src="img/logo.jpg" alt="로고사진" /></a>
 		<div class="right_x2un4">
-			<input class="header_button" type="submit" value="펫시터지원" formaction="petjoin" />&nbsp;&nbsp;
+		
+			<c:if test="${id==null}">
 			<input id="open" class="header_button" type="button" value="로그인" /> &nbsp; 
 			<input class="header_button" type="submit" value="회원가입" formaction="joinfrm" />
+			</c:if>
+			
+			<c:if test="${id!=null}">
+			<input class="header_button" type="submit" value="펫시터지원" formaction="petjoin" />&nbsp;&nbsp;
+			<input type="submit" value="로그아웃" formaction="logout" />
+			</c:if>
 		</div>
 	</form>
 	

@@ -37,6 +37,7 @@ public class MemberDao {
 				
 				
 			} catch (SQLException e) {
+				System.out.println("로그인 예외");
 				e.printStackTrace();
 			}
 			

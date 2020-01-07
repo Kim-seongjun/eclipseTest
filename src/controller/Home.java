@@ -16,7 +16,7 @@ import service.MemberMM;
  * Servlet implementation class Home
  */
 
-@WebServlet({"/access","/petsittersearch","/joinfrm"})
+@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout"})
 
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +30,10 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	MemberMM mm=new MemberMM(request,response);
 	
 	switch(cmd) {
-	
+	case "/home":
+		fw=mm.home();
+		break;
+		
 	case "/access":
 		fw=mm.access();
 		break;
@@ -39,8 +42,12 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=mm.joinfrm();
 		break;
 		
-	case "/petsittersearch":
+	case "/logout":
+		fw=mm.logout();
+		break;
 		
+	case "/petsittersearch":
+		fw=mm.petsittersearch();
 		break;
 	
 	}
