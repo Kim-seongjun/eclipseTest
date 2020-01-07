@@ -1,21 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <style>
 #header{
 	position:fixed;
-
 	    width:100%;
-
 	    top:0;
-
 	    left:0;
-
-	background-color:#FFFFFF;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
+#pet_search{
+ 	all:unset;
+ 	width:300px;
+ 	height: 200px;
+ 	background-color:#36e9ce;
+	 font-size:30px;
+ 	color:#FFFFFF;
+ 	font-weight: bold;
+ 	text-align:center;
+ 	border-radius:30px;
+ 	cursor: pointer;
+ 	position:relative;
+ 	top:400px;
+ 	
+ 	
 }
 </style>
 </head>
@@ -30,11 +43,21 @@
 
 
 <div style="width:100%;height:870px;overflow:hidden;position:absolute;left:0;z-index:-1">
-<img src="img/background.jpg" style="opacity:20%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="Æê¾î¾¾½ºÅÏÆ® Æê½ÃÅÍ°¡ Á¦°øÇÏ´Â °­¾ÆÁö µ¹º½ ¼­ºñ½º">
+<img src="img/background.jpg" style="opacity:20%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="íŽ«ì–´ì”¨ìŠ¤í„´íŠ¸ íŽ«ì‹œí„°ê°€ ì œê³µí•˜ëŠ” ê°•ì•„ì§€ ëŒë´„ ì„œë¹„ìŠ¤">
 </div>
+<form action="petsittersearch" method="post">
+<input type="submit" id="pet_search" value="íŽ«ì‹œí„° ê²€ìƒ‰í•˜ê¸°" />
+</form>
 </section>
-
 </header>
+
+<footer>
+<div id="footer">
+<jsp:include page="footer.jsp"/>
+</div>
+</footer>
+
+
 </body>
 
 
