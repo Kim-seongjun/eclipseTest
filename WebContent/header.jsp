@@ -71,12 +71,12 @@
 </head>
 <body>
 
-	<form action="" name="loginfrm" method="post">
+	<form name="loginfrm" method="post">
 		<a href="access"><img src="img/logo.jpg" alt="로고사진" /></a>
 		<div class="right_x2un4">
 			<input class="header_button" type="submit" value="펫시터지원" formaction="petjoin" />&nbsp;&nbsp;
 			<input id="open" class="header_button" type="button" value="로그인" /> &nbsp; 
-			<input class="header_button" type="submit" value="회원가입" formaction="joinmove" />
+			<input class="header_button" type="submit" value="회원가입" formaction="joinfrm" />
 		</div>
 	</form>
 	

@@ -40,6 +40,14 @@ public class MemberMM {
 		fw.setRedirect(false);
 		return fw;
 	}
+
+
+	public Forward joinfrm() {
+		Forward fw=new Forward();
+		fw.setPath("JoinForm.jsp");
+		fw.setRedirect(false);
+		return fw;
+	}
 	
 	
 	
