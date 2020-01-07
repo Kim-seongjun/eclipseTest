@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <style>
 #header{
@@ -30,7 +30,7 @@
 
 
 <div style="width:100%;height:870px;overflow:hidden;position:absolute;left:0;z-index:-1">
-<img src="img/background.jpg" style="opacity:20%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="Æê¾î¾¾½ºÅÏÆ® Æê½ÃÅÍ°¡ Á¦°øÇÏ´Â °­¾ÆÁö µ¹º½ ¼­ºñ½º">
+<img src="img/background.jpg" style="opacity:20%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="í«ì–´ì”¨ìŠ¤í„´íŠ¸ í«ì‹œí„°ê°€ ì œê³µí•˜ëŠ” ê°•ì•„ì§€ ëŒë´„ ì„œë¹„ìŠ¤">
 </div>
 </section>
 
