@@ -15,7 +15,7 @@ import service.MemberMM;
  */
 
 @WebServlet("/access,/petsittersearch,/joinfrm")
-
+//깃데스크탑 테스트입니다.
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
