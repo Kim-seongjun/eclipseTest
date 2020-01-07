@@ -71,7 +71,7 @@
 		<div class="right_x2un4">
 			<input class="header_button" type="submit" value="펫시터지원" formaction="petjoin" />&nbsp;&nbsp;
 			<input id="open" class="header_button" type="button" value="로그인" /> &nbsp; 
-			<input class="header_button" type="submit" value="회원가입" formaction="joinfrm" />
+			<input class="header_button" type="submit" value="회원가입" formaction="joinmove" />
 		</div>
 	</form>
 	<!-- 	<div class="modal-wrapper">
@@ -123,6 +123,6 @@
 	 $(".hidden").hide();
 }) */
 </script>
-asdasdsa
+
 </body>
 </html>
