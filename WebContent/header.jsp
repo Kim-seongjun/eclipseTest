@@ -22,18 +22,18 @@
 .modal{          
      position:fixed;
      width: 100%;
-	height: 100%;
+	 height: 100%;
 	
 	/* 밑에부분 적용안되는중 */
-	display:flex;
-	justify-content:center;
-	align-items:center;
 }
 .modal__overlay{
 	background-color: rgba(0,0,0,0.6);
 	width: 100%;
 	height: 100%;
 	position:absolute;
+	display:flex;
+	justify-content:center;
+	align-items:center; 
 }
 .modal__content{
 	background-color:white;
@@ -41,6 +41,7 @@
 	position:relative;
 	width:320px;
 	box-shadow:0 10px 20px;
+	
 }
 #login_button{
 	all: unset;
@@ -50,6 +51,7 @@
  	background-color: #36e9ce;
  	color:white;
  	font-weight: bold;
+ 	margin-bottom: 30px;
 }
 .login_tag{
 	border-left:none;
@@ -62,6 +64,9 @@
  .hidden{
 	display: none;
 } 
+#close{
+	float:right;
+}
 </style>
 </head>
 <body>
@@ -74,19 +79,11 @@
 			<input class="header_button" type="submit" value="회원가입" formaction="joinfrm" />
 		</div>
 	</form>
-	<!-- 	<div class="modal-wrapper">
-      <div class="modal">
-        <div class="modal-title">안녕하세요</div>
-        <p>모달 내용은 어쩌고 저쩌고..</p>
-        <div class="close-wrapper">
-          <button>닫기</button>
-        </div>
-      </div>
-    </div> -->
+	
 	<div class="modal hidden">
 		<div class="modal__overlay">
 			<div class="modal__content">
-				<form action="access" method="get">
+				<form action="access" method="post">
 				<table>
 				<tr>
 				<td style="color:#36e9ce; font-weight:bold;">로그인 정보를 입력해주세요.</td>
