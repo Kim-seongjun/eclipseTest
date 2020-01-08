@@ -91,7 +91,7 @@ input {
 					<tr>
 						<td>남자</td>
 						<td><input type="radio" value="남" name="gender"
-							class="gender"></td>
+							class="gender" checked></td>
 						<td>여자</td>
 						<td><input class="" type="radio" value="여" name="gender"
 							class="gender"></td>
@@ -130,4 +130,9 @@ input {
 		</form>
 	</div>
 </body>
+<script>
+
+
+
+</script>
 </html>
