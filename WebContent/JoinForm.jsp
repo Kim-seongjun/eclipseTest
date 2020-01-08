@@ -89,23 +89,11 @@ input {
 					</tr>
 
 					<tr>
-<<<<<<< HEAD
-						<td>³²ÀÚ</td>
-<<<<<<< HEAD
-						<td><input type="radio" value="³²" name="gender"
-							class="gender" checked></td>
-=======
-						<td><input type="radio" value="³²" name="gender" class="gender" checked></td>
->>>>>>> 990d0b05af65943b81f7af247786e4515e2168ad
-						<td>¿©ÀÚ</td>
-						<td><input class="" type="radio" value="¿©" name="gender"
-=======
+
 						<td>ë‚¨ì</td>
 						<td><input type="radio" value="ë‚¨" name="gender" class="gender" checked></td>
 						<td>ì—¬ì</td>
-						<td><input class="" type="radio" value="ì—¬" name="gender"
->>>>>>> e0bdf8de5c87ee7beb80f627540432307c58f260
-							class="gender"></td>
+						<td><input class="" type="radio" value="ì—¬" name="gender" class="gender"></td>
 					</tr>
 
 					<tr>
