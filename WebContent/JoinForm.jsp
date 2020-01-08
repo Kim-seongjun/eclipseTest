@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>È¸¿ø°¡ÀÔ</title>
+<title>íšŒì›ê°€ìž…</title>
 <style>
 #div {
 	width: 530px;
@@ -59,14 +59,14 @@ input {
 </head>
 <body>
 	<div id="div">
-		<h3>È¸¿ø°¡ÀÔ</h3>
+		<h3>íšŒì›ê°€ìž…</h3>
 		<form action="joinfrm" method="post">
 			<div id="join_background">
 				<table>
 					<tr>
 						<td>ID</td>
 						<td><input type="text" name="id" maxlength="20"></td>
-						<td><input id="id_check" type="button" value="Áßº¹È®ÀÎ"></td>
+						<td><input id="id_check" type="button" value="ì¤‘ë³µí™•ì¸"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
@@ -79,16 +79,17 @@ input {
 					</tr>
 
 					<tr>
-						<td>ÀÌ¸§</td>
+						<td>ì´ë¦„</td>
 						<td><input type="text" name="name" maxlength="30"></td>
 					</tr>
 
 					<tr>
-						<td>¿¬¶ôÃ³</td>
+						<td>ì—°ë½ì²˜</td>
 						<td><input type="text" name="phone_num" maxlength="11"></td>
 					</tr>
 
 					<tr>
+<<<<<<< HEAD
 						<td>³²ÀÚ</td>
 <<<<<<< HEAD
 						<td><input type="radio" value="³²" name="gender"
@@ -98,16 +99,22 @@ input {
 >>>>>>> 990d0b05af65943b81f7af247786e4515e2168ad
 						<td>¿©ÀÚ</td>
 						<td><input class="" type="radio" value="¿©" name="gender"
+=======
+						<td>ë‚¨ìž</td>
+						<td><input type="radio" value="ë‚¨" name="gender" class="gender" checked></td>
+						<td>ì—¬ìž</td>
+						<td><input class="" type="radio" value="ì—¬" name="gender"
+>>>>>>> e0bdf8de5c87ee7beb80f627540432307c58f260
 							class="gender"></td>
 					</tr>
 
 					<tr>
-						<td>»ý³â¿ùÀÏ</td>
+						<td>ìƒë…„ì›”ì¼</td>
 						<td><input type="date" id="birth" name="birth"></td>
 					</tr>
 
 					<tr>
-						<td>ÀÌ¸ÞÀÏ</td>
+						<td>ì´ë©”ì¼</td>
 						<td><input type="text" id="email" name="email"> @
 						<td><select id="url1">
 								<option>Naver.com</option>
@@ -117,19 +124,19 @@ input {
 
 					</tr>
 					<tr>
-						<td>¿ìÆíÁÖ¼Ò</td>
+						<td>ìš°íŽ¸ì£¼ì†Œ</td>
 						<td><select id="url2">
-								<option>¼­¿ï±¤¿ª½Ã</option>
-								<option>ÀÎÃµ±¤¿ª½Ã</option>
-								<option>°æ±âµµ</option>
+								<option>ì„œìš¸ê´‘ì—­ì‹œ</option>
+								<option>ì¸ì²œê´‘ì—­ì‹œ</option>
+								<option>ê²½ê¸°ë„</option>
 						</select></td>
 						<td><input type="text" id="house_num" name="house_num"></td>
 					</tr>
 
 				</table>
 
-				<input class="btn" type="submit" value="È®ÀÎ"> 
-				<input class="btn" type="submit" value="Ãë¼Ò" formaction="home">
+				<input class="btn" type="submit" value="í™•ì¸"> 
+				<input class="btn" type="submit" value="ì·¨ì†Œ" formaction="home">
 			</div>
 		</form>
 	</div>
