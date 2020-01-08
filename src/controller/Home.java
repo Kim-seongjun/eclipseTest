@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,7 @@ import service.MemberMM;
  * Servlet implementation class Home
  */
 
-@WebServlet("/access,/petsittersearch,/joinfrm")
+@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout"})
 
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,20 +30,38 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	MemberMM mm=new MemberMM(request,response);
 	
 	switch(cmd) {
-	
+	case "/home":
+		fw=mm.home();
+		break;
+		
 	case "/access":
 		fw=mm.access();
 		break;
 		
 	case "/joinfrm":
+		fw=mm.joinfrm();
+		break;
 		
+	case "/logout":
+		fw=mm.logout();
 		break;
 		
 	case "/petsittersearch":
-		
+		fw=mm.petsittersearch();
 		break;
 	
 	}
+	if(fw!=null) {
+		if(fw.isRedirect()) {
+			response.sendRedirect(fw.getPath());
+		}
+		else {
+			RequestDispatcher dis=request.getRequestDispatcher(fw.getPath());
+			dis.forward(request, response);
+		}
+	}
+	
+	
 	
 	}
   
