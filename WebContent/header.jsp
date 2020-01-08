@@ -69,6 +69,32 @@
 #close{
 	float:right;
 }
+#log_id{
+	color:#00c8b7;
+}
+#apply{
+ border: 2px solid #00c8b7;
+ border-radius: 30px;
+ color:#00c8b7;
+ font-weight: bold;
+ padding: 10px 20px;
+ text-align: center;
+ margin-right: 30px;
+}
+#logout_btn{
+	all:unset;
+	margin-left: 10px;
+	margin-right: 10px;
+	color:red;
+	cursor:pointer;
+}
+
+.admin{
+	all:unset;
+	margin: 0 10px;
+	color:red;
+	cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -83,9 +109,15 @@
 			</c:if>
 			
 			<c:if test="${id!=null}">
-			<input class="header_button" type="submit" value="펫시터지원" formaction="petjoin" />&nbsp;&nbsp;
-			<input type="submit" value="로그아웃" formaction="logout" />
+			<input class="header_button" id="apply" type="submit" value="펫시터지원" formaction="petapply" />&nbsp;&nbsp;
+				
+			${admin}
+	
+			<span><span id="log_id">${id }</span>님 환영합니다.</span>
+			<input id="logout_btn" type="submit" value="로그아웃" formaction="logout" />
+		
 			</c:if>
+			
 		</div>
 	</form>
 	

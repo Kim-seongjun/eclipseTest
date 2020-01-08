@@ -16,7 +16,7 @@ import service.MemberMM;
  * Servlet implementation class Home
  */
 
-@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout"})
+@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout","/memberjoin","/petapply"})
 
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,23 +30,32 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	MemberMM mm=new MemberMM(request,response);
 	
 	switch(cmd) {
-	case "/home":
+	case "/home":   //메인으로 가기
 		fw=mm.home();
 		break;
 		
-	case "/access":
+	case "/access":   //로그인
 		fw=mm.access();
 		break;
 		
-	case "/joinfrm":
-		fw=mm.joinfrm();
-		break;
-		
-	case "/logout":
+	case "/logout":   //로그아웃
 		fw=mm.logout();
 		break;
 		
-	case "/petsittersearch":
+	case "/joinfrm":    //회원가입으로 이동 
+		fw=mm.joinfrm();
+		break;
+	
+	case "/memberjoin":    //회원가입하기
+		fw=mm.memberjoin();
+		break;
+		
+	case "/petapply":       //펫시터지원서
+		fw=mm.petapply();
+		break;
+	 
+		
+	case "/petsittersearch":   //펫시터 찾기
 		fw=mm.petsittersearch();
 		break;
 	
