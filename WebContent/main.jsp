@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,7 @@
 #pet_search{
  	all:unset;
  	width:300px;
- 	height: 200px;
+ 	height: 150px;
  	background-color:#36e9ce;
 	 font-size:30px;
  	color:#FFFFFF;
@@ -41,9 +43,14 @@
 </div>
 <section style="width:100%;height:870px;display:flex;justify-content:center">
 
-
-<div style="width:100%;height:870px;overflow:hidden;position:absolute;left:0;z-index:-1">
-<img src="img/background.jpg" style="opacity:20%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="펫어씨스턴트 펫시터가 제공하는 강아지 돌봄 서비스">
+<div style="width:100%;height:870px;overflow:hidden;position:absolute;left:0;;z-index:-1">
+<div style="display:flex;flex-direction:column;align-items:center">
+<div style="display:flex;flex-direction:column;align-items:center;margin-top:200px;z-index:1">
+<div style="display:flex;text-align:center;font-size:55px;font-weight:800;color:#383C48;line-height:79px">엄선된 펫시터</div>
+<div style="display:flex;text-align:center;font-size:55px;font-weight:800;color:#383C48;line-height:79px">오직 <span style="color:#71A7FF">펫어시스턴트</span>에서만</div>
+</div>
+<img src="img/background.jpg" style="opacity:30%;position:absolute;margin:auto;width:100%;height:870px;left:0;right:0;top:0;bottom:0" alt="펫어씨스턴트 펫시터가 제공하는 강아지 돌봄 서비스">
+</div>
 </div>
 <form action="petsittersearch" method="post">
 <input type="submit" id="pet_search" value="펫시터 검색하기" />
