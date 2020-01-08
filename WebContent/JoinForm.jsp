@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>회원가입</title>
 <style>
 #div {
@@ -59,14 +59,14 @@ input {
 </head>
 <body>
 	<div id="div">
-		<h3>회원가입</h3>
+		<h3>정보를 입력해주세요</h3>
 		<form action="joinfrm" method="post">
 			<div id="join_background">
 				<table>
 					<tr>
 						<td>ID</td>
 						<td><input type="text" name="id" maxlength="20"></td>
-						<td><input id="id_check" type="button" value="중복확인"></td>
+						<td><input id="id_check" type="button" value="以�蹂듯����"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
@@ -84,7 +84,7 @@ input {
 					</tr>
 
 					<tr>
-						<td>연락처</td>
+						<td>전화번호</td>
 						<td><input type="text" name="phone_num" maxlength="11"></td>
 					</tr>
 
@@ -124,11 +124,11 @@ input {
 
 					</tr>
 					<tr>
-						<td>우편주소</td>
+						<td>주소</td>
 						<td><select id="url2">
-								<option>서울광역시</option>
-								<option>인천광역시</option>
-								<option>경기도</option>
+								<option>서울</option>
+								<option>인천</option>
+								<option>경기</option>
 						</select></td>
 						<td><input type="text" id="house_num" name="house_num"></td>
 					</tr>
