@@ -20,7 +20,7 @@ public class jdbcUtil {
 	public static Connection getConnection() { //db접속
 		Connection con=null;
 		try {
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "ICIA", "1111");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.64:1521:xe", "ICIA", "1111");
 			System.out.println("DB접속 성공");
 			//con.setAutoCommit(false);  //트랜잭션 처리시 수동 커밋
 		} catch (SQLException e) {

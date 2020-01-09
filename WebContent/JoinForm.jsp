@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>È¸¿ø°¡ÀÔ</title>
+<meta charset="utf-8">
+<title>íšŒì›ê°€ì…</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 #div {
 	width: 530px;
@@ -40,6 +42,7 @@ input {
 }
 
 #join_background {
+	width: 800px;
 	background: rgba(204, 204, 204, 0.25);
 }
 
@@ -59,75 +62,119 @@ input {
 </head>
 <body>
 	<div id="div">
-		<h3>È¸¿ø°¡ÀÔ</h3>
-		<form action="joinfrm" method="post">
+		<h3>ì •ë³´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”</h3>
+		<form method="post">
 			<div id="join_background">
 				<table>
 					<tr>
 						<td>ID</td>
 						<td><input type="text" name="id" maxlength="20"></td>
-						<td><input id="id_check" type="button" value="Áßº¹È®ÀÎ"></td>
+						<td><input id="id_check" type="button" value="ì¤‘ë³µí™•ì¸"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
-						<td><input type="text" name="pw" maxlength="30"></td>
+						<td><input type="password" name="pw" maxlength="30"></td>
 					</tr>
 
 					<tr>
 						<td>PW Check</td>
-						<td><input type="text" name="pw" maxlength="30"></td>
+						<td><input type="password" maxlength="30"></td>
 					</tr>
 
 					<tr>
-						<td>ÀÌ¸§</td>
+						<td>ì´ë¦„</td>
 						<td><input type="text" name="name" maxlength="30"></td>
 					</tr>
 
 					<tr>
-						<td>¿¬¶ôÃ³</td>
-						<td><input type="text" name="phone_num" maxlength="11"></td>
+						<td>ì „í™”ë²ˆí˜¸</td>
+						<td><input type="text" name="tel" maxlength="11"></td>
 					</tr>
 
 					<tr>
-						<td>³²ÀÚ</td>
-						<td><input type="radio" value="³²" name="gender"
-							class="gender"></td>
-						<td>¿©ÀÚ</td>
-						<td><input class="" type="radio" value="¿©" name="gender"
-							class="gender"></td>
+
+						<td>ë‚¨ì</td>
+						<td><input type="radio" value="ë‚¨" name="gender"
+							class="gender" checked></td>
+						<td>ì—¬ì</td>
+						<td><input class="" type="radio" value="ì—¬" name="gender" class="gender"></td>
 					</tr>
 
 					<tr>
-						<td>»ı³â¿ùÀÏ</td>
+						<td>ìƒë…„ì›”ì¼</td>
 						<td><input type="date" id="birth" name="birth"></td>
 					</tr>
 
 					<tr>
-						<td>ÀÌ¸ŞÀÏ</td>
-						<td><input type="text" id="email" name="email"> @
+						<td>ì´ë©”ì¼</td>
+						<td><input type="text" name="mail1"></td>
+						<td>@<input type="text" id="mail2" name="mail2" readOnly style="margin-bottom: 10px;" value="" /></td>
 						<td><select id="url1">
-								<option>Naver.com</option>
-								<option>Daum.net</option>
-								<option>Google.com</option>
+
+								<option value="1">ì§ì ‘ì…ë ¥</option>
+								<option value="@naver.com">naver.com</option>
+								<option value="@daum.net">daum.net</option>
+								<option value="@google.com">google.com</option>
 						</select></td>
 
 					</tr>
+
+
 					<tr>
-						<td>¿ìÆíÁÖ¼Ò</td>
+						<td>ì§€ì—­ì„ íƒ :</td>
 						<td><select id="url2">
-								<option>¼­¿ï±¤¿ª½Ã</option>
-								<option>ÀÎÃµ±¤¿ª½Ã</option>
-								<option>°æ±âµµ</option>
+								<option>ì„œìš¸</option>
+								<option>ì¸ì²œ</option>
+								<option>ê²½ê¸°</option>
 						</select></td>
-						<td><input type="text" id="house_num" name="house_num"></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">ì£¼ì†Œ</td>
+						<td><input type="text" id="addr1" name="addr1" readOnly /></td>
+						<td><input type="text" name="addr2" style="width: 350px;"></td>
 					</tr>
 
 				</table>
 
-				<input class="btn" type="submit" value="È®ÀÎ"> <input
-					class="btn" type="submit" value="Ãë¼Ò" formaction="main">
+				<input class="btn" type="submit" value="í™•ì¸" formaction="memberjoin">
+				<input class="btn" type="submit" value="ì·¨ì†Œ" formaction="home">
 			</div>
 		</form>
 	</div>
 </body>
+<script>
+	$(document).ready(function() {
+		$("#mail2").attr("readOnly", false);
+	});
+	//ì´ë©”ì¼ ì„ íƒ
+	$("#url1").change(function() {
+		$("#url1 option:selected").each(function() {
+			if ($(this).val() == '1') {
+				$("#mail2").show();
+				$("#mail2").val('');
+				$("#mail2").attr("readOnly", false);
+			} else {
+				$("#mail2").show();
+				$("#mail2").val($(this).text()); //ì„ íƒê°’ ì…ë ¥ 
+				$("#mail2").attr("readOnly", true); //ë¹„í™œì„±í™”
+			}
+		});
+	});
+
+	//ì£¼ì†Œ ì„ íƒ 
+	$("#url2").change(function() {
+		$("#url2 option:selected").each(function() {
+			if ($(this).val() == '1') {
+				$("#addr1").show();
+				$("#addr1").val('');
+				$("#addr1").attr("readOnly", false);
+			} else {
+				$("#addr1").show();
+				$("#addr1").val($(this).text()); //ì„ íƒê°’ ì…ë ¥ 
+				$("#addr1").attr("readOnly", true); //ë¹„í™œì„±í™”
+			}
+		});
+	});
+</script>
 </html>
