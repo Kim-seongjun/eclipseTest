@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import bean.Member;
@@ -156,6 +157,41 @@ public class MemberDao {
 			}
 			
 		return false;
+	}
+
+	public List<HashMap<String, String>> petsittersearch() {
+		String sql="SELECT * FROM PS";
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
+			
+			while(rs.next()) {
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
+				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
+				hm.put("SITTER_PRICE",rs.getNString("SITTER_PRICE"));
+				hm.put("SITTER_PHOTO",rs.getNString("SITTER_PHOTO"));
+				hm.put("ANSWER1",rs.getNString("ANSWER1"));
+				hm.put("ANSWER2",rs.getNString("ANSWER2"));
+				hm.put("ANSWER3",rs.getNString("ANSWER3"));
+				hm.put("ANSWER4",rs.getNString("ANSWER4"));
+				hm.put("ANSWER5",rs.getNString("ANSWER5"));
+				hm.put("ANSWER6",rs.getNString("ANSWER6"));
+				hm.put("ANSWER7",rs.getNString("ANSWER7"));
+				sList.add(hm);
+			}
+		
+			System.out.println("펫시터검색 성공");
+			return sList;
+			
+			
+		} catch (SQLException e) {
+			System.out.println("펫시터검색 예외");
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
