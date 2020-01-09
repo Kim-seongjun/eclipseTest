@@ -18,7 +18,8 @@ import service.MemberMM;
  */
 
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
-			"/memberjoin","/petapply","/insetpetapply","/petapplylist","/blacklist","/userlist"})
+			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
+			"/blacklist","/userlist","/petsitterappr","/deleteapply"})
 
 
 public class Home extends HttpServlet {
@@ -65,6 +66,16 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	 
 	case "/petapplylist": //펫시터지원회원 리스트
 		fw=am.petapplylist();
+		break;
+		
+	case "/petsitterappr":	
+		fw=am.petsitterappr();	  //펫시터 승인하기
+		fw=am.deletePetApply();   //펫시터지원 삭제
+		break;
+	
+	case "/deleteapply":
+		fw=am.deletePetApply();   //펫시터지원 삭제(거절)
+		fw=am.rejectedUser();		//거절한 회원타입을 1에서 0으로 변경
 		break;
 		
 	case "/petsittersearch":   //펫시터 찾기
