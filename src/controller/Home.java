@@ -16,7 +16,8 @@ import service.MemberMM;
  * Servlet implementation class Home
  */
 
-@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout","/memberjoin","/petapply"})
+@WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
+			"/memberjoin","/petapply","/insetpetapply"})
 
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,6 +53,11 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		
 	case "/petapply":       //펫시터지원서
 		fw=mm.petapply();
+		break;
+
+	case "/insetpetapply":
+		fw=mm.insetPetApply();
+		fw=mm.updateUser();
 		break;
 	 
 		

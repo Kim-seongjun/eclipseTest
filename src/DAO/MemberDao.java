@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Member;
+import bean.PetApply;
+
 
 public class MemberDao {
 	Connection con;
@@ -86,6 +88,12 @@ public class MemberDao {
 				
 			while(rs.next()) {	
 				sList.add(rs.getNString("QUESTION1"));
+				sList.add(rs.getNString("QUESTION2"));
+				sList.add(rs.getNString("QUESTION3"));
+				sList.add(rs.getNString("QUESTION4"));
+				sList.add(rs.getNString("QUESTION5"));
+				sList.add(rs.getNString("QUESTION6"));
+				sList.add(rs.getNString("QUESTION7"));
 			}
 			return sList;
 		} 
@@ -96,6 +104,58 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public boolean insetPetApply(PetApply pa) {
+		String sql = "INSERT INTO PS VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, pa.getId());
+			pstmt.setNString(2, pa.getTitle());
+			pstmt.setNString(3, pa.getCont());
+			pstmt.setNString(4,pa.getPrice());
+			pstmt.setNString(5,pa.getImgFile());
+			pstmt.setNString(6,pa.getQuestions1());
+			pstmt.setNString(7,pa.getQuestions2());
+			pstmt.setNString(8,pa.getQuestions3());
+			pstmt.setNString(9,pa.getQuestions4());
+			pstmt.setNString(10,pa.getQuestions5());
+			pstmt.setNString(11,pa.getQuestions6());
+			pstmt.setNString(12,pa.getQuestions7());
+			
+			int result=pstmt.executeUpdate();
+			if(result!=0) {
+				System.out.println("펫시터 지원 성공");
+				return true;
+			}
+			
+		} 	
+		catch (SQLException e) {
+			System.out.println("펫시터 지원 예외");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean updateUser(String id) {
+			String sql="UPDATE PU SET us_type = 1 WHERE US_ID = ?";
+			
+			try {
+				pstmt=con.prepareStatement(sql);
+				pstmt.setNString(1,id);
+				int result=pstmt.executeUpdate();
+				if(result!=0) {
+					System.out.println("회원타입변경 성공");
+					return true;
+				}
+			} 					
+			catch (SQLException e) {
+				System.out.println("회원타입변경 예외");
+				e.printStackTrace();
+			}
+			
+		return false;
 	}
 
 }
