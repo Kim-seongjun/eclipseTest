@@ -224,38 +224,6 @@ public class MemberMM {
 	         fw.setRedirect(false);
 	      }
 		return fw;
-	}
-
-
-	public Forward petapplylist() {
-		
-		Forward fw=new Forward();
-		fw.setPath("petapplylist.jsp");
-        fw.setRedirect(false);
-        
-		return fw;
-	}
-
-
-	public Forward blackList() {
-		
-		Forward fw=new Forward();
-		fw.setPath("blacklist.jsp");
-		fw.setRedirect(false);
-		return fw;
-	}
-
-
-	public Forward userlist() {
-		
-		Forward fw=new Forward();
-		fw.setPath("userlist.jsp");
-		fw.setRedirect(false);
-		return fw;
-	}
-	
-	
-	
-	
+	}	
 
 }

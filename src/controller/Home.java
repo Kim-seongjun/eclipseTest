@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Forward;
+import service.AdminMM;
 import service.MemberMM;
 
 /**
@@ -30,6 +31,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	System.out.println("cmd = "+cmd);
 	Forward fw=new Forward();
 	MemberMM mm=new MemberMM(request,response);
+	AdminMM am=new AdminMM(request,response);
 	
 	switch(cmd) {
 	case "/home":   //메인으로 가기
@@ -62,7 +64,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 	 
 	case "/petapplylist": //펫시터지원회원 리스트
-		fw=mm.petapplylist();
+		fw=am.petapplylist();
 		break;
 		
 	case "/petsittersearch":   //펫시터 찾기
@@ -70,11 +72,11 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 	
 	case "/blacklist":
-		fw=mm.blackList();
+		fw=am.blackList();  //블랙리스트
 		break;
 		
-	case "/userlist":
-		fw=mm.userlist();
+	case "/userlist":		//전체회원 리스트
+		fw=am.userlist();
 		break;
 	
 	
