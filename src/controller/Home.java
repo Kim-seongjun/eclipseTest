@@ -70,7 +70,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		
 	case "/petsitterappr":	
 		fw=am.petsitterappr();	  //펫시터 승인하기
-		fw=am.deletePetApply();   //펫시터지원 삭제
+	//	fw=am.deletePetApply();   //펫시터지원 삭제
 		break;
 	
 	case "/deleteapply":
