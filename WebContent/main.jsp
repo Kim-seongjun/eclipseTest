@@ -64,6 +64,36 @@ opacity:70%;
 	align-items: center;
 }
 
+/* 아이템 타이틀  */
+.span_j{
+color:navy; 
+font-size:2.0em; 
+font-weight:bold;
+}
+
+.item_a{
+
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 15px;
+    font-variant: tabular-nums; 
+    line-height: 1.5;
+    background-color: #fff;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    margin-right:100px;
+    
+    }
+
+#jione{
+left:300px;
+text-align-last:center;
+position: relative; 
+text-align:center;
+ 
+ }
+
+
+
 </style>
 </head>
 
@@ -117,6 +147,7 @@ opacity:70%;
 	</div>
 	</div>
 
+
 <div id=cccc>
 	<div>
 	<img class="jpg" width="260" height="300"  src="img/rolling2_2.jpg" alt="메인강아지2">
@@ -130,20 +161,102 @@ opacity:70%;
 <h4>저희가 도와드리겠습니다!!</h4>
 </div>
 
-<section
-		style="width: 100%; height: 870px; display: flex; margin:auto; text-align: left">
+
+<div id="jione">
+<section style="width: 100%; height: 300px; display: flex; margin:auto; text-align: left">
+		
+	
+		<div class="item_a">
+		<div>
+		<h3 ><span class="span_j">검사비 지원</span></h3><br>
+		<div>
+		최대1회,20만원까지 지원<br>
+		</div>
+		저희 사이트에서 사용중 상해 사고시 검사비 지원<br>
+		(하지만 유독물질을 일시에 흡입, <br>
+		흡수 또는 섭취한 결과 발생한 중독증상에 대한<br>
+		 초음파,CT,MRI,알레르기에 대한 검사 제외)
+		</div>
+		</div>
+		
+		
+		<div class="item_a">
+		<div>
+		<h3 ><span class="span_j">치료비 지원</span></h3><br>
+		<div>
+		최대 2회, 총 40만원까지 지원<br>
+		</div>
+		펫시팅 기간 내 발생된 반려동물의 부상에 대한<br>
+		치료비를 해당 금액 만큼 지원(진료비,야간진료비,<br>
+		토통원치료비,주사비용,약제비,응급실 포함)
+		</div>
+		</div>
+		
+		
+		<div class="item_a">
+		<div>
+		<h3 ><span class="span_j">입원비 지원</span></h3><br>
+		<div>
+		최대1회, 10만원까지 지원<br>
+		</div>
+		진료가 필요한 경우 자택에서 치료가 곤란하여<br>
+		대상 반려동물을 동물병원에 입원시켜<br>
+		항시 수의사의 관리하에 치료에 전념토록함
+		</div>
+		</div>
 		
 		</section>
+	
+		
+		<section style="width: 100%; height: 300px; display: flex; margin:auto; text-align: left">
+		
+		
+		<div class="item_a">
+		<div>
+		<h3 ><span class="span_j">입원비 지원</span></h3><br>
+		<div>
+		최대1회, 10만원까지 지원<br>
+		</div>
+		진료가 필요한 경우 자택에서 치료가 곤란하여<br>
+		대상 반려동물을 동물병원에 입원시켜<br>
+		항시 수의사의 관리하에 치료에 전념토록함
+		</div>
+		</div>
+		
+		
+		<div class="item_a">
+		<div>
+		<h3 ><span class="span_j">변호사 자문 지원</span></h3><br>
+		<div>
+		최대2회, 40만원까지 지원<br>
+		</div>
+		사건/사고 발생의 책임자 판단을 위한<br>
+		수의사의 검진과 자문을 포함하여<br>
+		반려동물 전문 변호사의 자문을 무상으로 지원
+		</div>
+		</div>
+		
 
+
+		<div class="item_a" >
+		<div>
+		<h3 ><span class="span_j">펫시터 보험 지원</span></h3><br>
+		<div>
+		최대1회, 10만원까지 지원<br>
+		</div>
+		펫시팅도중 고객의 발려동물로 인해<br>
+		본인 또는 본인의 반려동물이 상해를 입은 경우<br>
+		치료비및 검사비를 지원합니다.
+		</div>
+		</div>
+		</section>
+		</div>
+		
 
 	<footer>
 		<div id="footer">
 			<jsp:include page="footer.jsp" />
 		</div>
 	</footer>
-
-
 </body>
-
-
 </html>
