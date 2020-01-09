@@ -19,6 +19,7 @@ import service.MemberMM;
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist","/blacklist","/userlist"})
 
+
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
