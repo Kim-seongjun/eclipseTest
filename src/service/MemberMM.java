@@ -3,6 +3,7 @@ package service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -98,6 +99,21 @@ public class MemberMM {
 
 	public Forward petsittersearch() {
 		Forward fw=new Forward();
+		//Member mb=new Member();
+		MemberDao mDao=new MemberDao();
+		List<HashMap<String, String>> sList=null;
+		sList=mDao.petsittersearch();
+		for(int i=0; i<sList.size();i++) {
+			System.out.println(i+"번째 sList = " + sList.get(i));
+			System.out.println("-----------------");
+		}
+		Gson g = new Gson();
+		String r = g.toJson(sList);
+		System.out.println("--------");
+		System.out.println(r);
+		request.setAttribute("jsontest" , r);
+		
+		//mb=mDao.petsittersearch();
 		fw.setPath("petsittersearch.jsp");
 		fw.setRedirect(false);
 		return fw;
@@ -148,6 +164,7 @@ public class MemberMM {
 		sList=mDao.petapply();
 		for(int i=0;i<sList.size();i++) {
 		System.out.println(i+"번째 sList = "+sList.get(i));
+		
 		}
 		
 		Gson g = new Gson();

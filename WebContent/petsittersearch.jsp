@@ -31,7 +31,7 @@
 		padding: 20px;
 		margin: 15px;
 		border: 1px;
-		background-color: #cccccc;
+/* 		background-color: #cccccc; */
 	}
 	#li_insearch{
 		display: inline-block;
@@ -66,10 +66,38 @@
 	
 	
 	<ul id="ul_outsearch">
-		<li id="li_insearch">펫시터 리스트 나오는곳</li>
-		<li id="li_insearch">펫시터 리스트 나오는곳</li>
-		<li id="li_insearch">펫시터 리스트 나오는곳</li>
-		<li id="li_insearch">펫시터 리스트 나오는곳</li>
+		<li id="li_insearch">
+			<div>
+				<div style="float: left; border: 1px solid red; width: 250px; height: 250px;">이미지 넣는곳</div>
+			</div>
+			<div>
+				<div>프로필 넣는곳</div>
+			</div>
+		</li>
+		<li id="li_insearch">
+			<div>
+				<div style="float: left; border: 1px solid red; width: 250px; height: 250px;">이미지 넣는곳</div>
+			</div>
+			<div>
+				<div>프로필 넣는곳</div>
+			</div>
+		</li>
+		<li id="li_insearch">
+			<div>
+				<div style="float: left; border: 1px solid red; width: 250px; height: 250px;">이미지 넣는곳</div>
+			</div>
+			<div>
+				<div>프로필 넣는곳</div>
+			</div>
+		</li>
+		<li id="li_insearch">
+			<div>
+				<div style="float: left; border: 1px solid red; width: 250px; height: 250px;">이미지 넣는곳</div>
+			</div>
+			<div>
+				<div>프로필 넣는곳</div>
+			</div>
+		</li>
 	</ul>
 </body>
 </html>
