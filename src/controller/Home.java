@@ -16,13 +16,9 @@ import service.MemberMM;
  * Servlet implementation class Home
  */
 
-<<<<<<< HEAD
-@WebServlet("/access,/petsittersearch,/joinfrm")
-//깃데스크탑 테스트입니다.
-=======
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout","/memberjoin","/petapply"})
 
->>>>>>> d3454525f06e30fc29080e04a6ec028ba59b2a3e
+
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
