@@ -123,9 +123,9 @@ input {
 					<tr>
 						<td>지역선택 :</td>
 						<td><select id="url2">
-								<option>서울</option>
-								<option>인천</option>
-								<option>경기</option>
+								<option>서울&nbsp;</option>
+								<option>인천&nbsp;</option>
+								<option>경기&nbsp;</option>
 						</select></td>
 					</tr>
 
@@ -146,6 +146,9 @@ input {
 <script>
 	$(document).ready(function() {
 		$("#mail2").attr("readOnly", false);
+	});
+	$(document).ready(function() {
+		$("#addr1").attr("readOnly", true);
 	});
 	//이메일 선택
 	$("#url1").change(function() {
@@ -168,7 +171,7 @@ input {
 			if ($(this).val() == '1') {
 				$("#addr1").show();
 				$("#addr1").val('');
-				$("#addr1").attr("readOnly", false);
+				$("#addr1").attr("readOnly", true);
 			} else {
 				$("#addr1").show();
 				$("#addr1").val($(this).text()); //선택값 입력 

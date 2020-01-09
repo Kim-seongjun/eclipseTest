@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import DAO.MemberDao;
 import bean.Forward;
 import bean.Member;
+import bean.PetApply;
 
 public class MemberMM {
 	HttpServletRequest request;
@@ -48,6 +49,7 @@ public class MemberMM {
 			session.setAttribute("id", id);
 			session.setAttribute("admin", makeHtml());
 		}
+		
 		fw.setPath("main.jsp");
 		fw.setRedirect(false);
 		return fw;
@@ -156,6 +158,99 @@ public class MemberMM {
 		Forward fw=new Forward();
 		fw.setPath("petapply.jsp");
         fw.setRedirect(false);
+		return fw;
+	}
+
+
+	public Forward insetPetApply() {
+		Forward fw=new Forward();
+		System.out.println("제목 : "+request.getParameter("title"));		
+		System.out.println("내용 : "+request.getParameter("cont"));	
+		System.out.println("단가 : "+request.getParameter("price"));
+		System.out.println("이미지 : "+request.getParameter("imgFile"));
+		System.out.println("질문1 : "+request.getParameter("questions1"));
+		System.out.println("질문2 : "+request.getParameter("questions2"));
+		System.out.println("질문3 : "+request.getParameter("questions3"));
+		System.out.println("질문4 : "+request.getParameter("questions4"));
+		System.out.println("질문5 : "+request.getParameter("questions5"));
+		System.out.println("질문6 : "+request.getParameter("questions6"));
+		System.out.println("질문7 : "+request.getParameter("questions7"));
+			
+		HttpSession session=request.getSession();
+		String id=session.getAttribute("id").toString();
+		System.out.println("id="+id);
+		PetApply pa=new PetApply();		
+		pa.setId(session.getAttribute("id").toString());
+		pa.setTitle(request.getParameter("title"));
+		pa.setCont(request.getParameter("cont"));
+		pa.setPrice(request.getParameter("price"));
+		pa.setImgFile(request.getParameter("imgFile"));
+		pa.setQuestions1(request.getParameter("questions1"));
+		pa.setQuestions2(request.getParameter("questions2"));
+		pa.setQuestions3(request.getParameter("questions3"));
+		pa.setQuestions4(request.getParameter("questions4"));
+		pa.setQuestions5(request.getParameter("questions5"));
+		pa.setQuestions6(request.getParameter("questions6"));
+		pa.setQuestions7(request.getParameter("questions7"));
+		MemberDao mDao=new MemberDao();
+	
+	    boolean result= mDao.insetPetApply(pa);
+	    mDao.close();
+	    if(result) {
+	         fw.setPath("main.jsp");
+	         fw.setRedirect(true);
+	      }else {
+	        System.out.println("지원포워딩 실패");
+	         fw.setPath("petapply.jsp");
+	         fw.setRedirect(false);
+	      }
+		return fw;
+	}
+
+
+	public Forward updateUser() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		HttpSession session=request.getSession();
+		String id=session.getAttribute("id").toString();
+		System.out.println("회원타입 변경 id="+id);
+		boolean result= mDao.updateUser(id);
+		mDao.close();
+		 if(result) {
+	         fw.setPath("main.jsp");
+	         fw.setRedirect(true);
+	      }else {
+	         fw.setPath("petapply.jsp");
+	         fw.setRedirect(false);
+	      }
+		return fw;
+	}
+
+
+	public Forward petapplylist() {
+		
+		Forward fw=new Forward();
+		fw.setPath("petapplylist.jsp");
+        fw.setRedirect(false);
+        
+		return fw;
+	}
+
+
+	public Forward blackList() {
+		
+		Forward fw=new Forward();
+		fw.setPath("blacklist.jsp");
+		fw.setRedirect(false);
+		return fw;
+	}
+
+
+	public Forward userlist() {
+		
+		Forward fw=new Forward();
+		fw.setPath("userlist.jsp");
+		fw.setRedirect(false);
 		return fw;
 	}
 	
