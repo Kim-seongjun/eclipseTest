@@ -17,7 +17,7 @@ import service.MemberMM;
  */
 
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
-			"/memberjoin","/petapply","/insetpetapply"})
+			"/memberjoin","/petapply","/insetpetapply","/petapplylist","/blacklist","/userlist"})
 
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,15 +55,27 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=mm.petapply();
 		break;
 
-	case "/insetpetapply":
+	case "/insetpetapply":  //펫시터지원서 신청
 		fw=mm.insetPetApply();
 		fw=mm.updateUser();
 		break;
 	 
+	case "/petapplylist": //펫시터지원회원 리스트
+		fw=mm.petapplylist();
+		break;
 		
 	case "/petsittersearch":   //펫시터 찾기
 		fw=mm.petsittersearch();
 		break;
+	
+	case "/blacklist":
+		fw=mm.blackList();
+		break;
+		
+	case "/userlist":
+		fw=mm.userlist();
+		break;
+	
 	
 	}
 	if(fw!=null) {
