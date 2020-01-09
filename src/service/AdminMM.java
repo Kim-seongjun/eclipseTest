@@ -3,7 +3,10 @@ package service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.AdminDao;
+import DAO.MemberDao;
 import bean.Forward;
+import bean.PetApply;
 
 public class AdminMM {
 	HttpServletRequest request;
@@ -17,8 +20,11 @@ public class AdminMM {
 
 
 	public Forward petapplylist() {
-		// TODO Auto-generated method stub
-		return null;
+		Forward fw=new Forward();
+		AdminDao aDao=new AdminDao();
+		PetApply pa=new PetApply();
+		pa=aDao.petapplylist();
+		return fw;
 	}
 
 
