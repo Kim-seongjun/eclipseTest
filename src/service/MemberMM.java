@@ -109,9 +109,8 @@ public class MemberMM {
 		}
 		Gson g = new Gson();
 		String r = g.toJson(sList);
-		System.out.println("--------");
 		System.out.println(r);
-		request.setAttribute("jsontest" , r);
+		request.setAttribute("json_search" , r);
 		
 		//mb=mDao.petsittersearch();
 		fw.setPath("petsittersearch.jsp");

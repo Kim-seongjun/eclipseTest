@@ -99,5 +99,9 @@
 			</div>
 		</li>
 	</ul>
+	<script>
+	var json=${json_search}
+	console.log(json);
+	</script>
 </body>
 </html>
