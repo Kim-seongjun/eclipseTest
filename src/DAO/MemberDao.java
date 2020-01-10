@@ -196,7 +196,28 @@ public class MemberDao {
 	}
 
 	public boolean petinsert(Pet p) {
-		// TODO Auto-generated method stub
+		String sql="INSERT INTO PP VALUES (PP_SEQ.nextval,?,?,?,?,?)";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, p.getId());
+			pstmt.setNString(2, p.getPet_name());
+			pstmt.setNString(3, p.getPet_type());
+			pstmt.setNString(4, p.getPet_gender());
+			pstmt.setNString(5, p.getPer_request());
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				System.out.println("애완동물 등록 성공");
+				return true;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("애완동물 등록 예외");
+			e.printStackTrace();
+		}
+		
+		
 		return false;
 	}
 
