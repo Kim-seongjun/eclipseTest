@@ -161,7 +161,7 @@ public class MemberDao {
 	}
 
 	public List<HashMap<String, String>> petsittersearch() {
-		String sql="SELECT * FROM PS";
+		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2";
 		try {
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
