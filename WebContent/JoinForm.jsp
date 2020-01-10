@@ -5,8 +5,9 @@
 <head>
 <meta charset="utf-8">
 <title>회원가입</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <style>
 #div {
 	width: 530px;
@@ -68,27 +69,33 @@ input {
 				<table>
 					<tr>
 						<td>ID</td>
-						<td><input type="text" name="id" maxlength="20"></td>
+						<td><input type="text" name="id" maxlength="20" id="id"></td>
 						<td><input id="id_check" type="button" value="중복확인"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
-						<td><input type="password" name="pw" maxlength="30"></td>
+						<td><input type="password" name="pw" maxlength="30" id="pw"></td>
 					</tr>
 
 					<tr>
 						<td>PW Check</td>
-						<td><input type="password" maxlength="30"></td>
+						<td><input type="password" name="pwcheck" maxlength="30"
+					id="pwcheck"></td>
+					<td id='check'></td>
 					</tr>
+					
+					
+					
+				
 
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="name" maxlength="30"></td>
+						<td><input type="text" name="name" maxlength="30" id="name"></td>
 					</tr>
 
 					<tr>
 						<td>전화번호</td>
-						<td><input type="text" name="tel" maxlength="11"></td>
+						<td><input type="text" name="tel" maxlength="11" id="tel"></td>
 					</tr>
 
 					<tr>
@@ -97,18 +104,20 @@ input {
 						<td><input type="radio" value="남" name="gender"
 							class="gender" checked></td>
 						<td>여자</td>
-						<td><input class="" type="radio" value="여" name="gender" class="gender"></td>
+						<td><input  type="radio" value="여" name="gender"
+							class="gender"></td>
 					</tr>
 
 					<tr>
 						<td>생년월일</td>
-						<td><input type="date" id="birth" name="birth"></td>
+						<td><input type="date" id="birth" name="birth" id="birth"></td>
 					</tr>
 
 					<tr>
 						<td>이메일</td>
-						<td><input type="text" name="mail1"></td>
-						<td>@<input type="text" id="mail2" name="mail2" readOnly style="margin-bottom: 10px;" value="" /></td>
+						<td><input type="text" name="mail1" id="mail"></td>
+						<td>@&nbsp;&nbsp;<input type="text" id="mail2" name="mail2" readOnly
+							style="margin-bottom: 10px;" value="" /></td>
 						<td><select id="url1">
 
 								<option value="1">직접입력</option>
@@ -131,13 +140,13 @@ input {
 
 					<tr>
 						<td rowspan="2">주소</td>
-						<td><input type="text" id="addr1" name="addr1" readOnly /></td>
-						<td><input type="text" name="addr2" style="width: 350px;"></td>
+						<td><input class="addr3" type="text" id="addr1" name="addr1" readOnly /></td>
+						<td><input class="addr3" type="text" name="addr2" style="width: 250px;"></td>
 					</tr>
 
 				</table>
 
-				<input class="btn" type="submit" value="확인" formaction="memberjoin">
+				<input class="btn" type="submit" value="확인" formaction="memberjoin" id="hag">
 				<input class="btn" type="submit" value="취소" formaction="home">
 			</div>
 		</form>
@@ -179,5 +188,112 @@ input {
 			}
 		});
 	});
+	
+	
+$("#pwcheck").keyup(function(){
+	console.log($("#pw").val());
+	if($("#pw").val()!=$("#pwcheck").val())
+		{
+		$("#check").text("비밀번호가 일치하지않습니다.").css("color","red");
+		}
+	else{
+		$("#check").text("");
+	}
+		
+});
+
+
+
+$("#hag").click(function(){
+	
+	if($("#id").val()==""){	
+		alert("아이디를 입력해주세요.");
+		$("#hag").prop("type","button");
+	}
+
+	
+	 if($("#pw").val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$("#hag").prop("type","button");
+	 }		
+
+	 
+	 
+	 if($("#name").val()==""){
+				alert("이름을 입력해주세요.");
+				$("#hag").prop("type","button");
+	 }
+
+	 
+	 
+	 
+			if($("#tel").val()==""){
+			alert("핸드폰번호를 입력해주세요.");
+			$("#hag").prop("type","button");
+			}
+
+	
+			if($("#birth").val()==""){
+				alert("생일을 입력해주세요.");
+				$("#hag").prop("type","button");
+			}	
+		
+			if($("#mail").val()==""){
+				alert("E-mail을 입력해주세요.");
+				$("#hag").prop("type","button");
+			}	
+			
+	
+			if($(".addr3").val()==""){
+				alert("주소를 입력해주세요.");
+				$("#hag").prop("type","button");
+			}
+		
+			if($("#id").val()!=""){	
+				
+		
+			 if($("#pw").val()!=""){
+				
+				 
+			 if($("#name").val()!=""){
+						
+			 
+
+					if($("#tel").val()!=""){
+					
+					
+		
+					if($("#birth").val()!=""){
+						
+						
+	
+					if($("#mail").val()!=""){
+						
+					
+	
+					if($(".addr3").val()!=""){
+						alert("회원가입이 완료되었습니다.");
+						$("#hag").prop("type","submit");
+					}
+					}
+					}
+					}
+			 }
+			 }
+			}
+			
+			
+			
+			
+			
+		
+});
+
+	
+	
+	
+	
+	
+	
 </script>
 </html>
