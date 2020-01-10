@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Member;
 import bean.PetApply;
 
 public class AdminDao {
@@ -24,14 +25,14 @@ public class AdminDao {
 	}
 
 	public List<PetApply> petapplylist() {
-		String sql="SELECT * FROM PU JOIN PS ON PU.US_ID = PS.SITTER_ID WHERE PU.US_TYPE = 1";
+		String sql = "SELECT * FROM PU JOIN PS ON PU.US_ID = PS.SITTER_ID WHERE PU.US_TYPE = 1";
 		try {
-			pstmt=con.prepareStatement(sql);
-			rs=pstmt.executeQuery();
-			List<PetApply> plist=new ArrayList<PetApply>();
-			PetApply pa=null;
-			while(rs.next()) {	
-				pa=new PetApply();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			List<PetApply> plist = new ArrayList<PetApply>();
+			PetApply pa = null;
+			while (rs.next()) {
+				pa = new PetApply();
 				pa.setId(rs.getNString("SITTER_ID"));
 				pa.setTitle(rs.getNString("SITTER_TITLE"));
 				pa.setCont(rs.getNString("SITTER_BODY"));
@@ -48,11 +49,9 @@ public class AdminDao {
 			}
 			System.out.println("지원서 불러오기 성공?");
 			return plist;
-			
-			
-		} 
-		
-		
+
+		}
+
 		catch (SQLException e) {
 			System.out.println("펫시터 지원서 예외");
 			e.printStackTrace();
@@ -60,15 +59,14 @@ public class AdminDao {
 		return null;
 	}
 
-	
 	public boolean petsitterppr(String id) {
-		String sql="UPDATE PU SET us_type = 2 WHERE US_ID = ?";
+		String sql = "UPDATE PU SET us_type = 2 WHERE US_ID = ?";
 		try {
-			pstmt=con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
 			pstmt.setNString(1, id);
-			int result=pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
 			System.out.println("들어오냐");
-			if(result!=0) {
+			if (result != 0) {
 				System.out.println("펫시터승인 성공");
 				return true;
 			}
@@ -80,12 +78,12 @@ public class AdminDao {
 	}
 
 	public boolean deletePetApply(String id) {
-		String sql="DELETE FROM PS WHERE SITTER_ID= ?";
+		String sql = "DELETE FROM PS WHERE SITTER_ID= ?";
 		try {
-			pstmt=con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
 			pstmt.setNString(1, id);
-			int result=pstmt.executeUpdate();
-			if(result!=0) {
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
 				System.out.println("지원삭제 성공");
 				return true;
 			}
@@ -97,24 +95,54 @@ public class AdminDao {
 	}
 
 	public boolean rejectedUser(String id) {
-		String sql="UPDATE PU SET us_type = 0 WHERE US_ID = ?";
-		
+		String sql = "UPDATE PU SET us_type = 0 WHERE US_ID = ?";
+
 		try {
-			pstmt=con.prepareStatement(sql);
-			pstmt.setNString(1,id);
-			int result=pstmt.executeUpdate();
-			if(result!=0) {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setNString(1, id);
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
 				System.out.println("거절한 회원타입변경 성공");
 				return true;
 			}
-		} 					
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("거절한 회원타입변경 예외");
 			e.printStackTrace();
 		}
 		return false;
 	}
 
-	
-	
+	public List<Member> userlist() {
+		String sql = "SELECT * FROM PU";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			List<Member> ulist = new ArrayList<Member>();
+			Member mb = null;
+			while (rs.next()) {
+				mb = new Member();
+				mb.setId(rs.getNString("US_ID"));
+				mb.setPw(rs.getNString("US_PW"));
+				mb.setName(rs.getNString("US_NAME"));
+				mb.setGender(rs.getNString("US_GENDER"));
+				mb.setBirth(rs.getNString("US_BIRTH"));
+				mb.setTel(rs.getNString("US_TEL"));
+				mb.setMail(rs.getNString("US_MAIL"));
+				mb.setAddr(rs.getNString("US_ADDRESS"));
+				mb.setBlacklist(rs.getNString("US_BLACKLIST"));
+				mb.setType(rs.getInt("US_TYPE"));
+				ulist.add(mb);
+			}
+			System.out.println("유저리스트 불러오기 성공?");
+			return ulist;
+
+		}
+
+		catch (SQLException e) {
+			System.out.println("유저리스트 예외");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
