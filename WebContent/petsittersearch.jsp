@@ -39,7 +39,10 @@
 		border: 1px solid black;
 	}
 	
-	
+	.searchimg{
+		width: 250px;
+		height: 250px;
+	}
 	
 </style>
 <style type="text/css">
@@ -102,7 +105,7 @@ A:active{text-decoration; color: orange;}
 		
 		str+="<div>";
 // 		str+=json[key].SITTER_PHOTO;
-		str+="<div style='float: left; border: 1px solid red; width: 250px; height: 250px;'><img src ='"+json[key].SITTER_PHOTO+"' alt='펫시터사진입니다.'</div>";
+		str+="<div style='float: left; border: 1px solid red; width: 250px; height: 250px;'><img class='searchimg'src ='img/"+json[key].SITTER_PHOTO+"' alt='펫시터사진입니다.'></div>";
 		str+="</div>";
 		str+="<div>";
 		str+="<div>";

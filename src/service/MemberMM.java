@@ -250,12 +250,17 @@ public class MemberMM {
 		Pet p=new Pet();
 		HttpSession session=request.getSession();
 		session.getAttribute("id").toString();
-		
 		p.setId(session.getAttribute("id").toString());
 		p.setPet_name(request.getParameter("pet_name"));
 		p.setPet_gender(request.getParameter("pet_gender"));
 		p.setPet_type(request.getParameter("pet_type"));
 		p.setPer_request(request.getParameter("pet_request"));
+		System.out.println(p.getId());
+		System.out.println(request.getParameter("pet_name"));
+		System.out.println(request.getParameter("pet_gender"));
+		System.out.println(request.getParameter("pet_type"));
+		System.out.println(request.getParameter("pet_request"));
+		System.out.println();
 		boolean result= mDao.petinsert(p);
 		mDao.close();
 		 if(result) {
@@ -265,6 +270,14 @@ public class MemberMM {
 	         fw.setPath("petinsert.jsp");
 	         fw.setRedirect(false);
 	      }
+		return fw;
+	}
+
+
+	public Forward petinsertshow() {
+		Forward fw=new Forward();
+		fw.setPath("petinsert.jsp");
+        fw.setRedirect(false);
 		return fw;
 	}	
 
