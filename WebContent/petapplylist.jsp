@@ -12,7 +12,7 @@
 <h1>펫시터지원자리스트 페이지</h1>
 
 <c:if test="${json_plist==null}">
-지원자가 존재하지 않습니다.
+<div>지원자가 존재하지 않습니다.</div>
 </c:if>
 
 	<div id='test'>
@@ -23,11 +23,14 @@
 	
 <script>
 var json=${json_plist};
-console.log(json);
+console.log(json.length);
+console.log("--------------");
 var str="";
 
-str+="<form action='petsitterappr' method='post'>";
 $.each(json,function(key,value){
+str+="<form action='petsitterappr' method='post'>";
+	
+	console.log(json[key]);
 
 	str+="<div>";
 	str+=json[key].id
@@ -68,8 +71,8 @@ $.each(json,function(key,value){
 	str+="</div>";
 	str+="<input type='submit' value='승인' />";
 	str+="<input type='submit' value='거절' formaction='deleteapply' />";
-});
 str+="</form>";
+});
 
 $("#test").append(str);
 

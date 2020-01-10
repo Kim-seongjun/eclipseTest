@@ -24,7 +24,7 @@ public class AdminDao {
 	}
 
 	public List<PetApply> petapplylist() {
-		String sql="SELECT * FROM PS";
+		String sql="SELECT * FROM PU JOIN PS ON PU.US_ID = PS.SITTER_ID WHERE PU.US_TYPE = 1";
 		try {
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -60,12 +60,14 @@ public class AdminDao {
 		return null;
 	}
 
-	public boolean petsitterappr(String id) {
+	
+	public boolean petsitterppr(String id) {
 		String sql="UPDATE PU SET us_type = 2 WHERE US_ID = ?";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setNString(1, id);
 			int result=pstmt.executeUpdate();
+			System.out.println("들어오냐");
 			if(result!=0) {
 				System.out.println("펫시터승인 성공");
 				return true;
@@ -112,5 +114,7 @@ public class AdminDao {
 		}
 		return false;
 	}
+
+	
 	
 }

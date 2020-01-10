@@ -19,7 +19,8 @@ import service.MemberMM;
 
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
-			"/blacklist","/userlist","/petsitterappr","/deleteapply"})
+			"/blacklist","/userlist","/petsitterappr","/deleteapply",
+			"/petinsert"})
 
 
 public class Home extends HttpServlet {
@@ -88,6 +89,9 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		
 	case "/userlist":		//전체회원 리스트
 		fw=am.userlist();
+		break;
+	case "/petinsert":
+		fw=mm.petinsert();   //반려견 등록
 		break;
 	
 	

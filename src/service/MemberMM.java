@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import DAO.MemberDao;
 import bean.Forward;
 import bean.Member;
+import bean.Pet;
 import bean.PetApply;
 
 public class MemberMM {
@@ -238,6 +239,31 @@ public class MemberMM {
 	         fw.setRedirect(true);
 	      }else {
 	         fw.setPath("petapply.jsp");
+	         fw.setRedirect(false);
+	      }
+		return fw;
+	}
+
+
+	public Forward petinsert() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		Pet p=new Pet();
+		HttpSession session=request.getSession();
+		session.getAttribute("id").toString();
+		
+		p.setId(session.getAttribute("id").toString());
+		p.setPet_name(request.getParameter("pet_name"));
+		p.setPet_gender(request.getParameter("pet_gender"));
+		p.setPet_type(request.getParameter("pet_type"));
+		p.setPer_request(request.getParameter("pet_request"));
+		boolean result= mDao.petinsert(p);
+		mDao.close();
+		 if(result) {
+	         fw.setPath("main.jsp");
+	         fw.setRedirect(true);
+	      }else {
+	         fw.setPath("petinsert.jsp");
 	         fw.setRedirect(false);
 	      }
 		return fw;

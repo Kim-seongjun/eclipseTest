@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import bean.Member;
+import bean.Pet;
 import bean.PetApply;
 
 
@@ -192,6 +193,11 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public boolean petinsert(Pet p) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

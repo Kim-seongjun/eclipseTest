@@ -31,9 +31,10 @@ public class AdminMM {
 		PetApply pa=new PetApply();
 		List<PetApply> plist=aDao.petapplylist();
 		
-		for(int i=0;i<plist.size();i++) {
-			System.out.println(i+"번째 pList = "+plist.get(i));
-		}
+		/*
+		 * for(int i=0;i<plist.size();i++) {
+		 * System.out.println(i+"번째 pList = "+plist.get(i)); }
+		 */
 		Gson g = new Gson();
 		String r = g.toJson(plist);
 		System.out.println("===========");
@@ -73,7 +74,7 @@ public class AdminMM {
 		String id=request.getParameter("sit_id");
 		System.out.println("승인할 id = "+id);
 		AdminDao aDao=new AdminDao();
-		boolean result= aDao.petsitterappr(id);
+		boolean result= aDao.petsitterppr(id);
 		aDao.close();
 		 if(result) {
 	         fw.setPath("petapplylist");

@@ -72,6 +72,7 @@
 #log_id{
 	color:#00c8b7;
 }
+
 #apply{
  border: 2px solid #00c8b7;
  border-radius: 30px;
@@ -80,6 +81,16 @@
  padding: 10px 20px;
  text-align: center;
  margin-right: 30px;
+}
+
+#petinsert{
+	border: 2px solid #ff757f;
+ 	border-radius: 30px;
+ 	color:#ff757f;
+ 	font-weight: bold;
+ 	padding: 10px 20px;
+ 	text-align: center;
+ 	margin-right: 30px;
 }
 #logout_btn{
 	all:unset;
@@ -110,7 +121,7 @@
 			
 			<c:if test="${id!=null}">
 			<input class="header_button" id="apply" type="submit" value="펫시터지원" formaction="petapply" />&nbsp;&nbsp;
-				
+				<input class="header_button" id="petinsert" type="submit" value="반려견등록" formaction="petinsert" />&nbsp;&nbsp
 			${admin}
 	
 			<span><span id="log_id">${id }</span>님 환영합니다.</span>
