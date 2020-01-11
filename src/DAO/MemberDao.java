@@ -172,6 +172,7 @@ public class MemberDao {
 				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
 				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
 				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
+				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
 				hm.put("SITTER_PRICE",rs.getNString("SITTER_PRICE"));
 				hm.put("SITTER_PHOTO",rs.getNString("SITTER_PHOTO"));
 				hm.put("ANSWER1",rs.getNString("ANSWER1"));
@@ -219,6 +220,32 @@ public class MemberDao {
 		
 		
 		return false;
+	}
+
+	public HashMap<String, String> petsitterdetail(String petsitter_id) {
+		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 and SITTER_ID=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, petsitter_id);
+			rs=pstmt.executeQuery();
+			HashMap<String, String> hm=new HashMap<String, String>();
+			if(rs.next()) {
+				hm.put("SITTER_ID",rs.getNString("SITTER_ID"));
+				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
+				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
+				hm.put("SITTER_PRICE",rs.getNString("SITTER_PRICE"));
+				hm.put("SITTER_PHOTO",rs.getNString("SITTER_PHOTO"));
+				hm.put("US_NAME",rs.getNString("US_NAME"));
+				hm.put("US_TEL",rs.getNString("US_TEL"));
+				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
+//				sList.add(rs.getNString("")); 평점
+			}
+			return hm;
+		} catch (SQLException e) {
+			System.out.println("예약상세 예외");
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

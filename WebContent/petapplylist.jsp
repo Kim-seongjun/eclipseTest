@@ -7,6 +7,13 @@
 <meta charset="utf-8">
 <title>펫시터지원자 리스트</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+.img_file{
+	width:300px;
+	height: 200px;
+}
+
+</style>
 </head>
 <body>
 <h1>펫시터지원자리스트 페이지</h1>
@@ -46,7 +53,7 @@ str+="<form action='petsitterappr' method='post'>";
 	str+=json[key].price
 	str+="</div>";
 	str+="<div>";
-	str+="<img src='img/"+json[key].imgFile+"' alt='펫시터프로필사진' />";
+	str+="<img class='img_file' src='img/"+json[key].imgFile+"' alt='펫시터프로필사진' />";
 	str+="</div>";
 	str+="<div>";
 	str+=json[key].questions1

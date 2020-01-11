@@ -1,8 +1,5 @@
 package service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -274,9 +271,24 @@ public class MemberMM {
 	}
 
 
-	public Forward petinsertshow() {
+	public Forward petinsertshow() {	//반려견 등록 페이지
 		Forward fw=new Forward();
 		fw.setPath("petinsert.jsp");
+        fw.setRedirect(false);
+		return fw;
+	}
+
+
+	public Forward petsitterdetail() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		String petsitter_id=request.getParameter("petsitter_id");
+		System.out.println("petsitter_id="+petsitter_id);
+		HashMap<String, String> hm=mDao.petsitterdetail(petsitter_id);
+		Gson g = new Gson();
+		String r = g.toJson(hm);
+		request.setAttribute("json_detail" , r);
+		fw.setPath("petsittersearchdetail.jsp");
         fw.setRedirect(false);
 		return fw;
 	}	

@@ -27,7 +27,7 @@ table, tr, td {
 
 	<script>
 		var json = ${json_ulist};
-		console.log(json.length);
+		console.log(json);
 		console.log("--------------");
 		var str = "";
 		 str += "<table>";
@@ -40,6 +40,7 @@ table, tr, td {
 		 str += "<td>이메일</td>";
 		 str += "<td>주소</td>";
 		 str += "<td>블랙리스트 여부</td>";
+		 str += "<td>회원구분</td>";
 		 str += "</tr>";
 			
 			
@@ -73,6 +74,9 @@ table, tr, td {
 							str += "</td>";
 							str += "<td>";
 							str += json[key].blacklist;
+							str += "</td>";
+							str += "<td>";
+							str += json[key].type;
 							str += "</td>";
 
 							str += "<td><input type='submit' value='블랙' /></td>";
