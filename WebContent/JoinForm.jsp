@@ -6,7 +6,8 @@
 <meta charset="utf-8">
 <title>회원가입</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
 #div {
@@ -80,13 +81,13 @@ input {
 					<tr>
 						<td>PW Check</td>
 						<td><input type="password" name="pwcheck" maxlength="30"
-					id="pwcheck"></td>
-					<td id='check'></td>
+							id="pwcheck"></td>
+						<td id='check'></td>
 					</tr>
-					
-					
-					
-				
+
+
+
+
 
 					<tr>
 						<td>이름</td>
@@ -104,7 +105,7 @@ input {
 						<td><input type="radio" value="남" name="gender"
 							class="gender" checked></td>
 						<td>여자</td>
-						<td><input  type="radio" value="여" name="gender"
+						<td><input type="radio" value="여" name="gender"
 							class="gender"></td>
 					</tr>
 
@@ -116,8 +117,8 @@ input {
 					<tr>
 						<td>이메일</td>
 						<td><input type="text" name="mail1" id="mail"></td>
-						<td>@&nbsp;&nbsp;<input type="text" id="mail2" name="mail2" readOnly
-							style="margin-bottom: 10px;" value="" /></td>
+						<td>@&nbsp;&nbsp;<input type="text" id="mail2" name="mail2"
+							readOnly style="margin-bottom: 10px;" value="" /></td>
 						<td><select id="url1">
 
 								<option value="1">직접입력</option>
@@ -140,54 +141,50 @@ input {
 
 					<tr>
 						<td rowspan="2">주소</td>
-						<td><input class="addr3" type="text" id="addr1" name="addr1" readOnly /></td>
-						<td><input class="addr3" type="text" name="addr2" style="width: 250px;"></td>
+						<td><input class="addr3" type="text" id="addr1" name="addr1"
+							readOnly /></td>
+						<td><input class="addr3" type="text" name="addr2"
+							style="width: 250px;"></td>
 					</tr>
 
 				</table>
 
-				<input class="btn" type="submit" value="확인" formaction="memberjoin" id="hag">
-				<input class="btn" type="submit" value="취소" formaction="home">
+				<input class="btn" type="submit" value="확인" formaction="memberjoin"
+					id="hag"> <input class="btn" type="submit" value="취소"
+					formaction="home">
 			</div>
 		</form>
 	</div>
 </body>
 <script>
-var idck=0;
-$("#id_check").click(function () {
-	
-	var $id=$("#id").val();
-	console.log($id);
-	
-	$.ajax({
-		type:'post',
-		data:$id,
-		url:'',
-		datatype:'html',
-		success:function(data){
-			if(data.cnt>0){
-				alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-				$("#id").focus();
+	var idck = 0;
+	$("#id_check").click(function() {
+
+		var $id = $("#id").val();
+		console.log($id);
+
+		$.ajax({
+			type : 'post',
+			data : $id,
+			url : '',
+			datatype : 'html',
+			success : function(data) {
+				if (data.cnt > 0) {
+					alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+					$("#id").focus();
+				} else {
+					alert("사용가능한 아이디입니다.");
+					$("#pw").focus();
+					idck = 1;
+				}
+
+			}, //success end
+			error : function(error) {
+				console.log(error);
 			}
-			else{
-				alert("사용가능한 아이디입니다.");
-				$("#pw").focus();
-				idck=1;
-			}
-				
-		}, //success end
-		error : function(error){
-			console.log(error);
-		}
-		
-	}) //ajax end
-});
 
-
-
-
-
-
+		}) //ajax end
+	});
 
 	$(document).ready(function() {
 		$("#mail2").attr("readOnly", false);
@@ -224,112 +221,77 @@ $("#id_check").click(function () {
 			}
 		});
 	});
-	
-	
-$("#pwcheck").keyup(function(){
-	console.log($("#pw").val());
-	if($("#pw").val()!=$("#pwcheck").val())
-		{
-		$("#check").text("비밀번호가 일치하지않습니다.").css("color","red");
+
+	$("#pwcheck").keyup(function() {
+		console.log($("#pw").val());
+		if ($("#pw").val() != $("#pwcheck").val()) {
+			$("#check").text("비밀번호가 일치하지않습니다.").css("color", "red");
+		} else {
+			$("#check").text("");
 		}
-	else{
-		$("#check").text("");
-	}
-		
-});
 
+	});
 
+	$("#hag").click(function() {
 
-$("#hag").click(function(){
-	
-	if($("#id").val()==""){	
-		alert("아이디를 입력해주세요.");
-		$("#hag").prop("type","button");
-	}
+		if ($("#id").val() == "") {
+			alert("아이디를 입력해주세요.");
+			$("#hag").prop("type", "button");
+		}
 
-	
-	 if($("#pw").val()==""){
+		if ($("#pw").val() == "") {
 			alert("비밀번호를 입력해주세요.");
-			$("#hag").prop("type","button");
-	 }		
+			$("#hag").prop("type", "button");
+		}
 
-	 
-	 
-	 if($("#name").val()==""){
-				alert("이름을 입력해주세요.");
-				$("#hag").prop("type","button");
-	 }
+		if ($("#name").val() == "") {
+			alert("이름을 입력해주세요.");
+			$("#hag").prop("type", "button");
+		}
 
-	 
-	 
-	 
-			if($("#tel").val()==""){
+		if ($("#tel").val() == "") {
 			alert("핸드폰번호를 입력해주세요.");
-			$("#hag").prop("type","button");
-			}
+			$("#hag").prop("type", "button");
+		}
 
-	
-			if($("#birth").val()==""){
-				alert("생일을 입력해주세요.");
-				$("#hag").prop("type","button");
-			}	
-		
-			if($("#mail").val()==""){
-				alert("E-mail을 입력해주세요.");
-				$("#hag").prop("type","button");
-			}	
-			
-	
-			if($(".addr3").val()==""){
-				alert("주소를 입력해주세요.");
-				$("#hag").prop("type","button");
-			}
-		
-			if($("#id").val()!=""){	
-				
-		
-			 if($("#pw").val()!=""){
-				
-				 
-			 if($("#name").val()!=""){
-						
-			 
+		if ($("#birth").val() == "") {
+			alert("생일을 입력해주세요.");
+			$("#hag").prop("type", "button");
+		}
 
-					if($("#tel").val()!=""){
-					
-					
-		
-					if($("#birth").val()!=""){
-						
-						
-	
-					if($("#mail").val()!=""){
-						
-					
-	
-					if($(".addr3").val()!=""){
-						alert("회원가입이 완료되었습니다.");
-						$("#hag").prop("type","submit");
-					}
-					}
-					}
-					}
-			 }
-			 }
-			}
-			
-			
-			
-			
-			
-		
-});
+		if ($("#mail").val() == "") {
+			alert("E-mail을 입력해주세요.");
+			$("#hag").prop("type", "button");
+		}
 
-	
-	
-	
-	
-	
-	
+		if ($(".addr3").val() == "") {
+			alert("주소를 입력해주세요.");
+			$("#hag").prop("type", "button");
+		}
+
+		if ($("#id").val() != "") {
+
+			if ($("#pw").val() != "") {
+
+				if ($("#name").val() != "") {
+
+					if ($("#tel").val() != "") {
+
+						if ($("#birth").val() != "") {
+
+							if ($("#mail").val() != "") {
+
+								if ($(".addr3").val() != "") {
+									alert("회원가입이 완료되었습니다.");
+									$("#hag").prop("type", "submit");
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	});
 </script>
 </html>
