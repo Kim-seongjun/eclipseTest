@@ -291,6 +291,22 @@ public class MemberMM {
 		fw.setPath("petsittersearchdetail.jsp");
         fw.setRedirect(false);
 		return fw;
+	}
+
+
+	public Forward petsitter_reg() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		System.out.println(request.getParameter("region"));
+		String region=request.getParameter("region");
+		return null;
+	}
+
+
+	public Forward idcheck() {
+		String id=request.getParameter("id");
+		System.out.println("종복검사할 ID = "+id);
+		return null;
 	}	
 
 }

@@ -153,6 +153,42 @@ input {
 	</div>
 </body>
 <script>
+var idck=0;
+$("#id_check").click(function () {
+	
+	var $id=$("#id").val();
+	console.log($id);
+	
+	$.ajax({
+		type:'post',
+		data:$id,
+		url:'',
+		datatype:'html',
+		success:function(data){
+			if(data.cnt>0){
+				alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+				$("#id").focus();
+			}
+			else{
+				alert("사용가능한 아이디입니다.");
+				$("#pw").focus();
+				idck=1;
+			}
+				
+		}, //success end
+		error : function(error){
+			console.log(error);
+		}
+		
+	}) //ajax end
+});
+
+
+
+
+
+
+
 	$(document).ready(function() {
 		$("#mail2").attr("readOnly", false);
 	});

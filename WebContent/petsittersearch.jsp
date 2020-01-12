@@ -15,7 +15,7 @@
 	}
 	#div_insearchmain{
 		
-		display: inline-block;
+		display:inline-block;
 		width: 100%;
 		border: 1px solid #fbbe53;
 		
@@ -24,6 +24,7 @@
 		float: left;
 		list-style: none;
 		font-size: 30px;
+		border-right:1px solid #fbbe53;
 		
 	}
 	#ul_outsearch{
@@ -39,6 +40,12 @@
 		text-align: left;
 		width: 700PX;
 		border: 1px solid black;
+	}
+	#li_insearch:hover{
+		background: red;
+	}
+	#hover:hover {
+		background: red;
 	}
 	
 	.searchimg{
@@ -62,7 +69,13 @@
 		padding:10px 20px;
 		margin-top: 20px;
 	}
-	
+.reg{
+	all:unset;
+	color:#FF8000;
+	padding-right: 15px;
+	margin-bottom:15px;
+	cursor:pointer;
+}
 </style>
 <style type="text/css">
 A:link{text-decoration; color: black;}
@@ -73,25 +86,28 @@ A:active{text-decoration; color: orange;}
 	<div id="header">
 		<jsp:include page="header.jsp" />
 	</div>
+	
+	
+	<form action="petsitter_reg" method="post">
 	<div id="div_outsearchmain">
-		<div id="div_insearchmain" style="background-color: #cccccc; border-radius: 20px">
-			<ul>
+		<div id="div_insearchmain" style="background-color: #f5f5f5; border-radius: 10px">
+			<ul id='hover'>
 				<li class="searchli">
-					<a href="#" style="text-decoration: none; text-shadow: 0 0 24px " >전체&nbsp;<span>쿼리문</span></a>&nbsp;&nbsp;
+					<input type="submit" name='region' class='reg'  value='전체'/>
 				</li>
 				<li class="searchli">
-					<a href="#" style="text-decoration: none; text-shadow: 0 0 24px">서울&nbsp;<span>쿼리문</span></a>&nbsp;&nbsp;
+					<input type="submit" name='region' class='reg'  value='서울'/>
 				</li>
 				<li class="searchli">
-					<a href="#" style="text-decoration: none; text-shadow: 0 0 24px">경기&nbsp;<span>쿼리문</span></a>&nbsp;&nbsp;
+					<input type="submit" name='region' class='reg'  value='경기'/>
 				</li>
 				<li class="searchli">
-					<a href="#" style="text-decoration: none; text-shadow: 0 0 24px">인천&nbsp;<span>쿼리문</span></a>
+					<input type="submit" name='region' class='reg'  value='인천'/>
 				</li>
 			</ul>
 		</div>
 	</div>
-	
+	</form>
 	
 	<ul id="ul_outsearch">
 <!-- 		<a href="#"> -->
