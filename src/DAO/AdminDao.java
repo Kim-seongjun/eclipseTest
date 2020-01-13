@@ -145,4 +145,56 @@ public class AdminDao {
 		return null;
 	}
 
+	public boolean black(String sit_id) {
+		String sql = "update PET_USER set us_blacklist = 'Y' where us_id = ? ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setNString(1, sit_id);
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				System.out.println("블랙리스트 적용되었습니다.");
+				return true;
+			}
+		} catch (SQLException e) {
+			System.out.println("블랙리스트변경 예외");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public List<Member> userblacklist() {
+		String sql = "select * from pu where us_blacklist = 'Y'";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			List<Member> ublist = new ArrayList<Member>();
+			Member ub = null;
+			while (rs.next()) {
+				ub = new Member();
+				ub.setId(rs.getNString("US_ID"));
+				ub.setPw(rs.getNString("US_PW"));
+				ub.setName(rs.getNString("US_NAME"));
+				ub.setGender(rs.getNString("US_GENDER"));
+				ub.setBirth(rs.getNString("US_BIRTH"));
+				ub.setTel(rs.getNString("US_TEL"));
+				ub.setMail(rs.getNString("US_MAIL"));
+				ub.setAddr(rs.getNString("US_ADDRESS"));
+				ub.setBlacklist(rs.getNString("US_BLACKLIST"));
+				ub.setType(rs.getInt("US_TYPE"));
+				ublist.add(ub);
+			}
+			System.out.println("블랙리스트유저리스트 불러오기 성공?");
+			return ublist;
+
+		}
+
+		catch (SQLException e) {
+			System.out.println("블랙리스트유저리스트 예외");
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
+
 }

@@ -20,7 +20,7 @@ import service.MemberMM;
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
-			"/petinsert","/petinsertshow","/petsitterdetail","/petsitter_reg"})
+			"/petinsert","/petinsertshow","/petsitterdetail","/petsitter_reg","/black"})
 
 
 public class Home extends HttpServlet {
@@ -93,6 +93,10 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	
 	case "/blacklist":
 		fw=am.blackList();  //블랙리스트
+		break;
+		
+	case "/black":
+		fw=am.black();
 		break;
 		
 	case "/petinsertshow":

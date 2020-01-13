@@ -18,10 +18,8 @@ table, tr, td {
 </head>
 <body>
 	<h1>전체회원리스트</h1>
+	<div id='asd'></div>
 
-	<div id='asd'>
-	
-	</div>
 
 
 
@@ -30,33 +28,28 @@ table, tr, td {
 		console.log(json);
 		console.log("--------------");
 		var str = "";
-		 str += "<table>";
-		 str += "<tr>";
-		 str += "<td>회원 아이디</td>";
-		 str += "<td>이름</td>";
-		 str += "<td>성별</td>";
-		 str += "<td>생년월일</td>";
-		 str += "<td>전화번호</td>";
-		 str += "<td>이메일</td>";
-		 str += "<td>주소</td>";
-		 str += "<td>블랙리스트 여부</td>";
-		 str += "<td>회원구분</td>";
-		 str += "</tr>";
-			
-			
-			
-			
-			
-		
-	
-		$.each(json,function(key, value) {
-							str += "<form action='userlistshow'method='post'>";
+		str += "<table>";
+		str += "<tr>";
+		str += "<td>회원 아이디</td>";
+		str += "<td>이름</td>";
+		str += "<td>성별</td>";
+		str += "<td>생년월일</td>";
+		str += "<td>전화번호</td>";
+		str += "<td>이메일</td>";
+		str += "<td>주소</td>";
+		str += "<td>블랙리스트 여부</td>";
+		str += "<td>회원구분</td>";
+		str += "</tr>";
+
+		$
+				.each(
+						json,
+						function(key, value) {
 
 							str += "<tr>";
-
-							str += "<td>"+json[key].id+"</td>";
-							//"<input type='hidden' name='sit_id' value='"+json[key].id+"'/>";
-							str += "<td>"+ json[key].name+"</td>";
+							str += "<form action='black' method='post'>";
+							str += "<td>" + json[key].id + "</td>";
+							str += "<td>" + json[key].name + "</td>";
 							str += "<td>";
 							str += json[key].gender;
 							str += "</td>";
@@ -79,12 +72,14 @@ table, tr, td {
 							str += json[key].type;
 							str += "</td>";
 
-							str += "<td><input type='submit' value='블랙' /></td>";
-							str += "<td><input type='submit' value='해제' formaction='deleteapply' /></td>";
-							str += "</tr>";
+							str += "<td><input type='submit' value='블랙'/></td>";
+							str += "<td><input type='hidden' name='sit_id' value='"+json[key].id+"'/></td>";
 							str += "</form>";
+							str += "</tr>";
+
 						});
 		str += "</table>";
+
 		$("#asd").append(str);
 	</script>
 </body>
