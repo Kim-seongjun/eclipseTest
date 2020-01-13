@@ -47,7 +47,7 @@ table, tr, td {
 						json,
 						function(key, value) {
 
-							//str += "<form action='black' method='post'>";
+							str += "<form action='black' method='post'>";
 							str += "<tr>";
 							str += "<td>" + json[key].id + "</td>";
 							str += "<td>" + json[key].name + "</td>";
@@ -76,11 +76,11 @@ table, tr, td {
 							str += "<td><input type='submit' value='ºí·¢'/></td>";
 							str += "<td><input type='hidden' name='sit_id' value='"+json[key].id+"'/></td>";
 							str += "</tr>";
-							//str += "</form>";
+							str += "</form>";
 
 						});
 		str += "</table>";
-							str += "</form>";
+							
 
 		$("#asd").append(str);
 	</script>

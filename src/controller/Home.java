@@ -84,11 +84,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	case "/petsittersearch":   //펫시터 찾기
 		fw=mm.petsittersearch();
 		break;
-		
-	case "/petsitter_reg":
-		fw=mm.petsitter_reg();
-		break;
-		
+				
 	case "/petsitterdetail":
 		fw=mm.petsitterdetail();  //펫시터상세 및 예약페이지
 		break;

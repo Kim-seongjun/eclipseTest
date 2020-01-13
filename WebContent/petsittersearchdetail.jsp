@@ -58,9 +58,9 @@
 </head>
 <body>
 	
-<!-- 	<div id="header"> -->
-<%-- 		<jsp:include page="header.jsp" /> --%>
-<!-- 	</div> -->
+	<%-- <div id="header">
+ 		<jsp:include page="header.jsp" /> 
+	</div> --%>
 	
 	<h1>예약상세페이지</h1>
 			<form action="reservation" method='post'>
@@ -71,12 +71,8 @@
 		<div id='pay'>
 			<input type="text" class='date' name='start_day' placeholder='예약시작일' /> 
 			<input type="text" class='date1'name='end_day' placeholder='예약종료일' /> <br />
-			<input type="text" id='pet' name='' readOnly  />
-			<select id="pet_choice">
-								<option value="몽구">몽구</option>
-								<option value="몽자">몽자</option>
-								<option value="몽식">몽식</option>
-						</select> <br />
+			<input type="text" id='pet' name='pet' readOnly  />
+			<input type="hidden" id='pet_no' name='pet_no'  />
 		</div>
 	</div>
 				</form>
@@ -86,9 +82,30 @@
 	</div>
 
 	<script>
+	var json_pet=${json_pet};
+	console.log("json_pet ="+json_pet);
+	console.log("-----------------------------");
+	
+	var str1="";
+		str1+="<select id='pet_choice'>";
+		str1+="<option value=''>선택하세요</option>";
+	$.each(json_pet, function(key,val) {
+		console.log("json_pet = "+json_pet[key].PET_NAME);	
+		console.log("json_pet = "+json_pet[key].PET_NO);	
+		str1+="<option value="+json_pet[key].PET_NO+">"+json_pet[key].PET_NAME+"</option>";
+	
+	});
+		str1+="</select> <br />";
+		/*  $.each(json_pet, function(key,val) {
+			str1+="<input type='hidden' id='pet_no' name='pet_no' value="+json_pet[key].PET_NO+" />";
+		}); */
+		 
+	$("#pay").append(str1);
+	
 	$("#pet_choice").change(function() {
 		$("#pet_choice option:selected").each(function() {
 				$("#pet").val($(this).text()); //선택값 입력 
+				$("#pet_no").val($(this).val()); //선택값 입력 
 			});
 		});
 // 	var jb = jQuery.noConflict();
@@ -136,6 +153,9 @@
 		pay += "<input type='text' name='price' readOnly value='"+json.SITTER_PRICE+"'/><br />";
 		pay += "";
 		pay+="<input type='submit' value='최종 예약' />";
+		pay+="<input type='hidden' name='sit_id' value='"+json.SITTER_ID+"' />";
+		pay+="<input type='hidden' name='sit_addr' value='"+json.US_ADDRESS+"' />";
+
 		$("#pay").append(pay);
 	</script>
 	

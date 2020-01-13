@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -100,7 +101,14 @@ public class MemberMM {
 		//Member mb=new Member();
 		MemberDao mDao=new MemberDao();
 		List<HashMap<String, String>> sList=null;
-		sList=mDao.petsittersearch();
+		String region = request.getParameter("region");
+		System.out.println(region);
+		System.out.println("-----------------asd");
+		if(region == null) {
+			sList=mDao.petsittersearch();
+		}
+		else
+		sList=mDao.petsittersearch(region);
 		for(int i=0; i<sList.size();i++) {
 			System.out.println(i+"번째 sList = " + sList.get(i));
 			System.out.println("-----------------");
@@ -288,19 +296,22 @@ public class MemberMM {
 		Gson g = new Gson();
 		String r = g.toJson(hm);
 		request.setAttribute("json_detail" , r);
+		
+		HttpSession session=request.getSession();
+		String id=session.getAttribute("id").toString();
+		System.out.println("idid="+id);
+		
+		List<HashMap<String, String>> hmm=mDao.pet(id);
+		
+		String pet=g.toJson(hmm);
+		request.setAttribute("json_pet", pet);
+		
 		fw.setPath("petsittersearchdetail.jsp");
         fw.setRedirect(false);
 		return fw;
 	}
 
 
-	public Forward petsitter_reg() {
-		Forward fw=new Forward();
-		MemberDao mDao=new MemberDao();
-		System.out.println("지역은 "+request.getParameter("region"));
-		String region=request.getParameter("region");
-		return null;
-	}
 
 
 	public String idcheck() {
