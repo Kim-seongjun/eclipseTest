@@ -303,10 +303,17 @@ public class MemberMM {
 	}
 
 
-	public Forward idcheck() {
-		String id=request.getParameter("id");
+	public String idcheck() {
+		System.out.println("들어오세요");
+		String id=request.getParameter("$id");
 		System.out.println("종복검사할 ID = "+id);
-		return null;
+		MemberDao mDao=new MemberDao();
+		int cnt= mDao.idcheck(id);
+		
+		String json=new Gson().toJson(cnt);
+		System.out.println("json="+json);
+		
+		return json;
 	}	
 
 }

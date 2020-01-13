@@ -158,6 +158,11 @@ input {
 </body>
 <script>
 	var idck = 0;
+	$("#id").focus(function(){
+		console.log("변경전 idck="+idck);
+		idck=0;
+		console.log("변경후 idck="+idck);
+	});
 	$("#id_check").click(function() {
 
 		var $id = $("#id").val();
@@ -165,17 +170,24 @@ input {
 
 		$.ajax({
 			type : 'post',
-			data : $id,
-			url : '',
-			datatype : 'html',
+			data : {$id:$id},
+			url : 'idcheck',
+			datatype : 'json',
 			success : function(data) {
-				if (data.cnt > 0) {
+				console.log("data="+data);
+				console.log("data.cnt="+data.cnt);
+				
+				if (data==1) {
 					alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
 					$("#id").focus();
-				} else {
+				} else if(data== 0) {
 					alert("사용가능한 아이디입니다.");
 					$("#pw").focus();
 					idck = 1;
+				}
+				else if(data==-1){
+					alert("아이디를 입력해주세요.");
+					$("#id").focus();
 				}
 
 			}, //success end
@@ -183,7 +195,7 @@ input {
 				console.log(error);
 			}
 
-		}) //ajax end
+		}); //ajax end
 	});
 
 	$(document).ready(function() {
@@ -233,7 +245,9 @@ input {
 	});
 
 	$("#hag").click(function() {
-
+		if(idck==0){
+			alert("아이디 중복검사 ㄱㄱ");
+		}
 		if ($("#id").val() == "") {
 			alert("아이디를 입력해주세요.");
 			$("#hag").prop("type", "button");
