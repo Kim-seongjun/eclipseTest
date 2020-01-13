@@ -297,7 +297,7 @@ public class MemberMM {
 	public Forward petsitter_reg() {
 		Forward fw=new Forward();
 		MemberDao mDao=new MemberDao();
-		System.out.println(request.getParameter("region"));
+		System.out.println("지역은 "+request.getParameter("region"));
 		String region=request.getParameter("region");
 		return null;
 	}

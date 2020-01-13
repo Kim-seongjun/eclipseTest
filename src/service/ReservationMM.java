@@ -2,7 +2,9 @@ package service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import DAO.ReservationDao;
 import bean.Forward;
 
 public class ReservationMM {
@@ -17,8 +19,13 @@ public class ReservationMM {
 
 
 	public Forward reservation() {
+		Forward fw=new Forward();
+		ReservationDao rDao=new ReservationDao();
+		HttpSession session=request.getSession();
+		String res_id=(String)session.getAttribute("id");
 		
-		return null;
+		boolean result=rDao.reservation(res_id);
+		return fw;
 	}
 	
 	

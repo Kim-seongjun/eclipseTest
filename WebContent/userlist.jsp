@@ -28,6 +28,7 @@ table, tr, td {
 		console.log(json);
 		console.log("--------------");
 		var str = "";
+		str += "<form action='black' method='post'>";
 		str += "<table>";
 		str += "<tr>";
 		str += "<td>회원 아이디</td>";
@@ -46,8 +47,8 @@ table, tr, td {
 						json,
 						function(key, value) {
 
+							//str += "<form action='black' method='post'>";
 							str += "<tr>";
-							str += "<form action='black' method='post'>";
 							str += "<td>" + json[key].id + "</td>";
 							str += "<td>" + json[key].name + "</td>";
 							str += "<td>";
@@ -74,11 +75,12 @@ table, tr, td {
 
 							str += "<td><input type='submit' value='블랙'/></td>";
 							str += "<td><input type='hidden' name='sit_id' value='"+json[key].id+"'/></td>";
-							str += "</form>";
 							str += "</tr>";
+							//str += "</form>";
 
 						});
 		str += "</table>";
+							str += "</form>";
 
 		$("#asd").append(str);
 	</script>
