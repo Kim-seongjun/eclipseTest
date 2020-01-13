@@ -68,14 +68,16 @@
 		<div id='show_petsitter'></div>
 
 		<div id='pay'>
+			<form action="reservation" method='post'>
 			<input type="text" class='date' placeholder='예약시작일' /> <input
 				type="text" class='date1' placeholder='예약종료일' /> <input
 				type="submit" value='최종 예약' />
+				</form>
 		</div>
 	</div>
 	<div id="review" style="width: 1129px; height: 400px; border: 1px solid black; margin: 10, 10, 10, 10;">
 	<h3>후기</h3>
-	<div style="border: 1px solid black;">zzzzz</div>
+	<div style="border: 1px solid black;"></div>
 	</div>
 
 	<script>
