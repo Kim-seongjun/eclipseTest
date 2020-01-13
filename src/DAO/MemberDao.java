@@ -248,4 +248,30 @@ public class MemberDao {
 		return null;
 	}
 
+	public int idcheck(String id) {
+		String sql="SELECT * FROM PU WHERE US_ID=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+			            return 1;
+		}
+			
+		else if(id.equals("")){ //id가 공백이면
+            return -1;
+         }else {
+            return 0;
+         }
+			
+		
+		}
+			catch (SQLException e) {
+			System.out.println("중복검사 예외");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
 }

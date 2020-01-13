@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,18 +23,23 @@ public class AjaxController extends HttpServlet {
 	
 protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cmd=request.getServletPath();
-		Forward fw=new Forward();
+		System.out.println("cmd="+cmd);
+		String json=null;
 		MemberMM mm=new MemberMM(request,response);
 		
 		switch (cmd) {
 		case "/idcheck" :
-			fw=mm.idcheck();		
-			break;
-
-		default:
+			System.out.println("들어오십니까");
+			json=mm.idcheck();		
 			break;
 		}
-	
+		
+		
+		if(json!=null) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out=response.getWriter();
+			out.write(json);
+		}
 	
 	}
 	

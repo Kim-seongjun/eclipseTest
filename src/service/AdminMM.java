@@ -49,6 +49,11 @@ public class AdminMM {
 
 	public Forward blackList() {
 		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		List<Member> ublist = aDao.userblacklist();
+		Gson g = new Gson();
+		String r = g.toJson(ublist);
+		request.setAttribute("json_ublist", r);
 		fw.setPath("blacklist.jsp");
 		fw.setRedirect(false);
 		return fw;
@@ -91,10 +96,10 @@ public class AdminMM {
 		boolean result = aDao.deletePetApply(id);
 		aDao.close();
 		if (result) {
-			fw.setPath("petapplylist");
+			fw.setPath("userlist");
 			fw.setRedirect(false);
 		} else {
-			fw.setPath("petapplylist.jsp");
+			fw.setPath("userlist.jsp");
 			fw.setRedirect(false);
 		}
 		return fw;
@@ -117,6 +122,23 @@ public class AdminMM {
 		return fw;
 	}
 
-		
-		
+	public Forward black() {
+		String sit_id = request.getParameter("sit_id");
+		System.out.println("sit_id =" + sit_id);
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		boolean result = aDao.black(sit_id);
+		aDao.close();
+		if (result) {
+			fw.setPath("userlist");
+			fw.setRedirect(true);
+		} else {
+			fw.setPath("userlist");
+			fw.setRedirect(false);
+		}
+		return fw;
+
+	}
+
+
 }
