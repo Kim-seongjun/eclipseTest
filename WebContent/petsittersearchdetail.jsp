@@ -30,10 +30,10 @@
 	margin-bottom: 10px;
 }
 
-#img {
-	width: 500px;
-	height: 300px;
-}
+/* .detail_img { */
+/* 	width: 500px; */
+/* 	height: 300px; */
+/* } */
 
 #info {
 	display: flex;
@@ -57,7 +57,14 @@
 </style>
 </head>
 <body>
+	
+	<div id="header">
+		<jsp:include page="header.jsp" />
+	</div>
+	
+	<h1>예약상세페이지</h1>
 	<div id='main'>
+	
 		<div id='show_petsitter'></div>
 
 		<div id='pay'>
@@ -66,9 +73,13 @@
 				type="submit" value='최종 예약' />
 		</div>
 	</div>
-
+	<div id="review" style="width: 1129px; height: 400px; border: 1px solid black; margin: 10, 10, 10, 10;">
+	<h3>후기</h3>
+	<div style="border: 1px solid black;">zzzzz</div>
+	</div>
 
 	<script>
+// 	var jb = jQuery.noConflict();
 		/*  	$(function() {
 				$.datepicker.setDefaults($.datepicker.regional['ko']); //datepicker 한국어로 사용하기 위한 언어설정
 				$('.date').datepicker({dateFormat: 'yy년 mm월 dd일',
@@ -78,6 +89,7 @@
 			var start=new Date();
 			console.log(start);
 			console.log(start.getDate()+1);
+			
 			$('.date').datepicker({
 				dateFormat : 'yy년 mm월 dd일',
 				minDate : 0,
@@ -86,7 +98,7 @@
 					$('.date1').datepicker({
 						dateFormat : 'yy년 mm월 dd일',
 						minDate : a,
-
+						
 					});
 
 				}
@@ -100,17 +112,25 @@
 		console.log(json);
 		console.log(json.SITTER_TITLE);
 		str += "<div id='title'>" + json.SITTER_TITLE + "</div>";
-		str += "<div><img id='img' src='img/"+json.SITTER_PHOTO+"' alt='펫시터 이미지입니다.' /></div>";
+		str += "<div><img style='width: 500px; height: 300px;' id='detail_img' src='img/"+json.SITTER_PHOTO+"' alt='펫시터 이미지입니다.' /></div>";
 		str += "<div id='info'>"
-		str += "<div id='name'>" + json.US_NAME + " (" + json.SITTER_ID
+		str += "<div id='name' style='font-size: 20px'>" + json.US_NAME + " (" + json.SITTER_ID
 				+ ")&nbsp;&nbsp;</div>";
-		str += "<div id='addr'><div> ◎" + json.US_ADDRESS + "</div></div>";
+		str += "<div id='addr' style='font-size: 20px'><div> ◎" + json.US_ADDRESS + "</div></div>";
 		str += "</div>"
-		str += "<div id='contents'>" + json.SITTER_BODY + "</div>";
+		str += "<div id='contents' style='font-size: 20px'>" + json.SITTER_BODY + "</div>";
 		$("#show_petsitter").append(str);
 
 		pay += "<input type='text' readOnly value='"+json.SITTER_PRICE+"'/>";
 		$("#pay").append(pay);
+	</script>
+	<script>
+		var json = ${json_review};
+		var srt = "";
+		console.log(json);
+		console.log(json.res_no);
+		
+		$(.review).append(str);
 	</script>
 </body>
 </html>
