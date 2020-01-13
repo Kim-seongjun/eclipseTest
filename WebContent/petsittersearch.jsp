@@ -88,7 +88,7 @@ A:active{text-decoration; color: orange;}
 	</div>
 	
 	
-	<form action="petsitter_reg" method="post">
+	<form action="petsittersearch" method="post">
 	<div id="div_outsearchmain">
 		<div id="div_insearchmain" style="background-color: #f5f5f5; border-radius: 10px">
 			<ul id='hover'>
