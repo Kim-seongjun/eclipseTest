@@ -22,7 +22,7 @@ import service.ReservationMM;
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
-			"/reservation","/petsitter_reg","/black"})
+			"/reservation","/petsitter_reg","/black","/white"})
 
 
 public class Home extends HttpServlet {
@@ -116,6 +116,9 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=rm.reservation(); //예약
 		break;
 	
+	case "/white":
+		fw=am.white();
+		break;
 	
 	}
 	if(fw!=null) {
