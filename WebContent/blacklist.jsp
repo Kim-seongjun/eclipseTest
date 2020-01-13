@@ -70,7 +70,7 @@ table, tr, td {
 							str += "<td>";
 							str += json[key].type;
 							str += "</td>";
-							str += "<td><input type='submit' value='해제' formaction='deleteapply' /></td>";
+							str += "<td><input type='submit' value='해제' formaction='white' /></td>";
 							str += "<td><input type='hidden' name='sit_id' value='"+json[key].id+"'/></td>";
 							str += "</form>";
 							str += "</tr>";
