@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Forward;
 import service.AdminMM;
 import service.MemberMM;
+import service.ReservationMM;
 
 /**
  * Servlet implementation class Home
@@ -20,7 +21,8 @@ import service.MemberMM;
 @WebServlet({"/home","/access","/petsittersearch","/joinfrm","/logout",
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
-			"/petinsert","/petinsertshow","/petsitterdetail","/petsitter_reg","/black"})
+			"/petinsert","/petinsertshow","/petsitterdetail",
+			"/reservation","/petsitter_reg","/black"})
 
 
 public class Home extends HttpServlet {
@@ -34,7 +36,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	Forward fw=new Forward();
 	MemberMM mm=new MemberMM(request,response);
 	AdminMM am=new AdminMM(request,response);
-	
+	ReservationMM rm=new ReservationMM(request,response);
 	switch(cmd) {
 	case "/home":   //메인으로 가기
 		fw=mm.home();
@@ -108,6 +110,10 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 	case "/petinsert":
 		fw=mm.petinsert();   //반려견 등록
+		break;
+		
+	case "/reservation":
+		fw=rm.reservation(); //예약
 		break;
 	
 	
