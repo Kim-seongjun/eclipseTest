@@ -197,4 +197,22 @@ public class AdminDao {
 
 	}
 
+	public boolean white(String sit_id) {
+		String sql = "update PET_USER set us_blacklist = 'N' where us_id = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setNString(1, sit_id);
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				System.out.println("화이트리스트 적용되었습니다.");
+				return true;
+			}
+		} catch (SQLException e) {
+			System.out.println("화이트리스트변경 예외");
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
 }
