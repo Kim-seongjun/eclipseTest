@@ -159,9 +159,13 @@ public class MemberDao {
 			
 		return false;
 	}
-
-	public List<HashMap<String, String>> petsittersearch() {
+	//검색창에서 지역 선택
+	public List<HashMap<String, String>> petsittersearch(String region) {
+		
+		
+		if("전체".equals(region)) {
 		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2";
+		
 		try {
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -193,8 +197,49 @@ public class MemberDao {
 			System.out.println("펫시터검색 예외");
 			e.printStackTrace();
 		}
+		
+		}else {
+			System.out.println(region);
+			System.out.println("asdasdasxcv");
+			String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 and US_ADDRESS LIKE ?||'%'";
+			try {
+				pstmt=con.prepareStatement(sql);
+				pstmt.setNString(1, region);
+				rs=pstmt.executeQuery();
+				
+				List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
+				
+				while(rs.next()) {
+					HashMap<String, String> hm = new HashMap<String, String>();
+					hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+					hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
+					hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
+					hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
+					hm.put("SITTER_PRICE",rs.getNString("SITTER_PRICE"));
+					hm.put("SITTER_PHOTO",rs.getNString("SITTER_PHOTO"));
+					hm.put("ANSWER1",rs.getNString("ANSWER1"));
+					hm.put("ANSWER2",rs.getNString("ANSWER2"));
+					hm.put("ANSWER3",rs.getNString("ANSWER3"));
+					hm.put("ANSWER4",rs.getNString("ANSWER4"));
+					hm.put("ANSWER5",rs.getNString("ANSWER5"));
+					hm.put("ANSWER6",rs.getNString("ANSWER6"));
+					hm.put("ANSWER7",rs.getNString("ANSWER7"));
+					sList.add(hm);
+				}
+			
+				System.out.println("펫시터검색 성공");
+				return sList;
+				
+				
+			} catch (SQLException e) {
+				System.out.println("펫시터검색 예외");
+				e.printStackTrace();
+			}
+		}
+		
 		return null;
 	}
+
 
 	public boolean petinsert(Pet p) {
 		String sql="INSERT INTO PP VALUES (PP_SEQ.nextval,?,?,?,?,?)";
@@ -272,6 +317,43 @@ public class MemberDao {
 		}
 		
 		return 0;
+	}
+	//검색시 지역값 입력 안할시
+	public List<HashMap<String, String>> petsittersearch() {
+		
+		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2";
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
+			
+			while(rs.next()) {
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
+				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
+				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
+				hm.put("SITTER_PRICE",rs.getNString("SITTER_PRICE"));
+				hm.put("SITTER_PHOTO",rs.getNString("SITTER_PHOTO"));
+				hm.put("ANSWER1",rs.getNString("ANSWER1"));
+				hm.put("ANSWER2",rs.getNString("ANSWER2"));
+				hm.put("ANSWER3",rs.getNString("ANSWER3"));
+				hm.put("ANSWER4",rs.getNString("ANSWER4"));
+				hm.put("ANSWER5",rs.getNString("ANSWER5"));
+				hm.put("ANSWER6",rs.getNString("ANSWER6"));
+				hm.put("ANSWER7",rs.getNString("ANSWER7"));
+				sList.add(hm);
+			}
+		
+			System.out.println("펫시터검색 성공");
+			return sList;
+			
+			
+		} catch (SQLException e) {
+			System.out.println("펫시터검색 예외");
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
