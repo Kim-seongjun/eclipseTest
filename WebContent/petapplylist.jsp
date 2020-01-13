@@ -8,10 +8,26 @@
 <title>펫시터지원자 리스트</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
-.img_file{
-	width:300px;
-	height: 200px;
+#petsitter{
+border: 1px solid black;
+margin-bottom: 20px;
+width:1400px;
+display:flex;
+
 }
+
+#p_text{
+display:block;
+font-weight:bolder;
+} 
+
+.img_file{
+height: 410px;
+width: 410px;
+}
+
+
+
 
 </style>
 </head>
@@ -38,47 +54,82 @@ $.each(json,function(key,value){
 str+="<form action='petsitterappr' method='post'>";
 	
 	console.log(json[key]);
-
-	str+="<div>";
-	str+=json[key].id
-	str+="<input type='hidden' name='sit_id' value='"+json[key].id+"' />";
-	str+="</div>";
-	str+="<div>";
-	str+=json[key].title
-	str+="</div>";
-	str+="<div>";
-	str+=json[key].cont
-	str+="</div>";
-	str+="<div>";
-	str+=json[key].price
-	str+="</div>";
+	str+="<div id='petsitter'>";
+	str+="<div id='img_div'>";
 	str+="<div>";
 	str+="<img class='img_file' src='img/"+json[key].imgFile+"' alt='펫시터프로필사진' />";
 	str+="</div>";
+	str+="</div>";
+	
+	
+	//텍스트만
+	str+="<div id='p_text'>";
+	str+="<div>";
+	str+="ID : " + json[key].id
+	str+="<input type='hidden' name='sit_id' value='"+json[key].id+"' />";
+	str+="</div>";
+	str+="<div>";
+	str+="제목 : " + json[key].title
+	str+="</div>";
+	str+="<div>";
+	str+="내용 : " + json[key].cont
+	str+="</div>";
+	str+="<div>";
+	str+="가격: " + json[key].price
+	str+="</div>";
+	
+
+	
+	
+	str+="<div>1. 반려견을 키워본 경험이 있나요?(얼마나 키웠는지,현재 키우고 있는지 상세하게 기제)</div>";
 	str+="<div>";
 	str+=json[key].questions1
 	str+="</div>";
+	
+	
+	str+="<div>2. 반려동물 관련 자격증을 소지하고 계신가요?</div>";
 	str+="<div>";
 	str+=json[key].questions2
 	str+="</div>";
+	
+	
+	str+="<div>3. 펫시터 경험이 있나요?(개인/타업체)</div>";
 	str+="<div>";
 	str+=json[key].questions3
 	str+="</div>";
+	
+	
+	str+="<div>4. 어느정도 크기의 강아지까지 돌봄이 가능하신가요?</div>";
 	str+="<div>";
 	str+=json[key].questions4
 	str+="</div>";
+	
+	
+	str+="<div>5. 펫시터 활동 중 강아지가 경계하거나 이빨을 보이며 공격하려 하는 경우 어떻게 대처하시겠습니까?</div>";
 	str+="<div>";
 	str+=json[key].questions5
 	str+="</div>";
+	
+	
+	str+="<div>6. 본인이 강아지와 산책할 떄 가장 중요하게 생각하는 부분에 대해 설명해주세요.</div>";
 	str+="<div>";
 	str+=json[key].questions6
 	str+="</div>";
+	
+	
+	str+="<div>7. 마지막으로 하고싶으신 말을 자유롭게 작성해주세요.</div>";
 	str+="<div>";
 	str+=json[key].questions7
 	str+="</div>";
+	
+	
+	//버튼
 	str+="<input type='submit' value='승인' />";
 	str+="<input type='submit' value='거절' formaction='deleteapply' />";
-str+="</form>";
+	str+="</div>";
+	str+="</div>";
+	str+="</form>";
+
 });
 
 $("#test").append(str);
