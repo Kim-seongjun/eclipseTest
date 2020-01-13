@@ -58,9 +58,9 @@
 </head>
 <body>
 	
-	<div id="header">
-		<jsp:include page="header.jsp" />
-	</div>
+<!-- 	<div id="header"> -->
+<%-- 		<jsp:include page="header.jsp" /> --%>
+<!-- 	</div> -->
 	
 	<h1>예약상세페이지</h1>
 	<div id='main'>
