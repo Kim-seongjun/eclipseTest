@@ -17,7 +17,7 @@
 		
 		display:inline-block;
 		width: 100%;
-		border: 1px solid #fbbe53;
+		border: 1px solid #fbbe53 ;
 		
 	}
 	.searchli{
@@ -41,12 +41,12 @@
 		width: 700PX;
 		border: 1px solid black;
 	}
-	#li_insearch:hover{
-		background: red;
+	.searchli:hover{
+		background: #696969;
 	}
-	#hover:hover {
-		background: red;
-	}
+/* 	#hover:hover { */
+/* 		background: red; */
+/* 	} */
 	
 	.searchimg{
 		width: 250px;
@@ -138,7 +138,7 @@ A:active{text-decoration; color: orange;}
 		
 		str+="<div>";
 // 		str+=json[key].SITTER_PHOTO;
-		str+="<div style='float: left; border: 1px solid red; width: 250px; height: 250px;'><img class='searchimg'src ='img/"+json[key].SITTER_PHOTO+"' alt='펫시터사진입니다.'></div>";
+		str+="<div style='float: left; border: 1px solid black; width: 250px; height: 250px;'><img class='searchimg'src ='img/"+json[key].SITTER_PHOTO+"' alt='펫시터사진입니다.'></div>";
 		str+="</div>";
 		str+="<div>";
 		str+="<div>";
@@ -166,7 +166,10 @@ A:active{text-decoration; color: orange;}
 
 		$("#frm").submit();
 		
-	} 
+	}
+ 	
+
+	
 	</script>
 </body>
 </html>
