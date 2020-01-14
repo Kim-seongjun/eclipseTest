@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import DAO.AdminDao;
+import DAO.MemberDao;
 import bean.Forward;
 import bean.Member;
 import bean.PetApply;
@@ -156,6 +157,46 @@ public class AdminMM {
 		}
 		return fw;
 	
+	}
+
+	public Forward question() {
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		List<String> sList=null;
+		sList=aDao.question();
+		for(int i=0;i<sList.size();i++) {
+			System.out.println(i+"번째 sList = "+sList.get(i));
+			
+			}
+		Gson g = new Gson();
+		String r = g.toJson(sList);
+		System.out.println("===========");
+		System.out.println(r);
+		request.setAttribute("json_question" , r);
+		
+		fw.setPath("question.jsp");
+        fw.setRedirect(false);
+		return fw;
+	}
+
+	public Forward pqmodify() {
+		String pq_modify = request.getParameter("questions");
+		String col_num = request.getParameter("questions_no");
+		System.out.println("col_num = "+col_num);
+		System.out.println("pq_modify="+pq_modify);
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		
+		boolean result = aDao.pqmodify(col_num,pq_modify);
+		aDao.close();
+		if (result) {
+			fw.setPath("question");
+			fw.setRedirect(true);
+		} else {
+			fw.setPath("question");
+			fw.setRedirect(false);
+		}
+		return fw;
 	}
 
 	

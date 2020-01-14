@@ -215,4 +215,49 @@ public class AdminDao {
 		return false;
 	}
 
+	public List<String> question() {
+		String sql = "SELECT * FROM PQ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			List<String> sList = new ArrayList<String>();
+
+			while (rs.next()) {
+				sList.add(rs.getNString("QUESTION1"));
+				sList.add(rs.getNString("QUESTION2"));
+				sList.add(rs.getNString("QUESTION3"));
+				sList.add(rs.getNString("QUESTION4"));
+				sList.add(rs.getNString("QUESTION5"));
+				sList.add(rs.getNString("QUESTION6"));
+				sList.add(rs.getNString("QUESTION7"));
+			}
+			return sList;
+		}
+
+		catch (SQLException e) {
+			System.out.println("질문수정창 예외");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public boolean pqmodify(String col_num, String pq_modify) {
+		String sql = "UPDATE PQ SET '?' = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setNString(1, col_num);
+			pstmt.setNString(2, pq_modify);
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				System.out.println("질문 수정 완료");
+				return true;
+
+			}
+		} catch (SQLException e) {
+			System.out.println("질문 수정 에러");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }
