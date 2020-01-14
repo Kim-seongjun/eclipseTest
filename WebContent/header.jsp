@@ -70,8 +70,10 @@
 #close{
 	float:right;
 }
-#log_id{
+.log_id{
+	all:unset;
 	color:#00c8b7;
+	cursor:pointer;
 }
 
 #apply{
@@ -134,8 +136,10 @@
 			<input class="header_button" id="apply" type="submit" value="펫시터지원" formaction="petapply" />&nbsp;&nbsp;
 				<input class="header_button" id="petinsert" type="submit" value="반려견등록" formaction="petinsertshow" />&nbsp;&nbsp
 			${admin}
-	
-			<span><span id="log_id">${id }</span>님 환영합니다.</span>
+			
+			<form action="resshow" method='post'>
+			<span><span class='log_id'><input type="button" name='my_id' class='log_id' value='${id }' /></span>님 환영합니다.</span>
+			</form>
 			<input id="logout_btn" type="submit" value="로그아웃" formaction="logout" />
 		
 			</c:if>
