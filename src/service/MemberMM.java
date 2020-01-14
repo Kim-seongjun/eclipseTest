@@ -1,6 +1,5 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -326,6 +325,31 @@ public class MemberMM {
 		System.out.println("json="+json);
 		
 		return json;
+	}
+
+
+	public Forward resshow() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		String my_id=request.getParameter("my_id");
+		System.out.println("my_id = "+my_id);
+	
+		List<HashMap<String, String>> sList =mDao.resshow(my_id);
+		
+		Gson g = new Gson();
+		String res = g.toJson(sList);
+		
+		if(sList!=null) {
+			request.setAttribute("json_res", res);
+			fw.setPath("resshow.jsp");
+			fw.setRedirect(false);
+		}
+		else {
+			fw.setPath("main.jsp");
+			fw.setRedirect(false);
+		}
+		
+		return fw;
 	}	
 
 }
