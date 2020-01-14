@@ -80,10 +80,7 @@ body {
 
 
 	<script>
-		var json = $
-		{
-			jsontest
-		};
+		var json = ${jsontest};
 		var str = "";
 
 		str += "<form method='post'>";

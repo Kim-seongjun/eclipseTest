@@ -149,7 +149,7 @@ input {
 
 				</table>
 
-				<input class="btn" type="submit" value="확인" formaction="memberjoin"
+				<input class="btn" type="button" value="확인" formaction="memberjoin"
 					id="hag"> <input class="btn" type="submit" value="취소"
 					formaction="home">
 			</div>
@@ -179,6 +179,7 @@ input {
 				
 				if (data==1) {
 					alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+					idck = 0;
 					$("#id").focus();
 				} else if(data== 0) {
 					alert("사용가능한 아이디입니다.");
@@ -187,6 +188,7 @@ input {
 				}
 				else if(data==-1){
 					alert("아이디를 입력해주세요.");
+					idck = 0;
 					$("#id").focus();
 				}
 
@@ -247,38 +249,39 @@ input {
 	$("#hag").click(function() {
 		if(idck==0){
 			alert("아이디 중복검사 ㄱㄱ");
+			return;
 		}
-		if ($("#id").val() == "") {
+		else if ($("#id").val() == "") {
 			alert("아이디를 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($("#pw").val() == "") {
+		else if ($("#pw").val() == "") {
 			alert("비밀번호를 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($("#name").val() == "") {
+		else if ($("#name").val() == "") {
 			alert("이름을 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($("#tel").val() == "") {
+		else if ($("#tel").val() == "") {
 			alert("핸드폰번호를 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($("#birth").val() == "") {
+		else if ($("#birth").val() == "") {
 			alert("생일을 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($("#mail").val() == "") {
+		else if ($("#mail").val() == "") {
 			alert("E-mail을 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}
 
-		if ($(".addr3").val() == "") {
+		else if ($(".addr3").val() == "") {
 			alert("주소를 입력해주세요.");
 			$("#hag").prop("type", "button");
 		}

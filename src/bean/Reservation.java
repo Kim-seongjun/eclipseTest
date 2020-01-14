@@ -8,6 +8,7 @@ public class Reservation {
 	private String res_date_fr;
 	private String res_date_to;
 	private String res_price;
+	private String res_addr;
 	
 	
 	
@@ -52,5 +53,11 @@ public class Reservation {
 	}
 	public void setRes_price(String res_price) {
 		this.res_price = res_price;
+	}
+	public String getRes_addr() {
+		return res_addr;
+	}
+	public void setRes_addr(String res_addr) {
+		this.res_addr = res_addr;
 	}
 }

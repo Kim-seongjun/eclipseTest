@@ -27,13 +27,19 @@ public class ReservationMM {
 		
 		res.setUs_id(session.getAttribute("id").toString());
 		res.setSitter_id(request.getParameter("sit_id"));
-		res.setRes_no(request.getParameter("pet_num"));
-		
+		res.setRes_no(request.getParameter("pet_no"));		
 		res.setRes_date_fr(request.getParameter("start_day"));
 		res.setRes_date_to(request.getParameter("end_day"));
 		res.setRes_price(request.getParameter("price"));
-		res.setRes_price(request.getParameter("sit_addr"));
+		res.setRes_addr(request.getParameter("sit_addr"));
 		
+		System.out.println("예약자 id는 "+session.getAttribute("id").toString());
+		System.out.println("펫시터 id는 "+request.getParameter("sit_id"));
+		System.out.println("펫넘버는 "+request.getParameter("pet_no"));
+		System.out.println("시작일는 "+request.getParameter("start_day"));
+		System.out.println("종료일는 "+request.getParameter("end_day"));
+		System.out.println("가격는 "+request.getParameter("price"));
+		System.out.println("주소는 "+request.getParameter("sit_addr"));
 		
 		boolean result=rDao.reservation(res);
 		

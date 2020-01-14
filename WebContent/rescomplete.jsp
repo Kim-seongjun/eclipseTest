@@ -42,6 +42,7 @@
 	width:100px;
 	height: 35px;
 	text-align: center;
+	cursor:pointer;
 }
 </style>
 </head>
