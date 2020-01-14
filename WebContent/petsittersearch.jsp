@@ -45,9 +45,6 @@
 	.searchli:hover{
 		background: #696969;
 	}
-/* 	#hover:hover { */
-/* 		background: red; */
-/* 	} */
 	
 	.searchimg{
 		width: 250px;
@@ -90,7 +87,6 @@ A:active{text-decoration; color: orange;}
 	
 	
 	<form action="petsittersearch" method="post">
-	
 	<div id="div_outsearchmain">
 		<div id="div_insearchmain" style="background-color: #f5f5f5; border-radius: 10px">
 			<ul id='hover'>
@@ -112,29 +108,17 @@ A:active{text-decoration; color: orange;}
 	</form>
 	
 	<ul id="ul_outsearch">
-<!-- 		<a href="#"> -->
-<!-- 		<li id="li_insearch"> -->
-<!-- 			<div> -->
-<!-- 				<div style="float: left; border: 1px solid red; width: 250px; height: 250px;">이미지 넣는곳</div> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<div style="font-size: 30px;">제목:엄마 아빠 걱정은 하지말고 편하게 놀다가렴<br></div> -->
-<!-- 				<div style="font-size: 25px;">이름:bbb<br></div> -->
-<!-- 				<div style="font-size: 25px;">내용:ccc<br></div> -->
-<!-- 				<div style="font-size: 25px; color: #FF8000">단가:30000</div> -->
-				
-<!-- 			</div> -->
 
-<!-- 		</li> -->
-<!-- 		</a> -->
 	</ul>
 	
 	<script>
+	
+	//console.log("id="+${id});
 	var json=${json_search}
 	console.log(json);
 	var str = "";
 	$.each(json,function(key,value){
-	str+="<form id='frm' action= 'petsitterdetail' method='post'>";
+	str+="<form id='frm' action= 'petsitterdetail' method='post' onsubmit='return check()'>";
 		//str+="<a href='#' onclick='actfrm()'>";
 		str+="<li id='li_insearch'>";
 		
@@ -155,20 +139,44 @@ A:active{text-decoration; color: orange;}
 // 		str+="내용:"+json[key].SITTER_BODY+"<br>";
 // 		str+="가격:"+json[key].SITTER_PRICE+"<br>";
 		str+="</div>";
-		str+="<div class='btn_'><input type='submit' value='예약'  class='btn'/></div>";
+		str+="<div class='btn_'><input type='submit'  value='예약'  class='btn'/></div>";
 		str+="</div>";
 		
 		str+="</li>";
 		//str+="</a>";
 	str+="</form>";
 	});
+	function check(){
+		<%
+    	
+    	if(session.getAttribute("id")==null){
+    	%>
+    	alert("로그인 후 사용가능합니다.");
+    	return false;
+    	<%}else {%>
+		return 'petsitterdetail';
+		<%}%>
+	}
 	$("#ul_outsearch").append(str);
 	
- 	function actfrm() {
+ 	
+ 	    $(".btn").click(function(){
+	    	
+	    	/*if($(".btn").prop("button")){
+			   
+	    		alert("로그인 후 사용가능합니다.");
+			   
+	    	}*/
+	   }); 
+			    
+	
+	
+	
+/*  	function actfrm() {
 
 		$("#frm").submit();
 		
-	}
+	} */
  	
 
 	
