@@ -13,7 +13,8 @@
 div.table {
 	border: 3px solid;
 	border-collapse: collapse;
-
+	width:1600px;
+	text-align:center;
 }
 
 div.td {
@@ -29,9 +30,29 @@ div.td {
 div.boxmaker {
 	clear: both;
 }
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+
+}
+
+
+#mid{
+	margin-top:13px;
+}
 </style>
 </head>
 <body>
+<header>
+
+		<div id="header">
+			<jsp:include page="header.jsp" />
+		</div>
+		</header>
 	<h1>블랙리스트페이지</h1>
 	
 	<div id="asd"></div>
@@ -55,7 +76,7 @@ div.boxmaker {
 		str += "<div class='td' style='width:400px' >주소</div>";
 		str += "<div class='td' style='width:100px'>블랙리스트 </div>";
 		str += "<div class='td' style='width:100px'>회원구분</div>";
-
+		str += "<div class='td' style='width:100px'>해제버튼</div>";
 		str += "<div class='boxmaker'></div>";
 		
 
@@ -82,7 +103,7 @@ div.boxmaker {
 
 							str += "<div class='td' style='width:100px'>" + json[key].type + "</div>";
 
-							str += "<div><input type='submit' value='해제' formaction='white' /></div>";
+							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='해제' formaction='white' /></div>";
 							str += "<div><input type='hidden' name='sit_id' value='"+json[key].id+"'/></div>"; 
 							str += "<div class='boxmaker'></div>";
 							
