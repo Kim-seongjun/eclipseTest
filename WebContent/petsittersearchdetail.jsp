@@ -99,7 +99,7 @@
 			<input type="text" class='date' name='start_day' placeholder='예약시작일' /> 부터
 			<input type="text" class='date1'name='end_day' placeholder='예약종료일' /> <br />
 			반려견 : <input type="text" class='petname' id='pet' name='pet' readOnly  />
-			<input type="hidden" id='pet_no' name='pet_no'  />
+			<input type="hidden" id='pet_no' name='pet_no'/>
 		</div>
 	</div>
 				</form>
