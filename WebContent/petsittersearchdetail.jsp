@@ -123,7 +123,7 @@
 				dateFormat : 'yy년 mm월 dd일',
 				minDate : 0,
 				onClose : function(a) {
-					console.log(a+49);//시작일
+					console.log("시작일  "+ a+49);//시작일
 					$('.date1').datepicker({
 						dateFormat : 'yy년 mm월 dd일',
 						minDate : a,

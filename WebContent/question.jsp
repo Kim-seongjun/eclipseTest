@@ -13,13 +13,13 @@
 	</div>
 <h1>질문 수정</h1>
 <div id="div_question" style="border: 1px solid black; margin-bottom: 20px; height: 500px;">
-<div>QUESTION1<input type="button" id="btn" value="수정"></div>
-<div>QUESTION2<input type="button" id="btn" value="수정"></div>
-<div>QUESTION3<input type="button" id="btn" value="수정"></div>
-<div>QUESTION4<input type="button" id="btn" value="수정"></div>
-<div>QUESTION5<input type="button" id="btn" value="수정"></div>
-<div>QUESTION6<input type="button" id="btn" value="수정"></div>
-<div>QUESTION7<input type="button" id="btn" value="수정"></div>
+<div>QUESTION1<input type="button" class="btn" value="수정"></div>
+<div>QUESTION2<input type="button" class="btn" value="수정"></div>
+<div>QUESTION3<input type="button" class="btn" value="수정"></div>
+<div>QUESTION4<input type="button" class="btn" value="수정"></div>
+<div>QUESTION5<input type="button" class="btn" value="수정"></div>
+<div>QUESTION6<input type="button" class="btn" value="수정"></div>
+<div>QUESTION7<input type="button" class="btn" value="수정"></div>
 
 </div>
 <div id="div_question_re" style="border: 1px solid black; height: 500px;">
@@ -39,9 +39,9 @@ for(var i=0;i<json.length;i++){
 $("#div_question").append(str);
 console.log("str="+str);
 
-// 	$('#btn').on(click,function(){
+	$('#btn').on(click,function(){
 		
-// 	});
+	});
 </script>
 </body>
 </html>
