@@ -141,13 +141,22 @@ public class AdminMM {
 	}
 	
 	public Forward white() {
-		
-		return null;
+		String sit_id = request.getParameter("sit_id");
+		System.out.println("sit_id =" + sit_id);
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		boolean result = aDao.white(sit_id);
+		aDao.close();
+		if (result) {
+			fw.setPath("blacklist");
+			fw.setRedirect(true);
+		} else {
+			fw.setPath("blacklist");
+			fw.setRedirect(false);
+		}
+		return fw;
+	
 	}
 
-
-	
-	
-	
 	
 }

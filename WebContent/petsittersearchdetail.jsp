@@ -58,29 +58,56 @@
 </head>
 <body>
 	
-<!-- 	<div id="header"> -->
-<%-- 		<jsp:include page="header.jsp" /> --%>
-<!-- 	</div> -->
+	<%-- <div id="header">
+ 		<jsp:include page="header.jsp" /> 
+	</div> --%>
 	
 	<h1>예약상세페이지</h1>
+			<form action="reservation" method='post'>
 	<div id='main'>
 	
 		<div id='show_petsitter'></div>
 
 		<div id='pay'>
-			<form action="reservation" method='post'>
-			<input type="text" class='date' placeholder='예약시작일' /> <input
-				type="text" class='date1' placeholder='예약종료일' /> <input
-				type="submit" value='최종 예약' />
-				</form>
+			<input type="text" class='date' name='start_day' placeholder='예약시작일' /> 
+			<input type="text" class='date1'name='end_day' placeholder='예약종료일' /> <br />
+			<input type="text" id='pet' name='pet' readOnly  />
+			<input type="hidden" id='pet_no' name='pet_no'  />
 		</div>
 	</div>
+				</form>
 	<div id="review" style="width: 1129px; height: 400px; border: 1px solid black; margin: 10, 10, 10, 10;">
 	<h3>후기</h3>
 	<div style="border: 1px solid black;"></div>
 	</div>
 
 	<script>
+	var json_pet=${json_pet};
+	console.log("json_pet ="+json_pet);
+	console.log("-----------------------------");
+	
+	var str1="";
+		str1+="<select id='pet_choice'>";
+		str1+="<option value=''>선택하세요</option>";
+	$.each(json_pet, function(key,val) {
+		console.log("json_pet = "+json_pet[key].PET_NAME);	
+		console.log("json_pet = "+json_pet[key].PET_NO);	
+		str1+="<option value="+json_pet[key].PET_NO+">"+json_pet[key].PET_NAME+"</option>";
+	
+	});
+		str1+="</select> <br />";
+		/*  $.each(json_pet, function(key,val) {
+			str1+="<input type='hidden' id='pet_no' name='pet_no' value="+json_pet[key].PET_NO+" />";
+		}); */
+		 
+	$("#pay").append(str1);
+	
+	$("#pet_choice").change(function() {
+		$("#pet_choice option:selected").each(function() {
+				$("#pet").val($(this).text()); //선택값 입력 
+				$("#pet_no").val($(this).val()); //선택값 입력 
+			});
+		});
 // 	var jb = jQuery.noConflict();
 		/*  	$(function() {
 				$.datepicker.setDefaults($.datepicker.regional['ko']); //datepicker 한국어로 사용하기 위한 언어설정
@@ -123,16 +150,22 @@
 		str += "<div id='contents' style='font-size: 20px'>" + json.SITTER_BODY + "</div>";
 		$("#show_petsitter").append(str);
 
-		pay += "<input type='text' readOnly value='"+json.SITTER_PRICE+"'/>";
+		pay += "<input type='text' name='price' readOnly value='"+json.SITTER_PRICE+"'/><br />";
+		pay += "";
+		pay+="<input type='submit' value='최종 예약' />";
+		pay+="<input type='hidden' name='sit_id' value='"+json.SITTER_ID+"' />";
+		pay+="<input type='hidden' name='sit_addr' value='"+json.US_ADDRESS+"' />";
+
 		$("#pay").append(pay);
 	</script>
+	
 	<script>
-		var json = ${json_review};
+		/* var json = ${json_review};
 		var srt = "";
 		console.log(json);
 		console.log(json.res_no);
 		
-		$(.review).append(str);
+		$(.review).append(str); */
 	</script>
 </body>
 </html>

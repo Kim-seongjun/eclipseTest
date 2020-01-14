@@ -93,7 +93,10 @@ text-align:center;
  
  }
 
-
+#sec1{
+	position: relative;
+	top:70px;
+}
 
 </style>
 </head>
@@ -104,7 +107,8 @@ text-align:center;
 		<div id="header">
 			<jsp:include page="header.jsp" />
 		</div>
-		<section
+		</header>
+		<section id='sec1'
 			style="width: 100%; height: 870px; display: flex; justify-content: center">
 
 			<div
@@ -130,7 +134,7 @@ text-align:center;
 				<input type="submit" id="pet_search" value="펫시터 검색하기" />
 			</form>
 		</section>
-	</header>
+	
 
 	<section
 		style="width: 100%; height: 870px; display: flex; margin:auto; text-align: left">

@@ -356,4 +356,31 @@ public class MemberDao {
 		return null;
 	}
 
+	public List<HashMap<String, String>> pet(String id) {
+		String sql="SELECT * FROM PP WHERE USER_ID=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1,id);
+			rs=pstmt.executeQuery();
+			List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
+			if(rs.next()) {
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("USER_ID",rs.getNString("USER_ID"));
+				hm.put("PET_NAME",rs.getNString("PET_NAME"));
+				hm.put("PET_NO",rs.getNString("PET_NO"));
+				hm.put("PET_TYPE",rs.getNString("PET_TYPE"));
+				hm.put("PET_GENDER",rs.getNString("PET_GENDER"));
+				hm.put("PET_REQUEST",rs.getNString("PET_REQUEST"));
+				sList.add(hm);
+			}
+			System.out.println("반려견 불러오기 성공");
+			return sList;
+		} catch (SQLException e) {
+			System.out.println("반려견 불러오기 실패");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }
