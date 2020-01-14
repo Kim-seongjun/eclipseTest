@@ -242,11 +242,10 @@ public class AdminDao {
 	}
 
 	public boolean pqmodify(String col_num, String pq_modify) {
-		String sql = "UPDATE PQ SET '?' = ?";
+		String sql = "UPDATE PQ SET "+col_num+" = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setNString(1, col_num);
-			pstmt.setNString(2, pq_modify);
+			pstmt.setNString(1, pq_modify);
 			int result = pstmt.executeUpdate();
 			if (result != 0) {
 				System.out.println("질문 수정 완료");
