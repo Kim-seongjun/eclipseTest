@@ -138,7 +138,7 @@
 			${admin}
 			
 			<form action="resshow" method='post'>
-			<span><span class='log_id'><input type="button" name='my_id' class='log_id' value='${id }' /></span>님 환영합니다.</span>
+			<span><span class='log_id'><input type="submit" name='my_id' class='log_id' value='${id }' /></span>님 환영합니다.</span>
 			</form>
 			<input id="logout_btn" type="submit" value="로그아웃" formaction="logout" />
 		
