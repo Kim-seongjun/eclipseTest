@@ -25,14 +25,19 @@ public class ReservationDao {
 	public boolean reservation(Reservation res) {
 		String sql="INSERT INTO PR VALUES(PR_SEQ.nextval,?,?,?,?,?,?)";
 		try {
+			
 			pstmt=con.prepareStatement(sql);
-			pstmt.setNString(1, value);
-			pstmt.setNString(2, value);
-			pstmt.setNString(3, value);
-			pstmt.setNString(4, value);
-			pstmt.setNString(5, value);
-			pstmt.setNString(6, value);
-			int result
+			pstmt.setNString(1, res.getUs_id());
+			pstmt.setNString(2, res.getSitter_id());
+			pstmt.setNString(3, res.getRes_no());
+			pstmt.setNString(4, res.getRes_date_fr());
+			pstmt.setNString(5, res.getRes_date_to());
+			pstmt.setNString(6, res.getRes_price());
+			int result=pstmt.executeUpdate();
+			if(result!=0) {
+				System.out.println("예약 성공");
+				return true;	
+			}
 		} catch (SQLException e) {
 			System.out.println("예약 예외");
 			e.printStackTrace();

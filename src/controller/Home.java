@@ -22,7 +22,8 @@ import service.ReservationMM;
 			"/memberjoin","/petapply","/insetpetapply","/petapplylist",
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
-			"/reservation","/petsitter_reg","/black","/white"})
+			"/reservation","/petsitter_reg","/black","/white",
+			"/rescheck","/reviewinsert"})
 
 
 public class Home extends HttpServlet {
@@ -112,8 +113,16 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=rm.reservation(); //예약
 		break;
 	
-	case "/white":
+	case "/white":	//블랙리스트 해제
 		fw=am.white();
+		break;
+		
+	case "/reviewinsert":
+		fw=rm.reviewinsert();	//리뷰쓰기
+		break;
+	
+	case "/rescheck":
+		fw=rm.rescheck();	//예약 확인
 		break;
 	
 	}

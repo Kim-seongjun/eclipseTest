@@ -36,6 +36,30 @@ public class ReservationMM {
 		
 		
 		boolean result=rDao.reservation(res);
+		
+		if(result) {
+			fw.setPath("rescomplete.jsp");
+			fw.setRedirect(false);
+		}
+		else {
+			fw.setPath("petsittersearchdetail.jsp");
+			fw.setRedirect(false);
+		}
+		
+		return fw;
+	}
+
+
+	public Forward rescheck() {		//예약 확인
+		Forward fw=new Forward();
+		
+		return fw;
+	}
+
+
+	public Forward reviewinsert() {		//리뷰쓰기 
+		Forward fw=new Forward();
+		
 		return fw;
 	}
 	
