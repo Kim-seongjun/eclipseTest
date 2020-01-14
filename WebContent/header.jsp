@@ -18,7 +18,7 @@
 	all: unset;
 	opacity: 80%;
 	font-size: 20px;
-	margin-top: 10px;
+	margin-top: 15px;
 	cursor: pointer;
 }
 .modal{          
@@ -107,6 +107,14 @@
 	color:red;
 	cursor:pointer;
 }
+#log{
+	position: relative;
+	right:20px;
+	top:10px;
+}
+#mid{
+	margin-top:13px;
+}
 </style>
 </head>
 <body>
@@ -116,8 +124,10 @@
 		<div class="right_x2un4">
 		
 			<c:if test="${id==null}">
+			<div id='log'>
 			<input id="open" class="header_button" type="button" value="로그인" /> &nbsp; 
 			<input class="header_button" type="submit" value="회원가입" formaction="joinfrm" />
+			</div>
 			</c:if>
 			
 			<c:if test="${id!=null}">
