@@ -23,7 +23,7 @@ import service.ReservationMM;
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
 			"/reservation","/petsitter_reg","/black","/white",
-			"/rescheck","/reviewinsert","/question"})
+			"/rescheck","/reviewinsert","/question","/pqmodify"})
 
 
 public class Home extends HttpServlet {
@@ -127,6 +127,9 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		
 	case "/question":
 		fw=am.question();	//질문수정
+		break;
+	case "/pqmodify":
+		fw=am.pqmodify();
 		break;
 	
 	}

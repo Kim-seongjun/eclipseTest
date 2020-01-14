@@ -179,5 +179,25 @@ public class AdminMM {
 		return fw;
 	}
 
+	public Forward pqmodify() {
+		String pq_modify = request.getParameter("questions");
+		String col_num = request.getParameter("questions_no");
+		System.out.println("col_num = "+col_num);
+		System.out.println("pq_modify="+pq_modify);
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		
+		boolean result = aDao.pqmodify(col_num,pq_modify);
+		aDao.close();
+		if (result) {
+			fw.setPath("question");
+			fw.setRedirect(true);
+		} else {
+			fw.setPath("question");
+			fw.setRedirect(false);
+		}
+		return fw;
+	}
+
 	
 }
