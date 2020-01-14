@@ -23,7 +23,7 @@ import service.ReservationMM;
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
 			"/reservation","/petsitter_reg","/black","/white",
-			"/rescheck","/reviewinsert"})
+			"/rescheck","/reviewinsert","/question"})
 
 
 public class Home extends HttpServlet {
@@ -123,6 +123,10 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	
 	case "/rescheck":
 		fw=rm.rescheck();	//예약 확인
+		break;
+		
+	case "/question":
+		fw=am.question();	//질문수정
 		break;
 	
 	}
