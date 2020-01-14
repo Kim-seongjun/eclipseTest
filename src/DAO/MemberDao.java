@@ -330,6 +330,7 @@ public class MemberDao {
 			while(rs.next()) {
 				HashMap<String, String> hm = new HashMap<String, String>();
 				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+				hm.put("SITTER_NAME",rs.getNString("US_NAME"));
 				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
 				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
 				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
