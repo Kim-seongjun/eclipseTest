@@ -64,6 +64,7 @@ public class MemberMM {
 			sb.append("<input class='admin' type='submit' value='전체회원리스트' formaction='userlist' />");
 			sb.append("<input class='admin' type='submit' value='펫시터지원리스트' formaction='petapplylist' />");
 			sb.append("<input class='admin' type='submit' value='블랙리스트' formaction='blacklist' />");
+			sb.append("<input class='admin' type='submit' value='질문리스트' formaction='question' />");
 				
 		}
 		return sb;

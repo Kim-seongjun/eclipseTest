@@ -12,36 +12,35 @@
 		<jsp:include page="header.jsp" />
 	</div>
 <h1>질문 수정</h1>
-<div id="div_question" style="border: 1px solid black; margin-bottom: 20px; height: 500px;">
-<div>QUESTION1<input type="button" class="btn" value="수정"></div>
-<div>QUESTION2<input type="button" class="btn" value="수정"></div>
-<div>QUESTION3<input type="button" class="btn" value="수정"></div>
-<div>QUESTION4<input type="button" class="btn" value="수정"></div>
-<div>QUESTION5<input type="button" class="btn" value="수정"></div>
-<div>QUESTION6<input type="button" class="btn" value="수정"></div>
-<div>QUESTION7<input type="button" class="btn" value="수정"></div>
+<div id="div_question" style="border: 1px solid black; margin-bottom: 20px; height: 640px;">
+
 
 </div>
 <div id="div_question_re" style="border: 1px solid black; height: 500px;">
-
+<input type='text' style="width: 50%;height: 40px; " value='펫시터 활동 중 강아지가 경계하거나 이빨을 보이며 공격하려 하는 경우 어떻게 대처하시겠습니까?' readOnly class='questions'/><br />
+<input class='result' style='width: 50%; height: 40px;' name='questions(i+1)' type='text' /><input style="height: 40px;" type="button" value="수정"><br />
 </div>
 <script>
-console.log(jsontest);
-var json=${jsontest};
+var json=${json_question};
+console.log("여기냐?");
+console.log(json);
 var str="";
 
 for(var i=0;i<json.length;i++){
-	str+="<input type='text' value='"+json[i]+"' readOnly class='questions'/><br />";
-	str+="<input class='result'name='questions"+(i+1)+"' type='text' /><br />";
+	str+="<form method='post'>";
+	str+="<input style='width: 50%; height: 35px;' type='text' value='"+json[i]+"' readOnly class='questions'/><br />";
+	str+="<input type='hidden' name='questions_no' value='question"+(i+1)+"'>";
+	str+="<input style='width: 50%; height: 35px; class='result'name='questions' type='text' /><input style='height: 40px;' type='submit' value='수정'><br />";
+	str+="</form>";
 	console.log(json[i]);
 }
 
 $("#div_question").append(str);
-console.log("str="+str);
+console.log("str="+str);	
 
-	$('#btn').on(click,function(){
+// 	$('#btn').on(click,function(){
 		
-	});
+// 	});
 </script>
 </body>
 </html>
