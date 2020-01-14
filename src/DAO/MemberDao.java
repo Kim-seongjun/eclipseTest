@@ -385,4 +385,34 @@ public class MemberDao {
 		return null;
 	}
 
+	public List<HashMap<String, String>> resshow(String my_id) {
+		String sql = "SELECT * From PR WHERE US_ID=?";
+		 try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, my_id);
+			rs=pstmt.executeQuery();
+			List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
+			while(rs.next()) {
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("RES_NO",rs.getNString("RES_no"));
+				hm.put("US_ID",rs.getNString("US_ID"));
+				hm.put("SITTER_ID",rs.getNString("SITTER_ID"));
+				hm.put("PET_NO",rs.getNString("PET_NO"));
+				hm.put("RES_DATE_FR",rs.getNString("RES_DATE_FR"));
+				hm.put("RES_DATE_TO",rs.getNString("RES_DATE_TO"));
+				hm.put("RES_PRICE",rs.getNString("RES_PRICE"));
+				sList.add(hm);
+			}
+			System.out.println("예약내역 불러오기 성공");
+			return sList;
+		} 
+	
+		 catch (SQLException e) {
+			System.out.println("예약내역 불러오기 예외");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }

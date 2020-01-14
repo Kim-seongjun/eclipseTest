@@ -7,7 +7,6 @@
 <title>¸®ºä¾²±â</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-	
 </script>
 </head>
 
@@ -77,13 +76,13 @@ margin-left:120px;
 	top:100px;
 	
 }
+
+
+
+
 </style>
 <body>
-	<header>
-		<div id="header">
-			<jsp:include page="header.jsp" />
-		</div>
-	</header>
+
 	<h1 style="text-align: center; color: #36e9ce">¸®ºä¾²±â</h1>
 	<div id='rev_div'>
 
