@@ -98,12 +98,17 @@ body {
 		str += "<div class='profile_q'>이미지 업로도(프로필)</div>";
 		str += "<input type='file'name='imgFile' class='profile_r'/><br /><br /><br /><br /><br /><br />";
 		str += "<div class='profile_q'>펫시터 설문</div><br /><br /><br /><br /><br /><br />";
+		
+		
+		
 		for (var i = 0; i < json.length; i++) {
 			str += "<input type='text' value='"+json[i]+"' readOnly class='questions'/><br />";
 			str += "<input class='result'name='questions" + (i + 1)
 					+ "' type='text' /><br />";
 			console.log(json[i]);
 		}
+
+		
 		str += "<div>본 지원자는 상기 답변 내용에 거짓이 없음을 확인 후 설문을 완료합니다."
 				+ "사실과 다른 기재로 인한 불미스어운 모든 상황에 대해 당사는 책임이 없음을 안내드립니다.</div>";
 		str += "<input type='radio' value='예' /> 예 <br />";

@@ -96,8 +96,9 @@
 	
 		<div id='show_petsitter'></div>
 		<div id='pay'>
-			<input type="text" class='date' name='start_day' placeholder='예약시작일' /> 부터
-			<input type="text" class='date1'name='end_day' placeholder='예약종료일' /> <br />
+		<input type="button" id='e_btn' value='임시버튼' />
+			<input type="text" class='date' name='start_day' readOnly placeholder='예약시작일' /> 부터
+			<input type="text" class='date1'name='end_day' readOnly placeholder='예약종료일' /> <br />
 			반려견 : <input type="text" class='petname' id='pet' name='pet' readOnly  />
 			<input type="hidden" id='pet_no' name='pet_no'/>
 		</div>
@@ -110,13 +111,35 @@
 
 
 
-<script>
-$(".date1").click(function(){
-	alert("시작일값은 : "+$(".date").val());
-	
-});
 
-</script>
+
+
+<script>
+ 	$("#e_btn").click(function(){
+	console.log("시작일값은 : "+$(".date").val());
+	var date1=$(".date").val().split('-');
+	var date2="";
+	date2+=date1[0];
+	date2+=date1[1];
+	date2+=date1[2];
+	console.log("dateee1="+date1);
+	console.log("시작일="+date2);
+	
+	
+	var date3=$(".date1").val().split('-');
+	var date4="";
+	date4+=date3[0];
+	date4+=date3[1];
+	date4+=date3[2];
+	console.log("종료일="+date2);
+	
+	var date=date4-date2;
+	console.log("차="+date);
+	var max=$("#f_pirce").val()*date;
+	$("#f_pirce").val(max);
+	}); // end
+
+</script> 
 
 	<script>
 	var json_pet=${json_pet};
@@ -134,9 +157,11 @@ $(".date1").click(function(){
 	});
 	 	str1+="</select> <br />";
 	 	
-		 /* $.each(json_pet, function(key,val) {
-			str1+="<input type='hidden' id='pet_no' name='pet_no' value="+json_pet[key].PET_NO+" />";
-		});   */
+	 	
+	 	
+	 	
+	 	
+	 	
 		 
 	$("#pay").append(str1);
 	
@@ -146,14 +171,8 @@ $(".date1").click(function(){
 				$("#pet_no").val($(this).val()); //선택값 입력 
 			});
 		});
-// 	var jb = jQuery.noConflict();
-		/*  	$(function() {
-				$.datepicker.setDefaults($.datepicker.regional['ko']); //datepicker 한국어로 사용하기 위한 언어설정
-				$('.date').datepicker({dateFormat: 'yy년 mm월 dd일',
-										minDate: 0});
-			});  */
+
 	
-		
 			
 			$('.date').datepicker({
 				dateFormat : 'yy-mm-dd',

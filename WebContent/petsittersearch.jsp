@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,7 +145,7 @@ A:active{text-decoration; color: orange;}
 		str+="<div>";
 		str+="<div>";
 		str+="<div style='font-size: 30px;color:#696969;'>"+json[key].SITTER_TITLE+"<br></div>";
-		str+="<div class='sub'>이름:"+json[key].SITTER_ID+"<br></div>";
+		str+="<div class='sub'>이름:"+json[key].SITTER_NAME+"<br></div>";
 		str+="<input type='hidden' name='petsitter_id' value='"+json[key].SITTER_ID+"'/>";
 
 		str+="<div class='sub'>주소:"+json[key].US_ADDRESS+"<br></div>";
