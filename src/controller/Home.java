@@ -23,7 +23,8 @@ import service.ReservationMM;
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
 			"/reservation","/petsitter_reg","/black","/white",
-			"/rescheck","/reviewinsert","/question","/pqmodify"})
+			"/rescheck","/reviewinsert","/question","/pqmodify",
+			"/resshow"})
 
 
 public class Home extends HttpServlet {
@@ -126,10 +127,15 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 		
 	case "/question":
-		fw=am.question();	//질문수정
+		fw=am.question();	//수정할 질문 보기
 		break;
-	case "/pqmodify":
+		
+	case "/pqmodify":  		//질문수정
 		fw=am.pqmodify();
+		break;
+	
+	case"/resshow":
+		fw=mm.resshow();
 		break;
 	
 	}
