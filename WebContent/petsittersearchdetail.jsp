@@ -145,6 +145,7 @@
 			console.log("차=" + date);
 			var max = $("#f_pirce").val() * date;
 			$("#f_pirce").val(max);
+			
 		}); // end
 	</script>
 
@@ -217,7 +218,9 @@
 
 	<script>
  		var json = ${json_review};
+ 		
  		var rev = "";
+ 		
  		$.each(json,function(key, value){
  			console.log(json[key].RES_TITLE);
  			console.log(json[key].RES_CONT);
