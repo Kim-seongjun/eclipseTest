@@ -16,7 +16,7 @@
 
 .header_button {
 	all: unset;
-	opacity: 80%;
+	opacity: 60%;
 	font-size: 20px;
 	margin-top: 15px;
 	cursor: pointer;

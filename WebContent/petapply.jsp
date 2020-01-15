@@ -128,7 +128,7 @@ body {
 
 		str += "<div>본 지원자는 상기 답변 내용에 거짓이 없음을 확인 후 설문을 완료합니다."
 				+ "사실과 다른 기재로 인한 불미스어운 모든 상황에 대해 당사는 책임이 없음을 안내드립니다.</div>";
-		str += "<input type='radio' value='예' class='check' /> 예 <br />";
+		str += "<input type='radio' name='yes' value='예' class='check' /> 예 <br />";
 		str += "<div class='btn_pos'>";
 		str += "<input type='submit' value='제출' formaction='insetpetapply' class='btn' id='hag'/>";
 		str += "<input type='submit' value='취소' formaction='home' class='btn'/>";
@@ -197,7 +197,7 @@ body {
 								$("#hag").prop("type", "button");
 							}
 
-							else if ($("input[type='checkbox']").is(":checked") == false) {
+							else if ($("input:radio[name='yes']").is(":checked") == false) {
 								alert("체크를 해주세요.");
 								$("#hag").prop("type", "button");
 							}
