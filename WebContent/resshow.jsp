@@ -52,7 +52,6 @@ div.boxmaker {
 	</header>
 	<h1 style="text-align: center; color: #36e9ce">예약상세</h1>
 	<div id='asd'></div>
-
 	<script>
 		var json = ${json_res};
 		console.log(json);
@@ -74,7 +73,7 @@ div.boxmaker {
 
 		$.each(json,function(key, value) {
 
-							str += "<form action='black' method='post'>";
+							str += "<form action='' method='post'>";
 					
 							str += "<div class='td'>" + json[key].RES_NO+ "</div>";
 							str += "<div class='td'>" + json[key].US_ID+ "</div>";
@@ -83,8 +82,9 @@ div.boxmaker {
 							str += "<div class='td'>" + json[key].RES_DATE_FR+ "</div>";
 							str += "<div class='td'>" + json[key].RES_DATE_TO+ "</div>";
 							str += "<div class='td'>" + json[key].RES_PRICE+ "</div>";
-							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='예약취소'/></div>";
-							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='리뷰쓰기'/></div>";
+							str += "<input type='hidden' name ='res_no' value='"+json[key].RES_NO+"' />";
+							str += "<div class='td' style='width:100px'><input type='submit'  value='리뷰쓰기' formaction='goreview'/></div>";
+							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='예약취소' formaction='rescancel'/></div>";
 
 								
 							str += "</form>";

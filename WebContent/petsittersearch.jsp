@@ -34,6 +34,7 @@
 		padding: 20px;
 		margin: 15px;
 		border: 1px;
+		
 /* 		background-color: #cccccc; */
 	}
 	#li_insearch{
@@ -41,6 +42,7 @@
 		text-align: left;
 		width: 700PX;
 		border: 1px solid black;
+		margin-bottom: 20px;
 	}
 	.searchli:hover{
 		background: #696969;

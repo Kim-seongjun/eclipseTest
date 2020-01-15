@@ -305,7 +305,7 @@ public class MemberMM {
 		System.out.println("idid="+id);
 		
 		List<HashMap<String, String>> hmm=mDao.pet(id);
-		
+	
 		String pet=g.toJson(hmm);
 		request.setAttribute("json_pet", pet);
 		
@@ -353,6 +353,9 @@ public class MemberMM {
 		}
 		
 		return fw;
-	}	
-
-}
+	}
+	
+ 
+	
+	
+}//class end
