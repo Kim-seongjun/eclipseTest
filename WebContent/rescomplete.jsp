@@ -22,7 +22,6 @@
 #inbody{
 	position:relative;
 	top:300px;
-	left:600px;
 	text-align:center;
 	
 }
@@ -33,7 +32,8 @@
 }
 .btn{
 	all:unset;
-	margin-right: 100px;
+	margin-right: 60px;
+	margin-left:50px;
 	background-color: #00c8b7;
 	padding:10px 20px;
 	font-size: 20px;
@@ -44,6 +44,10 @@
 	height: 35px;
 	text-align: center;
 	cursor:pointer;
+}
+
+#homebtn{
+margin-left: 100px;
 }
 </style>
 </head>
@@ -60,7 +64,7 @@
 
 	<form  method='post'>
 	<input type="submit" class='btn' value='예약 확인' formaction='resshow' />
-	<input type="submit" class='btn' value='홈' formaction='home' />
+	<input type="submit" class='btn' id="homebtn" value='홈' formaction='home' />
 
 	</form>
 </div>
