@@ -102,6 +102,25 @@ public class ReservationDao {
 		
 		return null;
 	}
+
+	public boolean rescancel(String id, String res_no) {
+		String sql="DELETE from pet_reserve where us_id =? and res_no=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1, id);
+			pstmt.setNString(2, res_no);
+			int result=pstmt.executeUpdate();
+			if(result!=0) {
+				System.out.println("예약 취소 성공");
+				return true;
+			}
+		} catch (SQLException e) {
+			System.out.println("예약 취소 예외");
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 	
 	
 	

@@ -1,20 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>ì „ì²´íšŒì›ë¦¬ìŠ¤íŠ¸</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<meta charset="EUC-KR">
+<title>ÀüÃ¼È¸¿ø¸®½ºÆ®</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 div.table {
 	border: 3px solid;
 	border-collapse: collapse;
-	width:1900px;
+	width:1700px;
 }
 
 div.td {
@@ -38,18 +35,9 @@ div.boxmaker {
 	background: rgba(255, 255, 255, 1);
 	z-index: 1;
 }
-
- #asd{
-	position: relative;
-	top:50px;
-	
-} 
- #asd2{
-	position: relative;
-	top:50px;
-	
-} 
-
+#mid{
+	margin-top:13px;
+}
 </style>
 </head>
 <body>
@@ -59,11 +47,10 @@ div.boxmaker {
 			<jsp:include page="header.jsp" />
 		</div>
 		</header>
-		
-	<h1>ì „ì²´íšŒì›ë¦¬ìŠ¤íŠ¸</h1>
+	<h1>ÀüÃ¼È¸¿ø¸®½ºÆ®</h1>
 	
 	<div id='asd'></div>
-	<div id='asd2'></div>
+
 
 
 
@@ -71,101 +58,46 @@ div.boxmaker {
 		var json = ${json_ulist};
 		console.log(json);
 		console.log("--------------");
-		window.onload=pageAll(json,1);
- 			var index;
-		
-		
-		function pageAll(json,num) {
-			var str = "";
-			index=num;
-			
-			str += "<div class='table'>";
-			str += "<div class='td' style='width:100px'>íšŒì› ì•„ì´ë””</div>";
-			str += "<div class='td' style='width:100px'>ì´ë¦„</div>";
-			str += "<div class='td' style='width:100px'>ì„±ë³„</div>";
-			str += "<div class='td'>ìƒë…„ì›”ì¼</div>";
-			str += "<div class='td'>ì „í™”ë²ˆí˜¸</div>";
-			str += "<div class='td'>ì´ë©”ì¼</div>";
-			str += "<div class='td' style='width:500px'>ì£¼ì†Œ</div>";
-			str += "<div class='td'>ë¸”ë™ë¦¬ìŠ¤íŠ¸ ì—¬ë¶€</div>";
-			str += "<div class='td' style='width:100px'>íšŒì›êµ¬ë¶„</div>";
-			str += "<div class='td' style='width:150px'>ë¸”ë™ë²„íŠ¼</div>";
-			str += "<div class='boxmaker'></div>";
+		var str = "";
+		str += "<form action='black' method='post'>";
 
-			for(var i=(num-1)*10;i<(num*10);i++) {
+		str += "<div class='table'>";
+		str += "<div class='td' style='width:100px'>È¸¿ø ¾ÆÀÌµğ</div>";
+		str += "<div class='td' style='width:100px'>ÀÌ¸§</div>";
+		str += "<div class='td' style='width:100px'>¼ºº°</div>";
+		str += "<div class='td'>»ı³â¿ùÀÏ</div>";
+		str += "<div class='td'>ÀüÈ­¹øÈ£</div>";
+		str += "<div class='td'>ÀÌ¸ŞÀÏ</div>";
+		str += "<div class='td' style='width:400px'>ÁÖ¼Ò</div>";
+		str += "<div class='td'>ºí·¢¸®½ºÆ® ¿©ºÎ</div>";
+		str += "<div class='td' style='width:100px'>È¸¿ø±¸ºĞ</div>";
+		str += "<div class='td' style='width:100px'>ºí·¢¹öÆ°</div>";
+		str += "<div class='boxmaker'></div>";
 
-								str += "<form action='black' method='post'>";
+		$.each(json,function(key, value) {
+
+							str += "<form action='black' method='post'>";
+						
+							str += "<div class='td' style='width:100px'>" + json[key].id + "</div>";
+							str += "<div class='td' style='width:100px'>" + json[key].name + "</div>";
+							str += "<div class='td' style='width:100px'>"+json[key].gender+ "</div>";
+							str += "<div class='td'>"+json[key].birth+"</div>";
+							str += "<div class='td'>"+json[key].tel+"</div>";
+							str += "<div class='td'>"+json[key].mail+"</div>";
+							str += "<div class='td' style='width:400px'>"+json[key].addr+"</div>";
+							str += "<div class='td' >"+json[key].blacklist+"</div>";
+							str += "<div class='td'  style='width:100px'>"+json[key].type+"</div>";
+
+							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='ºí·¢'/></div>";
+							str += "<div><input type='hidden' name='sit_id' value='"+json[key].id+"'/></div>";
+							str += "<div class='boxmaker'></div>";
+							str += "</form>";
+
+						});
+		str += "</table>";
 							
-								str += "<div class='td' style='width:100px'>" + json[i].id + "</div>";
-								str += "<div class='td' style='width:100px'>" + json[i].name + "</div>";
-								str += "<div class='td' style='width:100px'>"+json[i].gender+ "</div>";
-								str += "<div class='td'>"+json[i].birth+"</div>";
-								str += "<div class='td'>"+json[i].tel+"</div>";
-								str += "<div class='td'>"+json[i].mail+"</div>";
-								str += "<div class='td' style='width:500px'>"+json[i].addr+"</div>";
-								str += "<div class='td' >"+json[i].blacklist+"</div>";
-								str += "<div class='td'  style='width:100px'>"+json[i].type+"</div>";
-								str += "<div class='td' style='width:150px'><input type='submit'  id='mid' value='ë¸”ë™'/></div>";
-								str += "<div><input type='hidden' name='sit_id' value='"+json[i].id+"'/></div>";
-								str += "<div class='boxmaker'></div>";
-								str += "</form>";
 
-							};
-			str += "</table>";
-			$("#asd").html(str);	
-			 pageNum(json);
-		}//END 
-		 
-		
-		
-		
-		 var index;
-		function pageNum(json) { // í˜ì´ì§€ ë„˜ë²„ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
-		      var totalpage;
-
-		      totalPage = json.length / 10;
-		      if (json.length / 10 > 0) {
-		         totalPage++;
-		      }
-		      maxindex = Math.floor(totalPage);
-		      var str2 = "";
-		      str2 += "<ul class='pagination justify-content-center'>";
-		      str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
-		            + 0 + ")'>Previous</a></li>";
-
-		      for (var k = 1; k < totalPage; k++) {
-		         str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
-		               + k + ")'>" + k + "</a></li>";
-		         str2 += "<input type='hidden' class='page' value='" + k + "'>";
-		      }
-		      str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
-		            + -1 + ")'>Next</a></li></ul>";
-		      str2 += "</ul>";
-
-		      $("#asd2").html(str2);
-
-		   }
-
-		function newpage(num) { // í˜ì´ì§€ ì´ì „, ë‹¤ìŒ ë²„íŠ¼ ëˆ„ë¥¼ì‹œ ì´ë™ ì œì–´í•˜ëŠ” í•¨ìˆ˜
-
-		      if (num === 0) {
-		         if (index == 1) {
-		        	 pageAll(json, 1);
-		         } else {
-		        	 pageAll(json, index - 1);
-		         }
-		      } else if (num === -1) {
-		         console.log(maxindex);
-		         if (index == maxindex) {
-		        	 pageAll(json, maxindex);
-		         } else {
-		        	 pageAll(json, index + 1);
-		         }
-		      } else {
-		    	  pageAll(json, num);
-		      }
-		   } 
-		</script>
-	
+		$("#asd").append(str);
+	</script>
 </body>
 </html>

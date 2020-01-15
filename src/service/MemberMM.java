@@ -334,10 +334,10 @@ public class MemberMM {
 	public Forward resshow() {
 		Forward fw=new Forward();
 		MemberDao mDao=new MemberDao();
-		String my_id=request.getParameter("my_id");
-		System.out.println("my_id = "+my_id);
+		HttpSession session=request.getSession();
+		String id=session.getAttribute("id").toString();
 	
-		List<HashMap<String, String>> sList =mDao.resshow(my_id);
+		List<HashMap<String, String>> sList =mDao.resshow(id);
 		
 		Gson g = new Gson();
 		String res = g.toJson(sList);

@@ -123,4 +123,28 @@ public class ReservationMM {
 		
 	}
 
+	public Forward rescancel() {
+		Forward fw = new Forward();
+		ReservationDao rDao = new ReservationDao();
+		
+		HttpSession session = request.getSession();
+		String id=session.getAttribute("id").toString();
+		String res_no=request.getParameter("res_no");
+		
+		boolean result=rDao.rescancel(id,res_no);
+		System.out.println("res_no = "+res_no);
+		
+		if(result) {
+			fw.setPath("resshow");
+			fw.setRedirect(false);	
+		}
+		else {
+			System.out.println("삭제 실패");
+			fw.setPath("resshow");
+			fw.setRedirect(false);
+		}
+		
+		return fw;
+	}
+
 }// class End

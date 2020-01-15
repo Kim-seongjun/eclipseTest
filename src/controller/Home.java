@@ -24,7 +24,7 @@ import service.ReservationMM;
 			"/petinsert","/petinsertshow","/petsitterdetail",
 			"/reservation","/petsitter_reg","/black","/white",
 			"/reviewinsert","/question","/pqmodify",
-			"/resshow","/goreview"})
+			"/resshow","/goreview","/rescancel"})
 
 
 public class Home extends HttpServlet {
@@ -137,6 +137,10 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		
 	case "/goreview":	//리뷰창 이동
 		fw=rm.goreview();
+		break;
+	
+	case"/rescancel":
+		fw=rm.rescancel();
 		break;
 	
 	}
