@@ -100,7 +100,7 @@ public class AdminMM {
 			fw.setPath("userlist");
 			fw.setRedirect(false);
 		} else {
-			fw.setPath("userlist.jsp");
+			fw.setPath("userlist");
 			fw.setRedirect(false);
 		}
 		return fw;
@@ -117,7 +117,7 @@ public class AdminMM {
 			fw.setPath("petapplylist");
 			fw.setRedirect(true);
 		} else {
-			fw.setPath("petapplylist.jsp");
+			fw.setPath("petapplylist");
 			fw.setRedirect(false);
 		}
 		return fw;

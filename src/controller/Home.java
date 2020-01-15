@@ -23,8 +23,8 @@ import service.ReservationMM;
 			"/blacklist","/userlist","/petsitterappr","/deleteapply",
 			"/petinsert","/petinsertshow","/petsitterdetail",
 			"/reservation","/petsitter_reg","/black","/white",
-			"/rescheck","/reviewinsert","/question","/pqmodify",
-			"/resshow"})
+			"/reviewinsert","/question","/pqmodify",
+			"/resshow","/goreview"})
 
 
 public class Home extends HttpServlet {
@@ -88,6 +88,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 				
 	case "/petsitterdetail":
+		fw=rm.reviewshow();		//리뷰불러오기
 		fw=mm.petsitterdetail();  //펫시터상세 및 예약페이지
 		break;
 	
@@ -121,10 +122,6 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 	case "/reviewinsert":
 		fw=rm.reviewinsert();	//리뷰쓰기
 		break;
-	
-	case "/rescheck":
-		fw=rm.rescheck();	//예약 확인
-		break;
 		
 	case "/question":
 		fw=am.question();	//수정할 질문 보기
@@ -134,8 +131,12 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=am.pqmodify();
 		break;
 	
-	case"/resshow":
+	case"/resshow":		//예약확인
 		fw=mm.resshow();
+		break;
+		
+	case "/goreview":	//리뷰창 이동
+		fw=rm.goreview();
 		break;
 	
 	}
