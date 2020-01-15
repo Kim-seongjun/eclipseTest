@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¸®ºä¾²±â</title>
+<meta charset="utf-8">
+<title>ë¦¬ë·°ì“°ê¸°</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 </script>
@@ -83,29 +83,29 @@ margin-left:120px;
 </style>
 <body>
 
-	<h1 style="text-align: center; color: #36e9ce">¸®ºä¾²±â</h1>
+	<h1 style="text-align: center; color: #36e9ce">ë¦¬ë·°ì“°ê¸°</h1>
 	<div id='rev_div'>
 
 		<div class="starRev">
-			<span class="starR on">º°1</span> <span class="starR">º°2</span> 
-			<span class="starR">º°3</span> <span class="starR">º°4</span> 
-			<span class="starR">º°5</span> <span class="starR">º°6</span> 
-			<span class="starR">º°7</span> <span class="starR">º°8</span> 
-			<span class="starR">º°9</span> <span class="starR">º°10</span>
+			<span class="starR on">ë³„1</span> <span class="starR">ë³„2</span> 
+			<span class="starR">ë³„3</span> <span class="starR">ë³„4</span> 
+			<span class="starR">ë³„5</span> <span class="starR">ë³„6</span> 
+			<span class="starR">ë³„7</span> <span class="starR">ë³„8</span> 
+			<span class="starR">ë³„9</span> <span class="starR">ë³„10</span>
 		</div>
 
 		<div id="text_chang1">
-			<input type="text" id="title" class="boxmaker" placeholder='Á¦¸ñ' />
+			<input type="text" id="title" class="boxmaker" placeholder='ì œëª©' />
 		</div>
 		<div id="text_chang2">
-			<input type="text" id="main" class="boxmaker" placeholder='³»¿ë' />
+			<input type="text" id="main" class="boxmaker" placeholder='ë‚´ìš©' />
 		</div>
 
 	<div class="button1">
 		<div>
-			<input type="submit" class="button" id="button_check" value="È®ÀÎ">
+			<input type="submit" class="button" id="button_check" value="í™•ì¸">
 		
-			<input type="submit" class="button" id="button_cancel" value="Ãë¼Ò"
+			<input type="submit" class="button" id="button_cancel" value="ì·¨ì†Œ"
 				formaction="home">
 		</div>
 	</div>

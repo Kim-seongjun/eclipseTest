@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¿¹¾à»ó¼¼</title>
+<meta charset="utf-8">
+<title>ì˜ˆì•½ìƒì„¸</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 	
@@ -13,7 +13,7 @@
 div.table {
 	border: 3px solid;
 	border-collapse: collapse;
-	width: 1500px;
+	width: 1600px;
 }
 
 div.td {
@@ -50,7 +50,7 @@ div.boxmaker {
 			<jsp:include page="header.jsp" />
 		</div>
 	</header>
-	<h1 style="text-align: center; color: #36e9ce">¿¹¾à»ó¼¼</h1>
+	<h1 style="text-align: center; color: #36e9ce">ì˜ˆì•½ìƒì„¸</h1>
 	<div id='asd'></div>
 
 	<script>
@@ -61,14 +61,15 @@ div.boxmaker {
 		var str = "";
 
 		str += "<div class='table'>";
-		str += "<div class='td'>¿¹¾à¹øÈ£</div>"
-		str += "<div class='td'>¾ÆÀÌµğ</div>"
-		str += "<div class='td'>Æê½ÃÅÍ¾ÆÀÌµğ</div>"
-		str += "<div class='td'>Æê°íÀ¯¹øÈ£</div>"
-		str += "<div class='td'>¿¹¾à½ÃÀÛÀÏ</div>"
-		str += "<div class='td'>¿¹¾àÁ¾·áÀÏ</div>"
-		str += "<div class='td'>ÃÑ±İ¾×</div>"
-		str += "<div class='td' style='width:100px'>¿¹¾àÃë¼Ò¹öÆ°</div>"
+		str += "<div class='td'>ì˜ˆì•½ë²ˆí˜¸</div>"
+		str += "<div class='td'>ì•„ì´ë””</div>"
+		str += "<div class='td'>í«ì‹œí„°ì•„ì´ë””</div>"
+		str += "<div class='td'>ë°˜ë ¤ê²¬ì´ë¦„</div>"
+		str += "<div class='td'>ì˜ˆì•½ì‹œì‘ì¼</div>"
+		str += "<div class='td'>ì˜ˆì•½ì¢…ë£Œì¼</div>"
+		str += "<div class='td'>ì´ê¸ˆì•¡</div>"
+		str += "<div class='td' style='width:100px'>ì˜ˆì•½ì·¨ì†Œë²„íŠ¼</div>"
+		str += "<div class='td' style='width:100px'>ë¦¬ë·°ì“°ê¸°</div>"
 		str += "<div class='boxmaker'></div>";
 
 		$.each(json,function(key, value) {
@@ -78,18 +79,18 @@ div.boxmaker {
 							str += "<div class='td'>" + json[key].RES_NO+ "</div>";
 							str += "<div class='td'>" + json[key].US_ID+ "</div>";
 							str += "<div class='td'>" + json[key].SITTER_ID+ "</div>";
-							str += "<div class='td'>" + json[key].PET_NO+ "</div>";
+							str += "<div class='td'>" + json[key].PET_NAME+ "</div>";
 							str += "<div class='td'>" + json[key].RES_DATE_FR+ "</div>";
 							str += "<div class='td'>" + json[key].RES_DATE_TO+ "</div>";
 							str += "<div class='td'>" + json[key].RES_PRICE+ "</div>";
-
-							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='¿¹¾àÃë¼Ò'/></div>";
+							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='ì˜ˆì•½ì·¨ì†Œ'/></div>";
+							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='ë¦¬ë·°ì“°ê¸°'/></div>";
 
 							str += "</form>";
 						});
 		
 		str += "</div>";
-		str +="</table>";
+	
 		$("#asd").append(str);
 	</script>
 </body>

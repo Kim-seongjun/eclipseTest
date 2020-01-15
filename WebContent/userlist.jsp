@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÀüÃ¼È¸¿ø¸®½ºÆ®</title>
+<meta charset="utf-8">
+<title>ì „ì²´íšŒì›ë¦¬ìŠ¤íŠ¸</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
@@ -47,7 +47,7 @@ div.boxmaker {
 			<jsp:include page="header.jsp" />
 		</div>
 		</header>
-	<h1>ÀüÃ¼È¸¿ø¸®½ºÆ®</h1>
+	<h1>ì „ì²´íšŒì›ë¦¬ìŠ¤íŠ¸</h1>
 	
 	<div id='asd'></div>
 
@@ -62,16 +62,16 @@ div.boxmaker {
 		str += "<form action='black' method='post'>";
 
 		str += "<div class='table'>";
-		str += "<div class='td' style='width:100px'>È¸¿ø ¾ÆÀÌµğ</div>";
-		str += "<div class='td' style='width:100px'>ÀÌ¸§</div>";
-		str += "<div class='td' style='width:100px'>¼ºº°</div>";
-		str += "<div class='td'>»ı³â¿ùÀÏ</div>";
-		str += "<div class='td'>ÀüÈ­¹øÈ£</div>";
-		str += "<div class='td'>ÀÌ¸ŞÀÏ</div>";
-		str += "<div class='td' style='width:400px'>ÁÖ¼Ò</div>";
-		str += "<div class='td'>ºí·¢¸®½ºÆ® ¿©ºÎ</div>";
-		str += "<div class='td' style='width:100px'>È¸¿ø±¸ºĞ</div>";
-		str += "<div class='td' style='width:100px'>ºí·¢¹öÆ°</div>";
+		str += "<div class='td' style='width:100px'>íšŒì› ì•„ì´ë””</div>";
+		str += "<div class='td' style='width:100px'>ì´ë¦„</div>";
+		str += "<div class='td' style='width:100px'>ì„±ë³„</div>";
+		str += "<div class='td'>ìƒë…„ì›”ì¼</div>";
+		str += "<div class='td'>ì „í™”ë²ˆí˜¸</div>";
+		str += "<div class='td'>ì´ë©”ì¼</div>";
+		str += "<div class='td' style='width:400px'>ì£¼ì†Œ</div>";
+		str += "<div class='td'>ë¸”ë™ë¦¬ìŠ¤íŠ¸ ì—¬ë¶€</div>";
+		str += "<div class='td' style='width:100px'>íšŒì›êµ¬ë¶„</div>";
+		str += "<div class='td' style='width:100px'>ë¸”ë™ë²„íŠ¼</div>";
 		str += "<div class='boxmaker'></div>";
 
 		$.each(json,function(key, value) {
@@ -88,7 +88,7 @@ div.boxmaker {
 							str += "<div class='td' >"+json[key].blacklist+"</div>";
 							str += "<div class='td'  style='width:100px'>"+json[key].type+"</div>";
 
-							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='ºí·¢'/></div>";
+							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='ë¸”ë™'/></div>";
 							str += "<div><input type='hidden' name='sit_id' value='"+json[key].id+"'/></div>";
 							str += "<div class='boxmaker'></div>";
 							str += "</form>";
