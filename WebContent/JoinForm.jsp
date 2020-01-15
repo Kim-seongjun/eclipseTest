@@ -86,9 +86,6 @@ input {
 					</tr>
 
 
-
-
-
 					<tr>
 						<td>이름</td>
 						<td><input type="text" name="name" maxlength="30" id="name"></td>
