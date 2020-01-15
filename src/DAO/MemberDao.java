@@ -285,6 +285,7 @@ public class MemberDao {
 				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
 //				sList.add(rs.getNString("")); 평점
 			}
+			System.out.println("예약상세호출 성공");
 			return hm;
 		} catch (SQLException e) {
 			System.out.println("예약상세 예외");

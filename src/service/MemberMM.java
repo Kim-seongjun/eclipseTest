@@ -298,7 +298,10 @@ public class MemberMM {
 		request.setAttribute("json_detail" , r);
 		
 		HttpSession session=request.getSession();
+		
 		String id=session.getAttribute("id").toString();
+	
+		
 		System.out.println("idid="+id);
 		
 		List<HashMap<String, String>> hmm=mDao.pet(id);

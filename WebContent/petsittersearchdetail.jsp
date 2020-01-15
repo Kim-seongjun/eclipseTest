@@ -115,6 +115,8 @@
 
 
 <script>
+
+
  	$("#e_btn").click(function(){
 	console.log("시작일값은 : "+$(".date").val());
 	var date1=$(".date").val().split('-');
@@ -213,15 +215,18 @@
 		pay+="<input type='hidden' name='sit_addr' value='"+json.US_ADDRESS+"' />";
 
 		$("#pay").append(pay);
+		
 	</script>
 	
 	<script>
+	
 		/* var json = ${json_review};
 		var srt = "";
 		console.log(json);
 		console.log(json.res_no);
 		
 		$(.review).append(str); */
+		
 	</script>
 </body>
 </html>
