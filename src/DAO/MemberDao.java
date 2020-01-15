@@ -386,7 +386,7 @@ public class MemberDao {
 	}
 
 	public List<HashMap<String, String>> resshow(String my_id) {
-		String sql = "SELECT * From PR WHERE US_ID=?";
+		String sql = "SELECT * FROM PR JOIN PP ON PR.PET_NO=PP.PET_NO WHERE US_ID=?";
 		 try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setNString(1, my_id);
@@ -398,6 +398,7 @@ public class MemberDao {
 				hm.put("US_ID",rs.getNString("US_ID"));
 				hm.put("SITTER_ID",rs.getNString("SITTER_ID"));
 				hm.put("PET_NO",rs.getNString("PET_NO"));
+				hm.put("PET_NAME",rs.getNString("PET_NAME"));
 				hm.put("RES_DATE_FR",rs.getNString("RES_DATE_FR"));
 				hm.put("RES_DATE_TO",rs.getNString("RES_DATE_TO"));
 				hm.put("RES_PRICE",rs.getNString("RES_PRICE"));

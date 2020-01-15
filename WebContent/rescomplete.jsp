@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¿¹¾à ¿Ï·á</title>
+<meta charset="utf-8">
+<title>ì˜ˆì•½ ì™„ë£Œ</title>
 <style>
 	#btn_div{
 		position:relative;
@@ -53,13 +53,13 @@
 
 
 <div id='inbody'>
-<div id='hed'>¿¹¾àÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.</div>
+<div id='hed'>ì˜ˆì•½ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.</div>
 
 <div id='btn_div'>
 <form  method='post'>
-<input type="submit" class='btn' value='¿¹¾à È®ÀÎ' formaction='rescheck' />
-<input type="submit" class='btn' value='¸®ºä ¾²±â' formaction='reviewinsert'/>
-<input type="submit" class='btn' value='È¨' formaction='home' />
+<input type="submit" class='btn' value='ì˜ˆì•½ í™•ì¸' formaction='rescheck' />
+<input type="submit" class='btn' value='ë¦¬ë·° ì“°ê¸°' formaction='reviewinsert'/>
+<input type="submit" class='btn' value='í™ˆ' formaction='home' />
 
 </form>
 </div>
