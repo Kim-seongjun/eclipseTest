@@ -85,8 +85,8 @@
 	border: none;
 }
 .review_re{
-	border-bottom: 1px solid #696969; 
-	border-top: 1px solid #696969;
+ 	border-bottom: 1px solid #696969;
+ 	border-top: 1px solid #696969;
 }
 </style>
 </head>
@@ -98,7 +98,7 @@
 
 	<h1>예약상세페이지</h1>
 	<div style="position: absolute; top: 10%; left: 25%">
-	<form action="reservation" method='post' style="margin-bottom: 20px; ">
+	<form action="reservation" method='post' style="margin-bottom: 100px; ">
 		<div id='main'>
 
 			<div id='show_petsitter'></div>
@@ -115,11 +115,6 @@
 	<div id="review" style="width: 1129px; height: 400px; margin: 10, 10, 10, 10; border-top: 1px solid #696969; ">
 		<h3>후기</h3>
 		<div id="div_review" style="border-bottom: 1px solid #696969; border-top: 1px solid #696969;">
-<!-- 			<div class="review_re"> -->
-<!-- 				<b style="font-size: 20px;">res_no(예약번호)+user_name(예약회원 이름)+re_title(제목)</b><br> -->
-<!-- 				re_point(별점)<br>  -->
-<!-- 				re_body(내용) -->
-<!-- 			</div > -->
 		</div>
 	</div>
 </div>
@@ -229,19 +224,14 @@
  			console.log(json[key].RES_POINT);
  			console.log(json[key].US_NAME);
  			
- 			rev += "<div='review_re'>";
+ 			rev += "<div class ='review_re'>";
  	 		rev += "<b style='font-size: 20px;'>"+json[key].RES_TITLE+"</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+json[key].US_NAME+"<br>";
  	 		rev += "별점 : "+ json[key].RES_POINT+"<br>";
- 	 		rev += "내용 : "+ json[key].RES_CONT;
+ 	 		rev += "내용 : "+ json[key].RES_CONT+"<br>";
  	 		rev += "</div >"
  			
  		});
 		
-//  		rev += "<div='review_re'>";
-//  		rev += "<b style='font-size: 20px;'>"+json.user_name+json.res_title+"</b><br>";
-//  		rev += "json.res_point<br>";
-//  		rev += "json.res_body";
-//  		rev += "</div >"
 		
  		$('#div_review').append(rev);
 	</script>
