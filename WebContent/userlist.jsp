@@ -20,7 +20,7 @@ div.td {
 	height: 50px;
 	float: left;
 	box-sizing: border-box;
-	line-height: 50px;
+/* 	line-height: 50px; */
 	text-align: center;
 }
 
