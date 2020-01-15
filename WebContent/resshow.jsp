@@ -86,6 +86,7 @@ div.boxmaker {
 							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='예약취소'/></div>";
 							str += "<div class='td' style='width:100px'><input type='button' id='mid' value='리뷰쓰기'/></div>";
 
+								
 							str += "</form>";
 						});
 		

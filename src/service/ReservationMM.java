@@ -65,6 +65,24 @@ public class ReservationMM {
 
 	public Forward reviewinsert() {		//리뷰쓰기 
 		Forward fw=new Forward();
+		ReservationDao rDao=new ReservationDao();
+		String ReservationDao=request.getParameter("rev_poient");
+		String rev_title=request.getParameter("rev_title");
+		String rev_cont=request.getParameter("rev_cont");
+		System.out.println("rev_poient="+rev_poient);
+		System.out.println("rev_title="+rev_title);
+		System.out.println("rev_cont="+rev_cont);
+		
+		boolean result=rDao.reviewinsert();
+		rDao.close();
+		if(result) {
+			fw.setPath("main.jsp");
+			fw.setRedirect(false);
+		}
+		/*
+		 * else { fw.setPath(); fw.setRedirect(false); }
+		 */
+		
 		
 		return fw;
 	}
