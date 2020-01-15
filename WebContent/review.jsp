@@ -11,7 +11,27 @@
 </head>
 
 <style>
-.starR {
+
+/* input[type="radio"]{
+	display: none;
+}  */
+
+/* input[type="radio"] + label span{
+	background:
+		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
+		no-repeat right 0;
+	background-size: auto 100%;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	text-indent: -9999px;
+	cursor: pointer;
+	margin-bottom: 20px;
+} 
+input[type="checkbox"]:checked + label span{
+ background-position: 0 0;
+} */
+ .starR {
 	background:
 		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
 		no-repeat right 0;
@@ -23,11 +43,11 @@
 	cursor: pointer;
 	margin-bottom: 20px;
 
-}
+} 
 
-.starR.on {
+ .starR.on {
 	background-position: 0 0;
-}
+} 
 
 #title {
 	width: 600px;
@@ -84,21 +104,47 @@ margin-left:120px;
 <body>
 
 	<h1 style="text-align: center; color: #36e9ce">리뷰쓰기</h1>
+	<form action="reviewinsert">
 	<div id='rev_div'>
 
 		<div class="starRev">
-			<span class="starR on">별1</span> <span class="starR">별2</span> 
-			<span class="starR">별3</span> <span class="starR">별4</span> 
-			<span class="starR">별5</span> <span class="starR">별6</span> 
-			<span class="starR">별7</span> <span class="starR">별8</span> 
-			<span class="starR">별9</span> <span class="starR">별10</span>
+			<input id="s1" class='test' type="radio" name='rev_poient' value='1' checked/>
+			<label for="s1"><span class="starR on"></span></label>
+			
+			<input id="s2" class='test' type="radio" name='rev_poient' value='2'/>
+			<label for="s2"><span class="starR"></span> </label>
+			
+			<input id="s3" class='test' type="radio" name='rev_poient' value='3'/>
+			<label for="s3"><span class="starR"></span></label>
+			 
+			<input id="s4" class='test' type="radio" name='rev_poient' value='4'/>
+			<label for="s4"><span class="starR"></span> </label>
+			
+			<input id="s5" class='test' type="radio" name='rev_poient' value='5'/>
+			<label for="s5"><span class="starR"></span> </label>
+			
+			<input id="s6" class='test' type="radio" name='rev_poient' value='6'/>
+			<label for="s6"><span class="starR"></span> </label>
+			
+			<input id="s7" class='test' type="radio" name='rev_poient' value='7'/>
+			<label for="s7"><span class="starR"></span> </label>
+			
+			<input id="s8" class='test' type="radio" name='rev_poient' value='8'/>
+			<label for="s8"><span class="starR"></span> </label>
+			
+			<input id="s9" class='test' type="radio" name='rev_poient' value='9'/>
+			<label for="s9"><span class="starR"></span> </label>
+			
+			<input id="s10" class='test' type="radio" name='rev_poient' value='10'/>
+			<label for="s10"><span class="starR"></span></label>
+			
 		</div>
 
 		<div id="text_chang1">
-			<input type="text" id="title" class="boxmaker" placeholder='제목' />
+			<input type="text" id="title" class="boxmaker" name='rev_title'  placeholder='제목' />
 		</div>
 		<div id="text_chang2">
-			<input type="text" id="main" class="boxmaker" placeholder='내용' />
+			<input type="text" id="main" class="boxmaker" name='rev_cont' placeholder='내용' />
 		</div>
 
 	<div class="button1">
@@ -110,16 +156,19 @@ margin-left:120px;
 		</div>
 	</div>
 </div>
+</form>
 
 
 
 
 	<script>
-		$('.starRev span').click(function() {
+	
+	/*  	$('.starRev span').click(function() {
+			//cosole.log("this="+this);
 			$(this).parent().children('span').removeClass('on');
 			$(this).addClass('on').prevAll('span').addClass('on');
 			return false;
-		});
+		});  */
 	</script>
 </body>
 </html>
