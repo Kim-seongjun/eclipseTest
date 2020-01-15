@@ -114,12 +114,12 @@
 	</form>
 	<div id="review" style="width: 1129px; height: 400px; margin: 10, 10, 10, 10; border-top: 1px solid #696969; ">
 		<h3>후기</h3>
-		<div style="border-bottom: 1px solid #696969; border-top: 1px solid #696969;">
-			<div class="review_re">
-				<b style="font-size: 20px;">res_no(예약번호)+user_name(예약회원 이름)+re_title(제목)</b><br>
-				re_point(별점)<br> 
-				re_body(내용)
-			</div >
+		<div id="div_review" style="border-bottom: 1px solid #696969; border-top: 1px solid #696969;">
+<!-- 			<div class="review_re"> -->
+<!-- 				<b style="font-size: 20px;">res_no(예약번호)+user_name(예약회원 이름)+re_title(제목)</b><br> -->
+<!-- 				re_point(별점)<br>  -->
+<!-- 				re_body(내용) -->
+<!-- 			</div > -->
 		</div>
 	</div>
 </div>
@@ -221,18 +221,29 @@
 	</script>
 
 	<script>
-// 		var json = ${json_review};
-// 		var srt = "";
-// 		console.log(json);
-// 		console.log(json.res_no);
+ 		var json = ${json_review};
+ 		var rev = "";
+ 		$.each(json,function(key, value){
+ 			console.log(json[key].RES_TITLE);
+ 			console.log(json[key].RES_CONT);
+ 			console.log(json[key].RES_POINT);
+ 			console.log(json[key].US_NAME);
+ 			
+ 			rev += "<div='review_re'>";
+ 	 		rev += "<b style='font-size: 20px;'>"+json[key].RES_TITLE+"</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+json[key].US_NAME+"<br>";
+ 	 		rev += "별점 : "+ json[key].RES_POINT+"<br>";
+ 	 		rev += "내용 : "+ json[key].RES_CONT;
+ 	 		rev += "</div >"
+ 			
+ 		});
 		
-// 		str += "<div class='review_re'>";
-// 		str += "<b style='font-size: 20px;'>json.res_no(예약번호)+json.user_name(예약회원 이름)+json.re_title(제목)</b><br>";
-// 		str += "json.re_point<br>";
-// 		str += "json.re_body";
-// 		str += "</div >"
+//  		rev += "<div='review_re'>";
+//  		rev += "<b style='font-size: 20px;'>"+json.user_name+json.res_title+"</b><br>";
+//  		rev += "json.res_point<br>";
+//  		rev += "json.res_body";
+//  		rev += "</div >"
 		
-// 		$('.review_re').append(str);
+ 		$('#div_review').append(rev);
 	</script>
 </body>
 </html>

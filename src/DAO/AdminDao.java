@@ -20,6 +20,7 @@ public class AdminDao {
 		con = jdbcUtil.getConnection();
 	}
 
+	
 	public void close() {
 		jdbcUtil.close(rs, pstmt, con);
 	}

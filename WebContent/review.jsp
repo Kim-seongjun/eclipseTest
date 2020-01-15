@@ -157,7 +157,6 @@ input[type="checkbox"]:checked + label span{
 
 
 
-
 	<script>
 	console.log("res_no="+${res_no});
 	var str="";
