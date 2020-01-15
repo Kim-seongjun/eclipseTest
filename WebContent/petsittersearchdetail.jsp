@@ -120,14 +120,6 @@
 				re_point(별점)<br> 
 				re_body(내용)
 			</div >
-				<div class="review_re">
-				<b style="font-size: 20px;">res_no(예약번호)+re_title(제목)</b><br>
-				re_point(별점)<br> re_body(내용)
-			</div>
-				<div class="review_re">
-				<b style="font-size: 20px;">res_no(예약번호)+re_title(제목)</b><br>
-				re_point(별점)<br> re_body(내용)
-			</div>
 		</div>
 	</div>
 </div>
@@ -229,12 +221,18 @@
 	</script>
 
 	<script>
-		/* var json = ${json_review};
-		var srt = "";
-		console.log(json);
-		console.log(json.res_no);
+// 		var json = ${json_review};
+// 		var srt = "";
+// 		console.log(json);
+// 		console.log(json.res_no);
 		
-		$(.review).append(str); */
+// 		str += "<div class='review_re'>";
+// 		str += "<b style='font-size: 20px;'>json.res_no(예약번호)+json.user_name(예약회원 이름)+json.re_title(제목)</b><br>";
+// 		str += "json.re_point<br>";
+// 		str += "json.re_body";
+// 		str += "</div >"
+		
+// 		$('.review_re').append(str);
 	</script>
 </body>
 </html>
