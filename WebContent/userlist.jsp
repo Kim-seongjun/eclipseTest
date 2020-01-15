@@ -5,13 +5,16 @@
 <head>
 <meta charset="utf-8">
 <title>전체회원리스트</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <style>
 div.table {
 	border: 3px solid;
 	border-collapse: collapse;
-	width:1700px;
+	width:1900px;
 }
 
 div.td {
@@ -35,9 +38,18 @@ div.boxmaker {
 	background: rgba(255, 255, 255, 1);
 	z-index: 1;
 }
-#mid{
-	margin-top:13px;
-}
+
+ #asd{
+	position: relative;
+	top:50px;
+	
+} 
+ #asd2{
+	position: relative;
+	top:50px;
+	
+} 
+
 </style>
 </head>
 <body>
@@ -47,10 +59,11 @@ div.boxmaker {
 			<jsp:include page="header.jsp" />
 		</div>
 		</header>
+		
 	<h1>전체회원리스트</h1>
 	
 	<div id='asd'></div>
-
+	<div id='asd2'></div>
 
 
 
@@ -58,82 +71,69 @@ div.boxmaker {
 		var json = ${json_ulist};
 		console.log(json);
 		console.log("--------------");
-		var str = "";
-		str += "<form action='black' method='post'>";
+		window.onload=pageAll(json,1);
+ 			var index;
+		
+		
+		function pageAll(json,num) {
+			var str = "";
+			index=num;
+			
+			str += "<div class='table'>";
+			str += "<div class='td' style='width:100px'>회원 아이디</div>";
+			str += "<div class='td' style='width:100px'>이름</div>";
+			str += "<div class='td' style='width:100px'>성별</div>";
+			str += "<div class='td'>생년월일</div>";
+			str += "<div class='td'>전화번호</div>";
+			str += "<div class='td'>이메일</div>";
+			str += "<div class='td' style='width:500px'>주소</div>";
+			str += "<div class='td'>블랙리스트 여부</div>";
+			str += "<div class='td' style='width:100px'>회원구분</div>";
+			str += "<div class='td' style='width:150px'>블랙버튼</div>";
+			str += "<div class='boxmaker'></div>";
 
-		str += "<div class='table'>";
-		str += "<div class='td' style='width:100px'>회원 아이디</div>";
-		str += "<div class='td' style='width:100px'>이름</div>";
-		str += "<div class='td' style='width:100px'>성별</div>";
-		str += "<div class='td'>생년월일</div>";
-		str += "<div class='td'>전화번호</div>";
-		str += "<div class='td'>이메일</div>";
-		str += "<div class='td' style='width:400px'>주소</div>";
-		str += "<div class='td'>블랙리스트 여부</div>";
-		str += "<div class='td' style='width:100px'>회원구분</div>";
-		str += "<div class='td' style='width:100px'>블랙버튼</div>";
-		str += "<div class='boxmaker'></div>";
+			for(var i=(num-1)*10;i<(num*10);i++) {
 
-		$.each(json,function(key, value) {
-
-							str += "<form action='black' method='post'>";
-						
-							str += "<div class='td' style='width:100px'>" + json[key].id + "</div>";
-							str += "<div class='td' style='width:100px'>" + json[key].name + "</div>";
-							str += "<div class='td' style='width:100px'>"+json[key].gender+ "</div>";
-							str += "<div class='td'>"+json[key].birth+"</div>";
-							str += "<div class='td'>"+json[key].tel+"</div>";
-							str += "<div class='td'>"+json[key].mail+"</div>";
-							str += "<div class='td' style='width:400px'>"+json[key].addr+"</div>";
-							str += "<div class='td' >"+json[key].blacklist+"</div>";
-							str += "<div class='td'  style='width:100px'>"+json[key].type+"</div>";
-
-							str += "<div class='td' style='width:100px'><input type='submit' id='mid' value='블랙'/></div>";
-							str += "<div><input type='hidden' name='sit_id' value='"+json[key].id+"'/></div>";
-							str += "<div class='boxmaker'></div>";
-							str += "</form>";
-
-						});
-		str += "</table>";
+								str += "<form action='black' method='post'>";
 							
+								str += "<div class='td' style='width:100px'>" + json[i].id + "</div>";
+								str += "<div class='td' style='width:100px'>" + json[i].name + "</div>";
+								str += "<div class='td' style='width:100px'>"+json[i].gender+ "</div>";
+								str += "<div class='td'>"+json[i].birth+"</div>";
+								str += "<div class='td'>"+json[i].tel+"</div>";
+								str += "<div class='td'>"+json[i].mail+"</div>";
+								str += "<div class='td' style='width:500px'>"+json[i].addr+"</div>";
+								str += "<div class='td' >"+json[i].blacklist+"</div>";
+								str += "<div class='td'  style='width:100px'>"+json[i].type+"</div>";
+								str += "<div class='td' style='width:150px'><input type='submit'  id='mid' value='블랙'/></div>";
+								str += "<div><input type='hidden' name='sit_id' value='"+json[i].id+"'/></div>";
+								str += "<div class='boxmaker'></div>";
+								str += "</form>";
 
-		$("#asd").append(str);
+							};
+			str += "</table>";
+			$("#asd").html(str);	
+			 pageNum(json);
+		}//END 
+		 
 		
 		
-		function noveldetaillist() { //처음 시작시 DB에 갔다와 게시물 보여주는 메소드
-		      $.ajax({
-		         url : "noveldetaillist",
-		         type : "post",
-		         data : {"novelNum" : $("#novelNum").val()},
-		         dataType : 'json',
-		         success : function(data) {
-		            json = data;
-		            paidCheck();
-		            novelDetailListShow(json, 1, paid);
-		            pageNum(json);
-
-		         },
-		         error : function(error) {
-		            alert(error);
-		            console.log(error);
-		         }
-		      }); // ajax End
-		   }
 		
+		 var index;
 		function pageNum(json) { // 페이지 넘버 보여주는 함수
 		      var totalpage;
 
-		      totalPages = json.length / 15;
-		      if (json.length / 15 > 0) {
-		         totalPages++;
+		      totalPage = json.length / 10;
+		      if (json.length / 10 > 0) {
+		         totalPage++;
 		      }
-		      maxindex = Math.floor(totalPages);
+		      maxindex = Math.floor(totalPage);
 		      var str2 = "";
 		      str2 += "<ul class='pagination justify-content-center'>";
 		      str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
 		            + 0 + ")'>Previous</a></li>";
 
-		      for (var k = 1; k < totalPages; k++) {
+		      for (var k = 1; k < totalPage; k++) {
 		         str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
 		               + k + ")'>" + k + "</a></li>";
 		         str2 += "<input type='hidden' class='page' value='" + k + "'>";
@@ -142,31 +142,30 @@ div.boxmaker {
 		            + -1 + ")'>Next</a></li></ul>";
 		      str2 += "</ul>";
 
-		      $("#paging").html(str2);
+		      $("#asd2").html(str2);
 
 		   }
-		
+
 		function newpage(num) { // 페이지 이전, 다음 버튼 누를시 이동 제어하는 함수
 
 		      if (num === 0) {
 		         if (index == 1) {
-		            novelDetailListShow(json, 1, paid);
+		        	 pageAll(json, 1);
 		         } else {
-		            novelDetailListShow(json, index - 1, paid);
+		        	 pageAll(json, index - 1);
 		         }
 		      } else if (num === -1) {
 		         console.log(maxindex);
 		         if (index == maxindex) {
-		            novelDetailListShow(json, maxindex, paid);
+		        	 pageAll(json, maxindex);
 		         } else {
-		            novelDetailListShow(json, index + 1, paid);
+		        	 pageAll(json, index + 1);
 		         }
 		      } else {
-		         novelDetailListShow(json, num, paid);
+		    	  pageAll(json, num);
 		      }
-		   }
-		 
-	</script>
+		   } 
+		</script>
 	
 </body>
 </html>
