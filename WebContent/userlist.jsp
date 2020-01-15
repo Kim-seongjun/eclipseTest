@@ -98,6 +98,75 @@ div.boxmaker {
 							
 
 		$("#asd").append(str);
+		
+		
+		function noveldetaillist() { //처음 시작시 DB에 갔다와 게시물 보여주는 메소드
+		      $.ajax({
+		         url : "noveldetaillist",
+		         type : "post",
+		         data : {"novelNum" : $("#novelNum").val()},
+		         dataType : 'json',
+		         success : function(data) {
+		            json = data;
+		            paidCheck();
+		            novelDetailListShow(json, 1, paid);
+		            pageNum(json);
+
+		         },
+		         error : function(error) {
+		            alert(error);
+		            console.log(error);
+		         }
+		      }); // ajax End
+		   }
+		
+		function pageNum(json) { // 페이지 넘버 보여주는 함수
+		      var totalpage;
+
+		      totalPages = json.length / 15;
+		      if (json.length / 15 > 0) {
+		         totalPages++;
+		      }
+		      maxindex = Math.floor(totalPages);
+		      var str2 = "";
+		      str2 += "<ul class='pagination justify-content-center'>";
+		      str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+		            + 0 + ")'>Previous</a></li>";
+
+		      for (var k = 1; k < totalPages; k++) {
+		         str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+		               + k + ")'>" + k + "</a></li>";
+		         str2 += "<input type='hidden' class='page' value='" + k + "'>";
+		      }
+		      str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+		            + -1 + ")'>Next</a></li></ul>";
+		      str2 += "</ul>";
+
+		      $("#paging").html(str2);
+
+		   }
+		
+		function newpage(num) { // 페이지 이전, 다음 버튼 누를시 이동 제어하는 함수
+
+		      if (num === 0) {
+		         if (index == 1) {
+		            novelDetailListShow(json, 1, paid);
+		         } else {
+		            novelDetailListShow(json, index - 1, paid);
+		         }
+		      } else if (num === -1) {
+		         console.log(maxindex);
+		         if (index == maxindex) {
+		            novelDetailListShow(json, maxindex, paid);
+		         } else {
+		            novelDetailListShow(json, index + 1, paid);
+		         }
+		      } else {
+		         novelDetailListShow(json, num, paid);
+		      }
+		   }
+		 
 	</script>
+	
 </body>
 </html>
