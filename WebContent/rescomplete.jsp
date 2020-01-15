@@ -23,6 +23,7 @@
 	position:relative;
 	top:300px;
 	left:600px;
+	text-align:center;
 	
 }
 #hed{
@@ -56,12 +57,12 @@
 <div id='hed'>예약이 완료되었습니다.</div>
 
 <div id='btn_div'>
-<form  method='post'>
-<input type="submit" class='btn' value='예약 확인' formaction='rescheck' />
-<input type="submit" class='btn' value='리뷰 쓰기' formaction='reviewinsert'/>
-<input type="submit" class='btn' value='홈' formaction='home' />
 
-</form>
+	<form  method='post'>
+	<input type="submit" class='btn' value='예약 확인' formaction='resshow' />
+	<input type="submit" class='btn' value='홈' formaction='home' />
+
+	</form>
 </div>
 
 

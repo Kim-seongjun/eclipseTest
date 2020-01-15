@@ -136,10 +136,6 @@ A:active{text-decoration; color: orange;}
 
 		str+="<div class='sub'>주소:"+json[key].US_ADDRESS+"<br></div>";
 		str+="<div style='font-size: 25px; color: #FF8000'>단가:"+json[key].SITTER_PRICE+"</div>"
-// 		str+="이름:"+json[key].SITTER_ID+"<br>";
-// 		str+="제목:"+json[key].SITTER_TITLE+"<br>";
-// 		str+="내용:"+json[key].SITTER_BODY+"<br>";
-// 		str+="가격:"+json[key].SITTER_PRICE+"<br>";
 		str+="</div>";
 		str+="<div class='btn_'><input type='submit'  value='예약'  class='btn'/></div>";
 		str+="</div>";
