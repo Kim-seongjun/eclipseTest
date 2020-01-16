@@ -132,7 +132,9 @@ margin-top : 100px;
 // 								str += "<div class='td' ></div>";
 // 								str += "<div class='td' ></div>";
 // 								str += "<div class='td'  style='width:100px'></div>";
+
 // 								str += "<div class='td' style='width:100px'></div>";
+
 					
 // 								str += "<div class='boxmaker'></div>";
 								
