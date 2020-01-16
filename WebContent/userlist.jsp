@@ -11,13 +11,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <style>
-/* div.table {
-	border: 3px solid;
-	border-collapse: collapse;
- 
- } */
+ div.table {
+/* 	position: absolute; */
+	overflow: auto; 
+ }
 
-div.td {
+div.td {	
+	overflow:auto;
 	border: 1px solid;
 	width: 200px;
 	height: 50px;
@@ -89,14 +89,14 @@ div.boxmaker {
 		str += "<div class='td'>생년월일</div>";
 		str += "<div class='td'>전화번호</div>";
 		str += "<div class='td'>이메일</div>";
-		str += "<div class='td' style='width:500px'>주소</div>";
+		str += "<div class='td' >주소</div>";
 		str += "<div class='td'>블랙리스트 여부</div>";
 		str += "<div class='td' style='width:100px'>회원구분</div>";
 		str += "<div class='td' style='width:100px'>블랙버튼</div>";
 		str += "<div class='boxmaker'></div>";
 		
 		for(var i=(num-1)*10;i<(num*10);i++) {
-			
+							if(i<json.length){
 		
 							str += "<form action='black' method='post'>";
 							
@@ -107,7 +107,7 @@ div.boxmaker {
 							str += "<div class='td'>"+json[i].birth+"</div>";
 							str += "<div class='td'>"+json[i].tel+"</div>";
 							str += "<div class='td'>"+json[i].mail+"</div>";
-							str += "<div class='td' style='width:500px'>"+json[i].addr+"</div>";
+							str += "<div class='td' >"+json[i].addr+"</div>";
 							str += "<div class='td' >"+json[i].blacklist+"</div>";
 							str += "<div class='td'  style='width:100px'>"+json[i].type+"</div>";
 							str += "<div class='td' style='width:100px'><input type='submit'  id='mid' value='블랙'/></div>";
@@ -116,7 +116,24 @@ div.boxmaker {
 							
 							str += "<div><input type='hidden' class='hid' name='sit_id' value='"+json[i].id+"'/></div>";
 							str += "</form>";
-		};
+							}else {
+								str +="<form action='black' method='post'>";
+								str += "<div class='td' style='width:150px'></div>";
+								str += "<div class='td' style='width:100px'></div>";
+								str += "<div class='td' style='width:100px'></div>";
+								str += "<div class='td'></div>";
+								str += "<div class='td'></div>";
+								str += "<div class='td'></div>";
+								str += "<div class='td' ></div>";
+								str += "<div class='td' ></div>";
+								str += "<div class='td'  style='width:100px'></div>";
+								str += "<div class='td' style='width:100px'><input type='submit'  id='mid' value='블랙'/></div>";
+					
+								str += "<div class='boxmaker'></div>";
+								
+								str += "<div><input type='hidden' class='hid' name='sit_id' value=''/></div>";
+								str += "</form>";
+							}};
 	str += "</div>";
 	
 		$("#asd").html(str);
