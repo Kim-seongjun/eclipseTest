@@ -61,10 +61,7 @@
 		console.log("--------------");
 		var str = "";
 
-		$
-				.each(
-						json,
-						function(key, value) {
+		$.each(json,function(key, value) {
 							str += "<form action='petsitterappr' method='post'>";
 
 							console.log(json[key]);

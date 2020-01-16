@@ -163,20 +163,7 @@ A:active{text-decoration; color: orange;}
  	
  	    $(".btn").click(function(){
 	    	
-	    	/*if($(".btn").prop("button")){
-			   
-	    		alert("로그인 후 사용가능합니다.");
-			   
-	    	}*/
 	   }); 
-			    	
-/*  	function actfrm() {
-
-		$("#frm").submit();
-		
-	} */
- 	
-
 	
 	</script>
 </body>

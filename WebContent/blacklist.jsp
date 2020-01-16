@@ -45,12 +45,16 @@ div.boxmaker {
 #asd{
 	position: relative;
 	top:50px;
+	margin-left: 10%;
 	
 } 
  #asd2{
 	position: relative;
 	top:50px;
 } 
+h1{
+	margin-top: 100px;
+}
 </style>
 </head>
 <body>
@@ -60,7 +64,7 @@ div.boxmaker {
 			<jsp:include page="header.jsp" />
 		</div>
 		</header>
-	<h1>블랙리스트페이지</h1>
+	<h1 style="text-align: center; color: #36e9ce">블랙리스트페이지</h1>
 	
 	<div id="asd"></div>
 	<div id="asd2"></div>
@@ -94,7 +98,7 @@ div.boxmaker {
 		
 
 		for(var i=(num-1)*10;i<(num*10);i++) {
-			
+			if(i<json.length){
 			
 			str += "<form action='black' method='post'>";
 
@@ -125,7 +129,23 @@ div.boxmaker {
 							
 							str += "</form>";
 							
-		};
+			}else{
+				str += "<form action='black' method='post'>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td' style='width:400px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div><input type='hidden' name='sit_id' value=''/></div>"; 
+// 				str += "<div class='boxmaker'></div>";
+				
+				str += "</form>";
+			}};
 		
 		str += "</table>";
 		$("#asd").html(str);	
