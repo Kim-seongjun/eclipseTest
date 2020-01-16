@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head>-
 <meta charset="UTF-8">
 <title>예약페이지</title>
 <link rel="stylesheet"
@@ -143,7 +143,7 @@
 			console.log("차=" + date);
 			//var max = $("#f_pirce").val() * date;
 			console.log("합=" + $("#f_pirce").val()*date);
-			$("#f_pirce").text($("#f_pirce").val()*date);
+			$("#f_pirce").val($("#f_pirce").val()*date);
 			
 		}); // end
 	</script>
@@ -155,7 +155,6 @@
 
 		var str1 = "";
 		str1 += "<select id='pet_choice'>";
-		str1 += "<option value=''>선택하세요</option>";
 		$.each(json_pet, function(key, val) {
 			console.log("json_pet = " + json_pet[key].PET_NAME);
 			console.log("json_pet = " + json_pet[key].PET_NO);
@@ -213,7 +212,7 @@
 		pay += "1박 : <input type='text' style='width:330px' class='price' readOnly value='"+json.SITTER_PRICE+"'/>원<br />";
 		pay += "최종 금액 : <input type='text' style='width:285px'  id='f_pirce' class='price'  name='price' readOnly value='"+json.SITTER_PRICE+"'/>원";
 		pay += "</div>";
-		pay += "<input type='submit' value='최종 예약' />";
+		pay += "<input type='submit' value='최종 예약' class='hang'/>";
 		pay += "<input type='hidden' name='sit_id' value='"+json.SITTER_ID+"' />";
 		pay += "<input type='hidden' name='sit_addr' value='"+json.US_ADDRESS+"' />";
 
@@ -241,6 +240,32 @@
 		
 		
  		$('#div_review').append(rev);
+ 		
+ 		
+ 		$(".hang").click(
+				function() {
+					if ($(".date").val() == "") {
+						alert("시작일을 설정해주세요.");
+						$(".hang").prop("type", "button");
+						
+					} else if ($(".date1").val() == "") {
+						alert("종료일을 설정해주세요.");
+						$(".hang").prop("type", "button");
+					}
+					
+					else if ($(".petname").val() == "") {
+						alert("반려견을 등록해주세요.");
+						$(".hang").prop("type", "button");
+					}
+					else{
+						alert("요청에 성공하셧습니다.");
+						$(".hang").prop("type","submit");
+						
+					}
+					
+				});
+					
+					
 	</script>
 </body>
 </html>

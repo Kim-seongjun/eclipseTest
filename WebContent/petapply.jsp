@@ -207,46 +207,7 @@ body {
 								
 							}
 
-						/* 	if ($("#title ").val() != "") {
-
-								if ($("#main").val() != "") {
-
-									if ($("#price").val() != "") {
-
-										if ($("#imgf").val() != "") {
-
-											if ($("#qus1").val() != "") {
-
-												if ($("#qus2").val() != "") {
-
-													if ($("#qus3").val() != "") {
-
-														if ($("#qus4").val() != "") {
-
-															if ($("#qus5")
-																	.val() != "") {
-
-																if ($("#qus6")
-																		.val() != "") {
-
-																	if ($("#qus7")
-																			.val() != "") {
-
-																		if ($("input[type='checkbox']").is(":checked") != false) {
-																			alert("요청에 성공하셧습니다.");
-																			$("#hag").prop("type","submit");
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							} */
+						
 						});
 	</script>
 
