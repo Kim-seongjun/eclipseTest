@@ -8,12 +8,22 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+} 
 #main {
 	background: rgba(204, 204, 204, 0.25);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 50%;
+	margin-left: 450px;
+	margin-top: 50px;
 }
 
 
@@ -37,6 +47,9 @@
 	cursor: pointer;
     margin-top: 20px;
 }
+h1{
+	margin-top: 100px;
+}
 
 
 </style>
@@ -45,7 +58,13 @@
 
 
 <body>
-	<h1>반려견 등록 페이지</h1>
+<header>
+
+		<div id="header">
+			<jsp:include page="header.jsp" />
+		</div>
+		</header>
+	<h1 style="text-align: center; color: #36e9ce">반려견 등록 페이지</h1>
 
 	<form action="" method="post">
 

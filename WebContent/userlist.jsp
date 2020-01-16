@@ -118,20 +118,20 @@ div.boxmaker {
 							str += "</form>";
 							}else {
 								str +="<form action='black' method='post'>";
-								str += "<div class='td' style='width:150px'></div>";
-								str += "<div class='td' style='width:100px'></div>";
-								str += "<div class='td' style='width:100px'></div>";
-								str += "<div class='td'></div>";
-								str += "<div class='td'></div>";
-								str += "<div class='td'></div>";
-								str += "<div class='td' ></div>";
-								str += "<div class='td' ></div>";
-								str += "<div class='td'  style='width:100px'></div>";
-								str += "<div class='td' style='width:100px'><input type='submit'  id='mid' value='블랙'/></div>";
+// 								str += "<div class='td' style='width:150px'></div>";
+// 								str += "<div class='td' style='width:100px'></div>";
+// 								str += "<div class='td' style='width:100px'></div>";
+// 								str += "<div class='td'></div>";
+// 								str += "<div class='td'></div>";
+// 								str += "<div class='td'></div>";
+// 								str += "<div class='td' ></div>";
+// 								str += "<div class='td' ></div>";
+// 								str += "<div class='td'  style='width:100px'></div>";
+// 								str += "<div class='td' style='width:100px'><input type='submit'  id='mid' value='블랙'/></div>";
 					
-								str += "<div class='boxmaker'></div>";
+// 								str += "<div class='boxmaker'></div>";
 								
-								str += "<div><input type='hidden' class='hid' name='sit_id' value=''/></div>";
+// 								str += "<div><input type='hidden' class='hid' name='sit_id' value=''/></div>";
 								str += "</form>";
 							}};
 	str += "</div>";
