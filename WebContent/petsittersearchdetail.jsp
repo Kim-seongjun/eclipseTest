@@ -103,12 +103,10 @@
 
 			<div id='show_petsitter'></div>
 			<div id='pay'>
-				<input type="button" id='e_btn' value='임시버튼' /> <input type="text"
-					class='date' name='start_day' readOnly placeholder='예약시작일' /> 부터 <input
-					type="text" class='date1' name='end_day' readOnly
-					placeholder='예약종료일' /> <br /> 반려견 : <input type="text"
-					class='petname' id='pet' name='pet' readOnly /> <input
-					type="hidden" id='pet_no' name='pet_no' />
+				<input type="text" class='date' name='start_day' readOnly placeholder='예약시작일' /> 부터 
+				<input type="text" class='date1' name='end_day' readOnly placeholder='예약종료일' /> <br /> 
+				반려견 : <input type="text" class='petname' id='pet' name='pet' readOnly /> 
+				<input type="hidden" id='pet_no' name='pet_no' />
 			</div>
 		</div>
 	</form>
@@ -124,7 +122,7 @@
 
 
 	<script>
-		$("#e_btn").click(function() {
+		$(".date1").change(function() {
 			console.log("시작일값은 : " + $(".date").val());
 			var date1 = $(".date").val().split('-');
 			var date2 = "";
@@ -143,8 +141,9 @@
 
 			var date = date4 - date2;
 			console.log("차=" + date);
-			var max = $("#f_pirce").val() * date;
-			$("#f_pirce").val(max);
+			//var max = $("#f_pirce").val() * date;
+			console.log("합=" + $("#f_pirce").val()*date);
+			$("#f_pirce").text($("#f_pirce").val()*date);
 			
 		}); // end
 	</script>
@@ -176,18 +175,23 @@
 		});
 
 		$('.date').datepicker({
-			dateFormat : 'yy-mm-dd',
-			minDate : 0,
-			onClose : function(a) {
-				console.log("시작일  " + a);//시작일
-				$('.date1').datepicker({
-					dateFormat : 'yy-mm-dd',
-					minDate : a,
-
-				});
-
+			dateFormat : 'yy-mm-dd',//날짜타입
+			changeYear:true,		//년 선택
+			changeMonth: true,		//월 선택
+			minDate : 0,			//오늘날짜부터 선택가능
+			onClose : function(selectedDate) {
+				console.log("시작일  " + selectedDate);//시작일
+				$(".date1").datepicker( "option", "minDate", selectedDate ); //시작일을 받은후 .dat1의 mindate에 시작일을 지정
 			}
-
+		});
+		$('.date1').datepicker({
+			dateFormat : 'yy-mm-dd',
+			changeYear:true,
+			changeMonth: true,
+			onClose : function(selectedDate) {
+				console.log("종료일  " + selectedDate);//시작일
+			 $(".date").datepicker( "option", "maxDate", selectedDate );
+			}
 		});
 
 		var json = ${json_detail};

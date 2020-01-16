@@ -8,6 +8,14 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
+ #header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+} 
 #apply_main {
 	background: rgba(204, 204, 204, 0.25);
 	display: flex;
@@ -70,10 +78,22 @@ body {
 	width: 90%;
 	height: 50px;
 }
+/* #div_main{
+	position: absolute;
+	top:70px;
+} */
 </style>
 </head>
 <body>
-	<h1 style="text-align: center; color: #36e9ce">펫시터 지원 신청서</h1>
+
+	<header>
+		<div id="header">
+			<jsp:include page="header.jsp" />
+		</div>
+	</header>
+	
+	
+	<h1 style="text-align: center; margin-top:70px; color: #36e9ce">펫시터 지원 신청서</h1>
 	<div id='apply_main'></div>
 
 
@@ -85,9 +105,9 @@ body {
 
 		str += "<form method='post'>";
 		str += "<div class='profile_q'>메인 제목을 입력해주세요.(프로필)</div>";
-		str += "<input type='text' name='title' class='profile_r'/><br />";
-		str += "<div class='profile_q'>자신의 소개를 간략하게 입력해주세요.(프로필)</div>";
-		str += "<input type='text' name='cont' class='profile_r'/><br />";
+		str += "<input type='text' id='title' name='title' class='profile_r'/><br />";
+		str += "<div class='profile_q' >자신의 소개를 간략하게 입력해주세요.(프로필)</div>";
+		str += "<input type='text' id='main' name='cont' class='profile_r'/><br />";
 		str += "<div class='profile_q'>희망 단가(프로필, 기본 1박/20,000원)</div>";
 		str += "<input type='text' name='price' id='price' style='margin-left: 10px'/>원";
 		str += "<select id='pirce_sel'>";
@@ -96,24 +116,21 @@ body {
 		str += "<option>40000</option>";
 		str += "</select>";
 		str += "<div class='profile_q'>이미지 업로도(프로필)</div>";
-		str += "<input type='file'name='imgFile' class='profile_r'/><br /><br /><br /><br /><br /><br />";
+		str += "<input type='file' id='imgf' name='imgFile' class='profile_r'/><br /><br /><br /><br /><br /><br />";
 		str += "<div class='profile_q'>펫시터 설문</div><br /><br /><br /><br /><br /><br />";
-		
-		
-		
+
 		for (var i = 0; i < json.length; i++) {
 			str += "<input type='text' value='"+json[i]+"' readOnly class='questions'/><br />";
-			str += "<input class='result'name='questions" + (i + 1)
-					+ "' type='text' /><br />";
+			str += "<input class='result' id='qus" + (i + 1)
+					+ "' name='questions" + (i + 1) + "' type='text' /><br />";
 			console.log(json[i]);
 		}
 
-		
 		str += "<div>본 지원자는 상기 답변 내용에 거짓이 없음을 확인 후 설문을 완료합니다."
 				+ "사실과 다른 기재로 인한 불미스어운 모든 상황에 대해 당사는 책임이 없음을 안내드립니다.</div>";
-		str += "<input type='radio' value='예' /> 예 <br />";
+		str += "<input type='radio' name='yes' value='예' class='check' /> 예 <br />";
 		str += "<div class='btn_pos'>";
-		str += "<input type='submit' value='제출' formaction='insetpetapply' class='btn'/>";
+		str += "<input type='submit' value='제출' formaction='insetpetapply' class='btn' id='hag'/>";
 		str += "<input type='submit' value='취소' formaction='home' class='btn'/>";
 		str += "</div>";
 		str += "</form>";
@@ -135,6 +152,102 @@ body {
 				}
 			});
 		});
+
+		$("#hag")
+				.click(
+						function() {
+							if ($("#title").val() == "") {
+								alert("프로필제목을 작성해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#main").val() == "") {
+								alert("프로필메인을 작성해주세요.");
+								$("#hag").prop("type", "button");
+							}
+
+							else if ($("#price").val() == "") {
+								alert("금액을 설정해주세요!");
+								$("#hag").prop("type", "button");
+							}
+
+							else if ($("#imgf").val() == "") {
+								alert("사진을 골라주세요.");
+								$("#hag").prop("type", "button");
+							}
+
+							else if ($("#qus1").val() == "") {
+								alert("질문1을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus2").val() == "") {
+								alert("질문2을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus3").val() == "") {
+								alert("질문3을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus4").val() == "") {
+								alert("질문4을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus5").val() == "") {
+								alert("질문5을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus6").val() == "") {
+								alert("질문6을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							} else if ($("#qus7").val() == "") {
+								alert("질문7을 확인해주세요.");
+								$("#hag").prop("type", "button");
+							}
+
+							else if ($("input:radio[name='yes']").is(":checked") == false) {
+								alert("체크를 해주세요.");
+								$("#hag").prop("type", "button");
+							}
+							else{
+								alert("요청에 성공하셧습니다.");
+								$("#hag").prop("type","submit");
+								
+							}
+
+						/* 	if ($("#title ").val() != "") {
+
+								if ($("#main").val() != "") {
+
+									if ($("#price").val() != "") {
+
+										if ($("#imgf").val() != "") {
+
+											if ($("#qus1").val() != "") {
+
+												if ($("#qus2").val() != "") {
+
+													if ($("#qus3").val() != "") {
+
+														if ($("#qus4").val() != "") {
+
+															if ($("#qus5")
+																	.val() != "") {
+
+																if ($("#qus6")
+																		.val() != "") {
+
+																	if ($("#qus7")
+																			.val() != "") {
+
+																		if ($("input[type='checkbox']").is(":checked") != false) {
+																			alert("요청에 성공하셧습니다.");
+																			$("#hag").prop("type","submit");
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							} */
+						});
 	</script>
 
 </body>
