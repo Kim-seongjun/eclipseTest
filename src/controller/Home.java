@@ -65,6 +65,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 
 	case "/insetpetapply":  //펫시터지원서 신청
+		fw=mm.insertquestion();   //질문 등록
 		fw=mm.insetPetApply();
 		fw=mm.updateUser();
 		break;

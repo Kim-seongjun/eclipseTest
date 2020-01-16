@@ -123,6 +123,7 @@
 
 	<script>
 		$(".date1").change(function() {
+			
 			console.log("시작일값은 : " + $(".date").val());
 			var date1 = $(".date").val().split('-');
 			var date2 = "";
@@ -142,8 +143,8 @@
 			var date = date4 - date2;
 			console.log("차=" + date);
 			//var max = $("#f_pirce").val() * date;
-			console.log("합=" + $("#f_pirce").val()*date);
-			$("#f_pirce").val($("#f_pirce").val()*date);
+			console.log("합=" + $("#1_price").val()*date);
+			$("#f_pirce").val($("#1_price").val()*date);
 			
 		}); // end
 	</script>
@@ -209,7 +210,7 @@
 		$("#show_petsitter").append(str);
 		
 		pay += "<div id='price_div'>";
-		pay += "1박 : <input type='text' style='width:330px' class='price' readOnly value='"+json.SITTER_PRICE+"'/>원<br />";
+		pay += "1박 : <input type='text' style='width:330px' id='1_price' class='price' readOnly value='"+json.SITTER_PRICE+"'/>원<br />";
 		pay += "최종 금액 : <input type='text' style='width:285px'  id='f_pirce' class='price'  name='price' readOnly value='"+json.SITTER_PRICE+"'/>원";
 		pay += "</div>";
 		pay += "<input type='submit' value='최종 예약' class='hang'/>";
@@ -254,8 +255,11 @@
 					}
 					
 					else if ($(".petname").val() == "") {
-						alert("반려견을 등록해주세요.");
+						var pet=confirm("반려견을 등록해주세요.");
 						$(".hang").prop("type", "button");
+						if(pet){
+							location.href="petinsertshow";
+						}
 					}
 					else{
 						alert("요청에 성공하셧습니다.");

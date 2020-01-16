@@ -120,7 +120,7 @@ body {
 		str += "<div class='profile_q'>펫시터 설문</div><br /><br /><br /><br /><br /><br />";
 
 		for (var i = 0; i < json.length; i++) {
-			str += "<input type='text' value='"+json[i]+"' readOnly class='questions'/><br />";
+			str += "<input type='text' name='quest"+(i+1)+"' value='"+json[i]+"' readOnly class='questions'/><br />";
 			str += "<input class='result' id='qus" + (i + 1)
 					+ "' name='questions" + (i + 1) + "' type='text' /><br />";
 			console.log(json[i]);

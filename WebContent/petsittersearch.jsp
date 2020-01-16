@@ -76,6 +76,9 @@
 	margin-bottom:15px;
 	cursor:pointer;
 }
+.span_avg{
+	color:#ff8000;
+}
 </style>
 <style type="text/css">
 A:link{text-decoration; color: black;}
@@ -108,7 +111,7 @@ A:active{text-decoration; color: orange;}
 		</div>
 	</div>
 	</form>
-	
+
 	<ul id="ul_outsearch">
 
 	</ul>
@@ -131,7 +134,7 @@ A:active{text-decoration; color: orange;}
 		str+="<div>";
 		str+="<div>";
 		str+="<div style='font-size: 30px;color:#696969;'>"+json[i].SITTER_TITLE+"<br></div>";
-		str+="<div class='sub'>이름:"+json[i].SITTER_NAME+"<br></div>";
+		str+="<div class='sub'>이름:"+json[i].SITTER_NAME+"<span class='span_avg'>(평점 : "+json_avg[i].AVG_POINT+")</span><br></div>";
 		str+="<input type='hidden' name='petsitter_id' value='"+json[i].SITTER_ID+"'/>";
 
 		str+="<div class='sub'>주소:"+json[i].US_ADDRESS+"<br></div>";
@@ -166,10 +169,7 @@ A:active{text-decoration; color: orange;}
 			   
 	    	}*/
 	   }); 
-			    
-	
-	
-	
+			    	
 /*  	function actfrm() {
 
 		$("#frm").submit();

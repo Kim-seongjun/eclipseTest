@@ -14,6 +14,7 @@ import bean.Forward;
 import bean.Member;
 import bean.Pet;
 import bean.PetApply;
+import bean.Question;
 
 public class MemberMM {
 	HttpServletRequest request;
@@ -373,6 +374,36 @@ public class MemberMM {
 			fw.setPath("petsittersearch.jsp");
 			fw.setRedirect(false);
 		}
+		return fw;
+	}
+
+
+	public Forward insertquestion() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		
+		HttpSession session=request.getSession();
+		String id=session.getAttribute("id").toString();
+		
+		System.out.println("질문1 : "+request.getParameter("quest1"));
+		System.out.println("질문2 : "+request.getParameter("quest2"));
+		System.out.println("질문3 : "+request.getParameter("quest3"));
+		System.out.println("질문4 : "+request.getParameter("quest4"));
+		System.out.println("질문5 : "+request.getParameter("quest5"));
+		System.out.println("질문6 : "+request.getParameter("quest6"));
+		System.out.println("질문7 : "+request.getParameter("quest7"));
+		
+		Question qt=new Question();
+		qt.setId(id);
+		qt.setQuestion1(request.getParameter("quest1"));
+		qt.setQuestion1(request.getParameter("quest2"));
+		qt.setQuestion1(request.getParameter("quest3"));
+		qt.setQuestion1(request.getParameter("quest4"));
+		qt.setQuestion1(request.getParameter("quest5"));
+		qt.setQuestion1(request.getParameter("quest6"));
+		qt.setQuestion1(request.getParameter("quest7"));
+		
+		boolean result=mDao.insertquestion(qt);
 		return fw;
 	}
 	

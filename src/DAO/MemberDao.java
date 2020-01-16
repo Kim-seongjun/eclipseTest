@@ -11,6 +11,7 @@ import java.util.List;
 import bean.Member;
 import bean.Pet;
 import bean.PetApply;
+import bean.Question;
 
 
 public class MemberDao {
@@ -164,7 +165,7 @@ public class MemberDao {
 		
 		
 		if("전체".equals(region)) {
-		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2";
+		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 order by ps.sitter_id";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -174,6 +175,7 @@ public class MemberDao {
 			while(rs.next()) {
 				HashMap<String, String> hm = new HashMap<String, String>();
 				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+				hm.put("SITTER_NAME",rs.getNString("US_NAME"));
 				hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
 				hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
 				hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
@@ -201,7 +203,7 @@ public class MemberDao {
 		}else {
 			System.out.println(region);
 			System.out.println("asdasdasxcv");
-			String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 and US_ADDRESS LIKE ?||'%'";
+			String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 and US_ADDRESS LIKE ?||'%' order by ps.sitter_id";
 			try {
 				pstmt=con.prepareStatement(sql);
 				pstmt.setNString(1, region);
@@ -212,6 +214,7 @@ public class MemberDao {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<String, String>();
 					hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+					hm.put("SITTER_NAME",rs.getNString("US_NAME"));
 					hm.put("SITTER_TITLE",rs.getNString("SITTER_TITLE"));
 					hm.put("SITTER_BODY",rs.getNString("SITTER_BODY"));
 					hm.put("US_ADDRESS",rs.getNString("US_ADDRESS"));
@@ -322,7 +325,7 @@ public class MemberDao {
 	//검색시 지역값 입력 안할시
 	public List<HashMap<String, String>> petsittersearch() {
 		
-		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2";
+		String sql="SELECT * from PS JOIN PU ON ps.sitter_id = pu.us_id WHERE US_TYPE = 2 order by ps.sitter_id";
 		try {
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -417,7 +420,7 @@ public class MemberDao {
 	}
 
 	public List<HashMap<String, String>> review_avg() {
-		String sql="SELECT PR.SITTER_ID,AVG(PH.RE_POINT)as AVG_POINT FROM PR JOIN PH ON PR.RES_NO=PH.RES_NO GROUP BY SITTER_ID";
+		String sql="SELECT * FROM AVG_PETSITTER";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -426,7 +429,7 @@ public class MemberDao {
 			while(rs.next()) {
 				HashMap<String, String> hm = new HashMap<String, String>();
 				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
-				hm.put("AVG_POINT", rs.getNString("AVG_POINT"));
+				hm.put("AVG_POINT", rs.getNString("AVG_REVIEW"));
 				aList.add(hm);
 			}
 			System.out.println("평점 불러오기 성공");
@@ -437,6 +440,32 @@ public class MemberDao {
 		}
 		
 		return null;
+	}
+
+	public boolean insertquestion(Question qt) {
+		String sql="INSERT INTO pqc (PQ_SITTER_ID,question1,question2,question3,question4,question5,question6,question7)\r\n" + 
+				"VALUES (?,?,?,?,?,?,?,?)";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setNString(1,qt.getId());
+			pstmt.setNString(2,qt.getQuestion1());
+			pstmt.setNString(3,qt.getQuestion2());
+			pstmt.setNString(4,qt.getQuestion3());
+			pstmt.setNString(5,qt.getQuestion4());
+			pstmt.setNString(6,qt.getQuestion5());
+			pstmt.setNString(7,qt.getQuestion6());
+			pstmt.setNString(8,qt.getQuestion7());
+			int result=pstmt.executeUpdate();
+			if(result!=0) {
+				
+			}
+		} 
+		catch (SQLException e) {
+			System.out.println("질문뿌리기 예외");
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 
 }
