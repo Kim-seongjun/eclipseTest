@@ -114,28 +114,28 @@ A:active{text-decoration; color: orange;}
 	</ul>
 	
 	<script>
-	
+	var json_avg=${json_avg};
+	console.log(json_avg);
 	//console.log("id="+${id});
-	var json=${json_search}
+	var json=${json_search};
 	console.log(json);
+	console.log(json.length);
 	var str = "";
-	$.each(json,function(key,value){
+	for(var i=0; i<json.length;i++){
 	str+="<form id='frm' action= 'petsitterdetail' method='post' onsubmit='return check()'>";
-		//str+="<a href='#' onclick='actfrm()'>";
 		str+="<li id='li_insearch'>";
 		
 		str+="<div>";
-// 		str+=json[key].SITTER_PHOTO;
-		str+="<div style='float: left; border: 1px solid black; width: 250px; height: 250px;'><img class='searchimg'src ='img/"+json[key].SITTER_PHOTO+"' alt='펫시터사진입니다.'></div>";
+		str+="<div style='float: left; border: 1px solid black; width: 250px; height: 250px;'><img class='searchimg'src ='img/"+json[i].SITTER_PHOTO+"' alt='펫시터사진입니다.'></div>";
 		str+="</div>";
 		str+="<div>";
 		str+="<div>";
-		str+="<div style='font-size: 30px;color:#696969;'>"+json[key].SITTER_TITLE+"<br></div>";
-		str+="<div class='sub'>이름:"+json[key].SITTER_NAME+"<br></div>";
-		str+="<input type='hidden' name='petsitter_id' value='"+json[key].SITTER_ID+"'/>";
+		str+="<div style='font-size: 30px;color:#696969;'>"+json[i].SITTER_TITLE+"<br></div>";
+		str+="<div class='sub'>이름:"+json[i].SITTER_NAME+"<br></div>";
+		str+="<input type='hidden' name='petsitter_id' value='"+json[i].SITTER_ID+"'/>";
 
-		str+="<div class='sub'>주소:"+json[key].US_ADDRESS+"<br></div>";
-		str+="<div style='font-size: 25px; color: #FF8000'>단가:"+json[key].SITTER_PRICE+"</div>"
+		str+="<div class='sub'>주소:"+json[i].US_ADDRESS+"<br></div>";
+		str+="<div style='font-size: 25px; color: #FF8000'>단가:"+json[i].SITTER_PRICE+"</div>"
 		str+="</div>";
 		str+="<div class='btn_'><input type='submit'  value='예약'  class='btn'/></div>";
 		str+="</div>";
@@ -143,7 +143,7 @@ A:active{text-decoration; color: orange;}
 		str+="</li>";
 		//str+="</a>";
 	str+="</form>";
-	});
+	};
 	function check(){
 		<%
     	

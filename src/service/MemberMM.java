@@ -354,6 +354,27 @@ public class MemberMM {
 		
 		return fw;
 	}
+
+
+	public Forward review_avg() {
+		Forward fw=new Forward();
+		MemberDao mDao=new MemberDao();
+		List<HashMap<String, String>> aList=mDao.review_avg();
+		
+		Gson g = new Gson();
+		String avg = g.toJson(aList);
+		
+		if(aList!=null) {
+			request.setAttribute("json_avg", avg);
+			fw.setPath("petsittersearch.jsp");
+			fw.setRedirect(false);
+		}
+		else {
+			fw.setPath("petsittersearch.jsp");
+			fw.setRedirect(false);
+		}
+		return fw;
+	}
 	
  
 	

@@ -84,6 +84,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 		
 	case "/petsittersearch":   //펫시터 찾기
+		fw=mm.review_avg();
 		fw=mm.petsittersearch();
 		break;
 				

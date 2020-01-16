@@ -365,7 +365,7 @@ public class MemberDao {
 			pstmt.setNString(1,id);
 			rs=pstmt.executeQuery();
 			List<HashMap<String, String>> sList=new ArrayList<HashMap<String, String>>();
-			if(rs.next()) {
+			while(rs.next()) {
 				HashMap<String, String> hm = new HashMap<String, String>();
 				hm.put("USER_ID",rs.getNString("USER_ID"));
 				hm.put("PET_NAME",rs.getNString("PET_NAME"));
@@ -410,6 +410,29 @@ public class MemberDao {
 	
 		 catch (SQLException e) {
 			System.out.println("예약내역 불러오기 예외");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public List<HashMap<String, String>> review_avg() {
+		String sql="SELECT PR.SITTER_ID,AVG(PH.RE_POINT)as AVG_POINT FROM PR JOIN PH ON PR.RES_NO=PH.RES_NO GROUP BY SITTER_ID";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			List<HashMap<String, String>> aList=new ArrayList<HashMap<String, String>>();
+			while(rs.next()) {
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("SITTER_ID", rs.getNString("SITTER_ID"));
+				hm.put("AVG_POINT", rs.getNString("AVG_POINT"));
+				aList.add(hm);
+			}
+			System.out.println("평점 불러오기 성공");
+			return aList;
+		} catch (SQLException e) {
+			System.out.println("평점 불러오기 예외");
 			e.printStackTrace();
 		}
 		
