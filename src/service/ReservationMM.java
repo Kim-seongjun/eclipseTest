@@ -64,12 +64,12 @@ public class ReservationMM {
 		Review rv=new Review();
 		
 		rv.setRes_no(request.getParameter("res_no"));
-		rv.setRes_poient(request.getParameter("rev_poient"));
+		rv.setRes_poient(request.getParameter("star-input"));
 		rv.setRes_title(request.getParameter("rev_title"));
 		rv.setRes_cont(request.getParameter("rev_cont"));
 
 		System.out.println("res_no=" +request.getParameter("res_no"));
-		System.out.println("rev_poient=" +request.getParameter("rev_poient"));
+		System.out.println("star-input=" +request.getParameter("star-input"));
 		System.out.println("rev_title=" +request.getParameter("rev_title"));
 		System.out.println("rev_cont=" +request.getParameter("rev_cont"));
 
