@@ -26,7 +26,7 @@ public class AdminDao {
 	}
 
 	public List<PetApply> petapplylist() {
-		String sql = "SELECT * FROM PU JOIN PS ON PU.US_ID = PS.SITTER_ID WHERE PU.US_TYPE = 1";
+		String sql = "SELECT * FROM PU JOIN PS ON PU.US_ID = PS.SITTER_ID join pqc on ps.sitter_id=pqc.pq_sitter_id WHERE PU.US_TYPE = 1";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -39,13 +39,20 @@ public class AdminDao {
 				pa.setCont(rs.getNString("SITTER_BODY"));
 				pa.setPrice(Integer.toString(rs.getInt("SITTER_PRICE")));
 				pa.setImgFile(rs.getNString("SITTER_PHOTO"));
-				pa.setQuestions1(rs.getNString("ANSWER1"));
-				pa.setQuestions2(rs.getNString("ANSWER2"));
-				pa.setQuestions3(rs.getNString("ANSWER3"));
-				pa.setQuestions4(rs.getNString("ANSWER4"));
-				pa.setQuestions5(rs.getNString("ANSWER5"));
-				pa.setQuestions6(rs.getNString("ANSWER6"));
-				pa.setQuestions7(rs.getNString("ANSWER7"));
+				pa.setQuestions1(rs.getNString("QUESTION1"));
+				pa.setQuestions2(rs.getNString("QUESTION2"));
+				pa.setQuestions3(rs.getNString("QUESTION3"));
+				pa.setQuestions4(rs.getNString("QUESTION4"));
+				pa.setQuestions5(rs.getNString("QUESTION5"));
+				pa.setQuestions6(rs.getNString("QUESTION6"));
+				pa.setQuestions7(rs.getNString("QUESTION7"));
+				pa.setAnswer1(rs.getNString("ANSWER1"));
+				pa.setAnswer2(rs.getNString("ANSWER2"));
+				pa.setAnswer3(rs.getNString("ANSWER3"));
+				pa.setAnswer4(rs.getNString("ANSWER4"));
+				pa.setAnswer5(rs.getNString("ANSWER5"));
+				pa.setAnswer6(rs.getNString("ANSWER6"));
+				pa.setAnswer7(rs.getNString("ANSWER7"));
 				plist.add(pa);
 			}
 			System.out.println("지원서 불러오기 성공?");
@@ -255,6 +262,24 @@ public class AdminDao {
 			}
 		} catch (SQLException e) {
 			System.out.println("질문 수정 에러");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+	public boolean deleteQuestion(String id) {
+		String sql = "DELETE FROM PQC WHERE PQ_SITTER_ID= ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setNString(1, id);
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				System.out.println("질문삭제 성공");
+				return true;
+			}
+		} catch (SQLException e) {
+			System.out.println("질문삭제 예외");
 			e.printStackTrace();
 		}
 		return false;

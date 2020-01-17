@@ -28,10 +28,6 @@ public class AdminMM {
 		PetApply pa = new PetApply();
 		List<PetApply> plist = aDao.petapplylist();
 
-		/*
-		 * for(int i=0;i<plist.size();i++) {
-		 * System.out.println(i+"번째 pList = "+plist.get(i)); }
-		 */
 		Gson g = new Gson();
 		String r = g.toJson(plist);
 		System.out.println("===========");
@@ -97,10 +93,10 @@ public class AdminMM {
 		boolean result = aDao.deletePetApply(id);
 		aDao.close();
 		if (result) {
-			fw.setPath("userlist");
+			fw.setPath("petapplylist.jsp");
 			fw.setRedirect(false);
 		} else {
-			fw.setPath("userlist");
+			fw.setPath("petapplylist.jsp");
 			fw.setRedirect(false);
 		}
 		return fw;
@@ -194,6 +190,32 @@ public class AdminMM {
 			fw.setRedirect(true);
 		} else {
 			fw.setPath("question");
+			fw.setRedirect(false);
+		}
+		return fw;
+	}
+
+	public Forward showquestion() {		//질문 삭제
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		
+		return fw;
+	}
+
+	public Forward deleteQuestion() {	//질문 삭제
+		Forward fw = new Forward();
+		AdminDao aDao = new AdminDao();
+		
+		String id = request.getParameter("sit_id");
+		System.out.println("질문삭제할 id = " + id);
+		
+		boolean result = aDao.deleteQuestion(id);
+		aDao.close();
+		if (result) {
+			fw.setPath("petapplylist.jsp");
+			fw.setRedirect(false);
+		} else {
+			fw.setPath("petapplylist.jsp");
 			fw.setRedirect(false);
 		}
 		return fw;

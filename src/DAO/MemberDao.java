@@ -459,6 +459,8 @@ public class MemberDao {
 			if(result!=0) {
 				
 			}
+			System.out.println("질문 뿌리기 성공");
+			return true;
 		} 
 		catch (SQLException e) {
 			System.out.println("질문뿌리기 예외");

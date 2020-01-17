@@ -396,14 +396,22 @@ public class MemberMM {
 		Question qt=new Question();
 		qt.setId(id);
 		qt.setQuestion1(request.getParameter("quest1"));
-		qt.setQuestion1(request.getParameter("quest2"));
-		qt.setQuestion1(request.getParameter("quest3"));
-		qt.setQuestion1(request.getParameter("quest4"));
-		qt.setQuestion1(request.getParameter("quest5"));
-		qt.setQuestion1(request.getParameter("quest6"));
-		qt.setQuestion1(request.getParameter("quest7"));
+		qt.setQuestion2(request.getParameter("quest2"));
+		qt.setQuestion3(request.getParameter("quest3"));
+		qt.setQuestion4(request.getParameter("quest4"));
+		qt.setQuestion5(request.getParameter("quest5"));
+		qt.setQuestion6(request.getParameter("quest6"));
+		qt.setQuestion7(request.getParameter("quest7"));
 		
 		boolean result=mDao.insertquestion(qt);
+		if(result) {
+			fw.setPath("main.jsp");
+			fw.setRedirect(false);
+		}
+		else {
+			fw.setPath("petapply.jsp");
+			fw.setRedirect(false);
+		}
 		return fw;
 	}
 	

@@ -65,12 +65,13 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 
 	case "/insetpetapply":  //펫시터지원서 신청
-		fw=mm.insertquestion();   //질문 등록
 		fw=mm.insetPetApply();
-		fw=mm.updateUser();
+		fw=mm.updateUser();		//회원타입 변경
+		fw=mm.insertquestion();   //질문 등록
 		break;
 	 
 	case "/petapplylist": //펫시터지원회원 리스트
+		fw=am.showquestion(); //질문 가져오기
 		fw=am.petapplylist();
 		break;
 		
@@ -80,6 +81,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		break;
 	
 	case "/deleteapply":
+		fw=am.deleteQuestion();	  //질문  삭제
 		fw=am.deletePetApply();   //펫시터지원 삭제(거절)
 		fw=am.rejectedUser();		//거절한 회원타입을 1에서 0으로 변경
 		break;
@@ -141,7 +143,7 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		fw=rm.goreview();
 		break;
 	
-	case"/rescancel":
+	case"/rescancel":	//예약취소
 		fw=rm.rescancel();
 		break;
 	
