@@ -26,7 +26,7 @@
 }
 
 .img_file {
-	height: 475px;
+	height: 528px;
 	width: 475px;
 }
 
@@ -56,6 +56,11 @@ h1 {
 
 h1 {
 	margin-top: 100px;
+}
+
+.que{
+	font-size: 20px;
+	font-weight: bold;
 }
 </style>
 </head>
@@ -114,28 +119,28 @@ h1 {
 								str += "<div>" + "내용 : " + json[key].cont
 										+ "</div>";
 								str += "<div>" + "가격: " + json[key].price
-										+ "</div>";
+										+ "</div><br />";
 
-										str += "<div>" + json[key].questions1 + "</div>";
-										str += "<div>"+json[key].answer1+"</div>";
+										str += "<div class='que'>1. " + json[key].questions1 + "</div>";
+										str += "<div >&nbsp;&nbsp;&nbsp;"+json[key].answer1+"</div>";
 
-										str += "<div>" + json[key].questions2 + "</div>";
-										str += "<div>"+json[key].answer2+"</div>";
+										str += "<div class='que'>2. " + json[key].questions2 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer2+"</div>";
 
-										str += "<div>" + json[key].questions3 + "</div>";
-										str += "<div>"+json[key].answer3+"</div>";
+										str += "<div class='que'>3. " + json[key].questions3 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer3+"</div>";
 
-										str += "<div>" + json[key].questions4 + "</div>";
-										str += "<div>"+json[key].answer4+"</div>";
+										str += "<div class='que'>4. " + json[key].questions4 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer4+"</div>";
 
-										str += "<div>" + json[key].questions5 + "</div>";
-										str += "<div>"+json[key].answer5+"</div>";
+										str += "<div class='que'>5. " + json[key].questions5 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer5+"</div>";
 
-										str += "<div>" + json[key].questions6 + "</div>";
-										str += "<div>"+json[key].answer6+"</div>";
+										str += "<div class='que'>6. " + json[key].questions6 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer6+"</div>";
 
-										str += "<div>" + json[key].questions7 + "</div>";
-										str += "<div>"+json[key].answer7+"</div>";
+										str += "<div class='que'>7. " + json[key].questions7 + "</div>";
+										str += "<div>&nbsp;&nbsp;&nbsp;"+json[key].answer7+"</div>";
 			
 								//버튼
 								str += "<input type='submit' value='승인' />";

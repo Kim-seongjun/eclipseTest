@@ -126,7 +126,7 @@ text-align:center;
 						</div>
 					</div>
 					<img src="img/background.jpg"
-						style="opacity: 30%; position: absolute; margin: auto; width: 100%; height: 870px; left: 0; right: 0; top: 0; bottom: 0"
+						style="opacity: 20%; position: absolute; margin: auto; width: 100%; height: 870px; left: 0; right: 0; top: 0; bottom: 0"
 						alt="펫어씨스턴트 펫시터가 제공하는 강아지 돌봄 서비스">
 				</div>
 			</div>
