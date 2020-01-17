@@ -18,11 +18,13 @@
 #div_question{
 /* 	border: 1px solid black;   */
 	margin-bottom: 30px; 
-	margin-left : 340px;
-	margin-top : 100px;
+	margin-left : 20%;
+/* 	margin-top : 100px; */
 	width : auto;
 	height: auto;
-	
+}
+h1{
+	margin-top: 100px;
 }
 </style>
 </head>
@@ -30,7 +32,7 @@
 <div id="header">
 		<jsp:include page="header.jsp" />
 	</div>
-<h1>질문 수정</h1>
+<h1 style="text-align: center; color: #36e9ce">질문 수정</h1>
 <div id="div_question">
 
 </div>

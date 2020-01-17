@@ -14,6 +14,7 @@
 	margin-bottom: 20px;
 	width: 1400px;
 	display: flex;
+	margin-left: 15%;
 }
 
 #p_text {
@@ -33,6 +34,9 @@
 	background: rgba(255, 255, 255, 1);
 	z-index: 1;
 }
+h1{
+	margin-top: 100px;
+}
 </style>
 </head>
 
@@ -43,7 +47,7 @@
 			<jsp:include page="header.jsp" />
 		</div>
 		</header>
-	<h1>펫시터지원자리스트 페이지</h1>
+	<h1 style="text-align: center; color: #36e9ce">펫시터지원자리스트 페이지</h1>
 
 	<c:if test="${json_plist==null}">
 		<div>지원자가 존재하지 않습니다.</div>
