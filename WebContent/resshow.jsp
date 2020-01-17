@@ -49,7 +49,7 @@ h1{
 #asd {
 	position: relative;
 	top: 50px;
-	margin-left: 150px;
+	margin-left: 12%;
 }
 
 #asd2 {
@@ -128,17 +128,17 @@ h1{
 			}else{
 				str += "<form action='black' method='post'>";
 				
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<div class='td'></div>";
-				str += "<input type='hidden' name ='res_no' value='' />";
-				str += "<div class='td' style='width:100px'></div>";
-				str += "<div class='td' style='width:100px'></div>";
-				str += "<div class='boxmaker'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<div class='td'></div>";
+// 				str += "<input type='hidden' name ='res_no' value='' />";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='td' style='width:100px'></div>";
+// 				str += "<div class='boxmaker'></div>";
 					
 				str += "</form>";
 			}};
