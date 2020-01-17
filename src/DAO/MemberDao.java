@@ -420,7 +420,7 @@ public class MemberDao {
 	}
 
 	public List<HashMap<String, String>> review_avg() {
-		String sql="SELECT * FROM AVG_PETSITTER";
+		String sql="SELECT SITTER_ID,ROUND(AVG_REVIEW,1)as AVG_REVIEW  FROM AVG_PETSITTER";
 		
 		try {
 			pstmt=con.prepareStatement(sql);

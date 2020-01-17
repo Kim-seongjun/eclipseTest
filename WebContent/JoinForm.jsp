@@ -10,9 +10,18 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
 #div {
+	margin-top:100px;
 	width: 530px;
-	margin-left: auto;
+	margin-left: 550px;
 	margin-right: auto;
 	text-align: center;
 }
@@ -60,9 +69,17 @@ input {
 #birth {
 	font-size: 160%;
 }
+
 </style>
 </head>
 <body>
+
+<div id="header">
+			<jsp:include page="header.jsp" />
+		</div>
+		</header>
+		
+		
 	<div id="div">
 		<h3>정보를 입력해주세요</h3>
 		<form method="post">

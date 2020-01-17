@@ -41,7 +41,7 @@
 	background-color:white;
 	padding:20px;
 	position:relative;
-	width:320px;
+	width:340px;
 	box-shadow:0 10px 20px;
 	
 }

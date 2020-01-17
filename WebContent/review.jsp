@@ -165,8 +165,22 @@
 #div_main{
 	text-align: center;
 }
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
 </style>
 <body>
+<header>
+
+		<div id="header">
+			<jsp:include page="header.jsp" />
+		</div>
+		</header>
 
 	<h1 style="text-align: center; color: #36e9ce">리뷰쓰기</h1>
 	<div id='div_main'>
