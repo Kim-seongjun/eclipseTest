@@ -116,33 +116,26 @@ h1 {
 								str += "<div>" + "가격: " + json[key].price
 										+ "</div>";
 
-								str += "<div>1. 반려견을 키워본 경험이 있나요?(얼마나 키웠는지,현재 키우고 있는지 상세하게 기제)</div>";
-								str += "<div>" + json[key].questions1
-										+ "</div>";
+										str += "<div>" + json[key].questions1 + "</div>";
+										str += "<div>"+json[key].answer1+"</div>";
 
-								str += "<div>2. 반려동물 관련 자격증을 소지하고 계신가요?</div>";
-								str += "<div>" + json[key].questions2
-										+ "</div>";
+										str += "<div>" + json[key].questions2 + "</div>";
+										str += "<div>"+json[key].answer2+"</div>";
 
-								str += "<div>3. 펫시터 경험이 있나요?(개인/타업체)</div>";
-								str += "<div>" + json[key].questions3
-										+ "</div>";
+										str += "<div>" + json[key].questions3 + "</div>";
+										str += "<div>"+json[key].answer3+"</div>";
 
-								str += "<div>4. 어느정도 크기의 강아지까지 돌봄이 가능하신가요?</div>";
-								str += "<div>" + json[key].questions4
-										+ "</div>";
+										str += "<div>" + json[key].questions4 + "</div>";
+										str += "<div>"+json[key].answer4+"</div>";
 
-								str += "<div>5. 펫시터 활동 중 강아지가 경계하거나 이빨을 보이며 공격하려 하는 경우 어떻게 대처하시겠습니까?</div>";
-								str += "<div>" + json[key].questions5
-										+ "</div>";
+										str += "<div>" + json[key].questions5 + "</div>";
+										str += "<div>"+json[key].answer5+"</div>";
 
-								str += "<div>6. 본인이 강아지와 산책할 떄 가장 중요하게 생각하는 부분에 대해 설명해주세요.</div>";
-								str += "<div>" + json[key].questions6
-										+ "</div>";
+										str += "<div>" + json[key].questions6 + "</div>";
+										str += "<div>"+json[key].answer6+"</div>";
 
-								str += "<div>7. 마지막으로 하고싶으신 말을 자유롭게 작성해주세요.</div>";
-								str += "<div>" + json[key].questions7
-										+ "</div>";
+										str += "<div>" + json[key].questions7 + "</div>";
+										str += "<div>"+json[key].answer7+"</div>";
 			
 								//버튼
 								str += "<input type='submit' value='승인' />";
