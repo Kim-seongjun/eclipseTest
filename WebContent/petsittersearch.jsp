@@ -6,13 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>펫시터 검색</title>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><style>
 	#div_outsearchmain{
 		text-align: center;
 		border: 1px;
 		padding: 20px;
 		margin: 15px;
+		margin-top: 70px;
 	}
 	#div_insearchmain{
 		
@@ -79,6 +83,26 @@
 .span_avg{
 	color:#ff8000;
 }
+#asd {
+	position: relative;
+	top: 50px;
+ 	margin-left: 32%; 
+}
+
+#asd2 {
+	position: relative;
+	top: 50px;
+}
+
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
+
 </style>
 <style type="text/css">
 A:link{text-decoration; color: black;}
@@ -89,6 +113,7 @@ A:active{text-decoration; color: orange;}
 	<div id="header">
 		<jsp:include page="header.jsp" />
 	</div>
+	
 	
 	
 	<form action="petsittersearch" method="post">
@@ -112,19 +137,29 @@ A:active{text-decoration; color: orange;}
 	</div>
 	</form>
 
-	<ul id="ul_outsearch">
-
-	</ul>
+	<div id="asd"></div>
+	<div id="asd2"></div>
+	
 	
 	<script>
+	
 	var json_avg=${json_avg};
 	console.log(json_avg);
 	//console.log("id="+${id});
+	
 	var json=${json_search};
 	console.log(json);
 	console.log(json.length);
-	var str = "";
-	for(var i=0; i<json.length;i++){
+	
+	window.onload = pageAll(json, 1);
+	var index;
+	function pageAll(json, num) {
+		var str = "";
+
+		index = num;
+		
+		for(var i=(num-1)*3;i<(num*3);i++) {
+			if(i<json.length){
 	str+="<form id='frm' action= 'petsitterdetail' method='post' onsubmit='return check()'>";
 		str+="<li id='li_insearch'>";
 		
@@ -146,7 +181,19 @@ A:active{text-decoration; color: orange;}
 		str+="</li>";
 		//str+="</a>";
 	str+="</form>";
+			}
+			else{
+				str += "<form action='black' method='post'>";
+				str += "</form>";
+			}
+				
 	};
+	
+	//$("#ul_outsearch").html(str);
+	
+	   $("#asd").html(str);
+		pageNum(json);
+	}
 	function check(){
 		<%
     	
@@ -158,12 +205,60 @@ A:active{text-decoration; color: orange;}
 		return 'petsitterdetail';
 		<%}%>
 	}
-	$("#ul_outsearch").append(str);
 	
  	
- 	    $(".btn").click(function(){
-	    	
-	   }); 
+ 
+	   
+	   
+		
+		
+	
+	var index;
+	function pageNum(json) { // 페이지 넘버 보여주는 함수
+		var totalpage;
+
+		totalPage = json.length / 3;
+		if (json.length / 3 > 0) {
+			totalPage++;
+		}
+		maxindex = Math.floor(totalPage);
+		var str2 = "";
+		str2 += "<ul class='pagination justify-content-center'>";
+		str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+				+ 0 + ")'>Previous</a></li>";
+
+		for (var k = 1; k < totalPage; k++) {
+			str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+					+ k + ")'>" + k + "</a></li>";
+
+			str2 += "<input type='hidden' class='page' value='" + k + "'>";
+		}
+		str2 += "<li class='page-item'><a class='page-link' onclick='newpage("
+				+ -1 + ")'>Next</a></li></ul>";
+		str2 += "</ul>";
+		$("#asd2").html(str2);
+	}
+
+	
+	function newpage(num) { // 페이지 이전, 다음 버튼 누를시 이동 제어하는 함수
+		if (num === 0) {
+			if (index == 1) {
+				pageAll(json, 1);
+			} else {
+				pageAll(json, index - 1);
+			}
+		} else if (num === -1) {
+			console.log(maxindex);
+			if (index == maxindex) {
+				pageAll(json, maxindex);
+			} else {
+				pageAll(json, index + 1);
+			}
+		} else {
+			pageAll(json, num);
+		}
+	}
+	
 	
 	</script>
 </body>
