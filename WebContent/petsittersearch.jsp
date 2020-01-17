@@ -124,6 +124,7 @@ A:active{text-decoration; color: orange;}
 	console.log(json);
 	console.log(json.length);
 	var str = "";
+	
 	for(var i=0; i<json.length;i++){
 	str+="<form id='frm' action= 'petsitterdetail' method='post' onsubmit='return check()'>";
 		str+="<li id='li_insearch'>";
