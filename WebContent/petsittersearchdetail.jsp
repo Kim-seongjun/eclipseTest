@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,14 +89,74 @@
  	border-bottom: 1px solid #696969;
  	border-top: 1px solid #696969;
 }
+.right_x2un4 {
+	float: right;
+}
+.header_button {
+	all: unset;
+	opacity: 60%;
+	font-size: 20px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+#logout_btn{
+	all:unset;
+	margin-left: 10px;
+	margin-right: 10px;
+	color:red;
+	cursor:pointer;
+}
+.admin{
+	all:unset;
+	margin: 0 10px;
+	color:red;
+	cursor:pointer;
+}
+#apply{
+ border: 2px solid #00c8b7;
+ border-radius: 30px;
+ color:#00c8b7;
+ font-weight: bold;
+ padding: 10px 20px;
+ text-align: center;
+ margin-right: 30px;
+}
+
+#petinsert{
+	border: 2px solid #ff757f;
+ 	border-radius: 30px;
+ 	color:#ff757f;
+ 	font-weight: bold;
+ 	padding: 10px 20px;
+ 	text-align: center;
+ 	margin-right: 30px;
+}
+.log_id{
+	all:unset;
+	color:#00c8b7;
+	cursor:pointer;
+}
 </style>
 </head>
 <body>
 
-	<%-- <div id="header">
- 		<jsp:include page="header.jsp" /> 
-	</div> --%>
+	<form name="loginfrm" method="post">
+		<a href="home"><img src="img/logo.jpg" alt="로고사진" /></a>
+		<div class="right_x2un4">
+<c:if test="${id!=null}">
+			<input class="header_button" id="apply" type="submit" value="펫시터지원" formaction="petapply" />&nbsp;&nbsp;
+				<input class="header_button" id="petinsert" type="submit" value="반려견등록" formaction="petinsertshow" />&nbsp;&nbsp
+			${admin}
+			
+			
+			<span><span class='log_id'><input type="submit" name='my_id' class='log_id' value='${id }' formaction='resshow' /></span>님 환영합니다.</span>
+			
+			<input id="logout_btn" type="submit" value="로그아웃" formaction="logout" />
+		
+			</c:if>
 
+	</div>
+	</form>
 	<h1>예약상세페이지</h1>
 	<div style="position: absolute; top: 10%; left: 25%">
 	<form action="reservation" method='post' style="margin-bottom: 100px; ">
