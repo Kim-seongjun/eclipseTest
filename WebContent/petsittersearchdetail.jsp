@@ -136,10 +136,18 @@
 	color:#00c8b7;
 	cursor:pointer;
 }
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
 </style>
 </head>
 <body>
-
+	<div id='header'>
 	<form name="loginfrm" method="post">
 		<a href="home"><img src="img/logo.jpg" alt="로고사진" /></a>
 		<div class="right_x2un4">
@@ -157,6 +165,7 @@
 
 	</div>
 	</form>
+	</div>
 	<h1>예약상세페이지</h1>
 	<div style="position: absolute; top: 10%; left: 25%">
 	<form action="reservation" method='post' style="margin-bottom: 100px; ">

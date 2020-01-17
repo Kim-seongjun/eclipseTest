@@ -39,13 +39,12 @@
 	z-index: 1;
 }
 
-h1 {
-	margin-top: 100px;
-}
+
 
 #asd {
 	position: relative;
 	top: 50px;
+	
 /* 	margin-left: 5%; */
 }
 
