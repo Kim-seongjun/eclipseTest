@@ -75,6 +75,8 @@ h1{
 		console.log("--------------");
 		
 		window.onload=pageAll(json,1);
+		var index;
+		
 		
 		function pageAll(json,num) {
 			var str = "";

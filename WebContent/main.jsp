@@ -203,6 +203,7 @@ text-align:center;
 		<h3 ><span class="span_j">입원비 지원</span></h3><br>
 		<div>
 		최대1회, 10만원까지 지원<br>
+
 		</div>
 		진료가 필요한 경우 자택에서 치료가 곤란하여<br>
 		대상 반려동물을 동물병원에 입원시켜<br>
